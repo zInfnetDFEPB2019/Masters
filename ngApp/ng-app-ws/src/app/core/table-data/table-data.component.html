@@ -1,0 +1,85 @@
+<!-- Paper Design -->
+<hr>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<!-- INICIO Table 1 -->
+				<div class="header">
+					<h4 class="title">Striped Table</h4>
+					<p class="category">Here is a subtitle for this table</p>
+				</div>
+				<div class="content table-responsive table-full-width">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let row of tableData1.dataRows">
+								<td *ngFor="let cell of row">{{cell}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- FIM Table 1 -->
+			</div>
+		</div>
+		<div class="col-md-12">
+			<div class="card card-plain">
+				<!-- INICIO Table 2 -->
+				<div class="header">
+					<h4 class="title">Table on Plain Background</h4>
+					<p class="category">Here is a subtitle for this table</p>
+				</div>
+				<div class="content table-responsive table-full-width">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let row of tableData2.dataRows">
+								<td *ngFor="let cell of row">{{cell}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- FIM Table 2 -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Angular Material -->
+<hr>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+	<!-- Position Column -->
+	<ng-container matColumnDef="position">
+		<mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+	</ng-container>
+
+	<!-- Name Column -->
+	<ng-container matColumnDef="name">
+		<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+	</ng-container>
+
+	<!-- Weight Column -->
+	<ng-container matColumnDef="weight">
+		<mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+	</ng-container>
+
+	<!-- Symbol Column -->
+	<ng-container matColumnDef="symbol">
+		<mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+		<mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+	</ng-container>
+
+	<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+	<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
