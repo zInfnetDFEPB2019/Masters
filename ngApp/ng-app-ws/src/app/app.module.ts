@@ -8,15 +8,18 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule, MatCheckboxModule, MatIconModule } from '@angular/material';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
+import { TableDataComponent } from './core/table-data/table-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TableDataComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { FooterComponent } from './shared/layout/footer/footer.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule   //Angular Material
+    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule   //Angular Material
   ],
   providers: [],
   bootstrap: [AppComponent],
