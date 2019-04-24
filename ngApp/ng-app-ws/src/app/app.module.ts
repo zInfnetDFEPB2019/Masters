@@ -7,7 +7,10 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular MAterial imports
+import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule, MatCheckboxModule, MatIconModule } from '@angular/material';
 import { HeaderComponent } from './shared/layout/header/header.component';
@@ -27,7 +30,7 @@ import { TableDataComponent } from './core/table-data/table-data.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule   //Angular Material
+    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule   //Angular Material
   ],
   providers: [],
   bootstrap: [AppComponent],
