@@ -19,5 +19,5 @@ pipelines:
           - pipe: atlassian/google-app-engine-deploy:0.3.1
             variables:
               KEY_FILE: $KEY_FILE
-              PROJECT: 'my-project'                            
+              PROJECT: $PROJECT
 

@@ -3,7 +3,7 @@ api_version: 1
 threadsafe: true
 handlers:
 - url: /
-  static_files: webapp2help/dist/index.html
-  upload: webapp2help/dist/index.html
+  static_files: ngApp/ng-app-ws/dist/index.html
+  upload: ngApp/ng-app-ws/dist/index.html
 - url: /
   static_dir: dist
