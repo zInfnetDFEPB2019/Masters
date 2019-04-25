@@ -15,9 +15,18 @@ pipelines:
         deployment: test   # set to test, staging or production
         # trigger: manual  # uncomment to have a manual step
         image: google/cloud-sdk:latest
-        script:  
-          - pipe: atlassian/google-app-engine-deploy:0.3.1
-            variables:
-              KEY_FILE: $KEY_FILE
-              PROJECT: $PROJECT
+        script:
+          # Downloading the Google Cloud SDK
+          - curl -o /tmp/google-cloud-sdk.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-155.0.0-linux-x86_64.tar.gz
+          - tar -xvf /tmp/google-cloud-sdk.tar.gz -C /tmp/
+          - /tmp/google-cloud-sdk/install.sh -q
+          - source /tmp/google-cloud-sdk/path.bash.inc
+          - gcloud -v    
+          # Authenticating with the service account key file              
+          - echo $KEYFILE > ./gcloud-api-key.json
+          - gcloud auth activate-service-account --key-file gcloud-api-key.json
+          # Linking to the Google Cloud project
+          - gcloud config set project $PROJECT
+          # Deploying the application
+          - gcloud -q app deploy app.yaml
 
