@@ -6,4 +6,4 @@ handlers:
   static_files: ngApp/ng-app-ws/dist/index.html
   upload: ngApp/ng-app-ws/dist/index.html
 - url: /
-  static_dir: dist/
+  static_dir: dist
