@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
       <h2>[Paper Design] - Card Table</h2>
-			<div class="card">
+			<!-- <div class="card"> -->
 				<!-- INICIO Table 1 -->
 				<div class="header">
 					<h4 class="title">Striped Table</h4>
@@ -26,11 +26,11 @@
 					</table>
 				</div>
 				<!-- FIM Table 1 -->
-			</div>
+			<!-- </div> -->
 		</div>
 		<div class="col-md-12">
       <h2>[Paper Design] Card-Plain Table</h2>
-			<div class="card card-plain">
+			<div class="card card-footer">
 				<!-- INICIO Table 2 -->
 				<div class="header">
 					<h4 class="title">Table on Plain Background</h4>
@@ -55,6 +55,23 @@
 		</div>
 	</div>
 </div>
+
+<hr>
+<h2>[Angular Material] Table dynamically changing the columns displayed</h2>
+
+<button mat-raised-button (click)="addColumn()"> Add column </button>
+<button mat-raised-button (click)="removeColumn()"> Remove column </button>
+<button mat-raised-button (click)="shuffle()"> Shuffle </button>
+
+<table mat-table [dataSource]="data" class="mat-elevation-z8">
+  <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
+    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+</table>
 
 <!-- Angular Material -->
 <hr>
