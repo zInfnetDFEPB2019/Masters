@@ -10,8 +10,8 @@
         <button mat-raised-button (click)="removeColumn()" class="m-2"> Remove column </button>
         <button mat-raised-button (click)="shuffle()" class="m-2"> Shuffle </button>
       </div>
-      <div class="card">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <div class="card no-transition">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z24">
           <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
             <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
@@ -24,6 +24,7 @@
     </div>
   </div>
 </div>
+<hr>
 
 <!-- Angular Material -->
 <hr>
