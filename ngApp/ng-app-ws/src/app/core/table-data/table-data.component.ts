@@ -27,6 +27,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
+const PROFILE_PIC1 = 'assets/img/faces/kaci-baum-2.jpg';
+const PROFILE_PIC2 = 'assets/img/faces/joe-gardner-2.jpg';
+const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
+
 @Component({
 	selector: 'app-table-data',
 	templateUrl: './table-data.component.html',
@@ -38,7 +42,10 @@ export class TableDataComponent implements OnInit {
 
 	displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
 	columnsToDisplay: string[] = this.displayedColumns.slice();
-	dataSource = ELEMENT_DATA;
+  dataSource = ELEMENT_DATA;
+  rankPicture1 = PROFILE_PIC1;
+  rankPicture2 = PROFILE_PIC2;
+  rankPicture3 = PROFILE_PIC3;
 
 	constructor() { }
 

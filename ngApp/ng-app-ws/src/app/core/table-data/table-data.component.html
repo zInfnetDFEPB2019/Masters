@@ -1,13 +1,25 @@
 <!-- Paper Design -->
 <div class="container">
   <!-- <h5 class="text-center">[Angular Material] "Table dynamically changing the columns displayed"</h5> -->
-  <div class="row mr-auto ml-auto">
+  <div class="mr-auto ml-auto">
     <div class="col-md-12">
-      <div class="m-3">
-        <button mat-raised-button (click)="addColumn()" class="m-2"> Add column </button>
-        <button mat-raised-button (click)="removeColumn()" class="m-2"> Remove column </button>
-        <button mat-raised-button (click)="shuffle()" class="m-2"> Shuffle </button>
-      </div>
+        <div class="row">
+
+          <div class="rank-top3 img-no-champ col-sm-2">
+            <img [src]="rankPicture2" class="img-circle img-shadow">
+          </div>
+          <div class="rank-top3 img-champ col-sm-3">
+            <img [src]="rankPicture1" class="img-circle img-shadow">
+          </div>
+          <div class="rank-top3 img-no-champ col-sm-2 align-bottom">
+            <img [src]="rankPicture3" class="img-circle img-shadow">
+          </div>
+          <!--
+            <button mat-raised-button (click)="addColumn()" class="m-2"> Add column </button>
+            <button mat-raised-button (click)="removeColumn()" class="m-2"> Remove column </button>
+            <button mat-raised-button (click)="shuffle()" class="m-2"> Shuffle </button>
+          -->
+        </div>
       <div class="card no-transition">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
           <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
