@@ -4,21 +4,15 @@
   <div class="mr-auto ml-auto">
     <div class="col-md-12">
         <div class="row">
-
-          <div class="rank-top3 img-no-champ col-sm-2">
+          <div class="rank-top3 img-no-champ col-md-2 ml-auto m-auto">
             <img [src]="rankPicture2" class="img-circle img-shadow">
           </div>
-          <div class="rank-top3 img-champ col-sm-3">
+          <div class="rank-top3 img-champ col-md-4">
             <img [src]="rankPicture1" class="img-circle img-shadow">
           </div>
-          <div class="rank-top3 img-no-champ col-sm-2 align-bottom">
+          <div class="rank-top3 img-no-champ col-md-2 mr-auto m-auto">
             <img [src]="rankPicture3" class="img-circle img-shadow">
           </div>
-          <!--
-            <button mat-raised-button (click)="addColumn()" class="m-2"> Add column </button>
-            <button mat-raised-button (click)="removeColumn()" class="m-2"> Remove column </button>
-            <button mat-raised-button (click)="shuffle()" class="m-2"> Shuffle </button>
-          -->
         </div>
       <div class="card no-transition">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
