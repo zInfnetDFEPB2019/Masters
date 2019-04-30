@@ -10,9 +10,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular MAterial imports
-import { MatTableModule } from '@angular/material/table';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule, MatCheckboxModule, MatIconModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatIconModule,
+  MatBadgeModule,
+  MatListModule,
+  MatTableModule } from '@angular/material';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { TableDataComponent } from './core/table-data/table-data.component';
@@ -30,7 +34,8 @@ import { TableDataComponent } from './core/table-data/table-data.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule   //Angular Material
+    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
+    MatBadgeModule   //Angular Material
   ],
   providers: [],
   bootstrap: [AppComponent],
