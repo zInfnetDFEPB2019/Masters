@@ -37,12 +37,14 @@ const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
   styleUrls: ['./table-data.component.scss']
 })
 export class TableDataComponent implements OnInit {
-  public tableData1: TableData;
-  public tableData2: TableData;
+  // public tableData1: TableData;
+  // public tableData2: TableData;
 
   displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
+
   dataSource = ELEMENT_DATA;
+
   rankPicture1 = PROFILE_PIC1;
   rankPicture2 = PROFILE_PIC2;
   rankPicture3 = PROFILE_PIC3;
@@ -50,7 +52,7 @@ export class TableDataComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.tableData1 = {
+    /*this.tableData1 = {
       headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
       dataRows: [
         ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
@@ -71,7 +73,8 @@ export class TableDataComponent implements OnInit {
         ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten',],
         ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester']
       ]
-    };
+    };*/
+
   }
 
   // BUTTON Methods
