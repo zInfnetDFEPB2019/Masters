@@ -4,6 +4,7 @@
   <div class="mr-auto ml-auto">
     <div class="col-md-12">
 
+      <!-- Top3 Imagens -->
       <div class="row">
         <div class="rank-top3 img-no-champ col-md-2 m-auto" (click)="viewProfile()">
           <img [src]="rankPicture2" class="img-circle img-shadow">
@@ -16,6 +17,43 @@
         </div>
       </div>
 
+      <hr>
+      <!--  -->
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="First name">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Age">
+          </mat-form-field>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Self aware panel
+            </mat-panel-title>
+            <mat-panel-description>
+              Currently I am {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <hr>
+      <!-- Ranking List -->
       <div class="card no-transition">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
           <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">

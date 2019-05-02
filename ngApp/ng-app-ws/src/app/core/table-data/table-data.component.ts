@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material';
 
 
 declare interface TableData {
@@ -39,6 +39,9 @@ const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
 export class TableDataComponent implements OnInit {
   // public tableData1: TableData;
   // public tableData2: TableData;
+
+  //Expansion Panel
+  panelOpenState = false;
 
   displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
   columnsToDisplay: string[] = this.displayedColumns.slice();

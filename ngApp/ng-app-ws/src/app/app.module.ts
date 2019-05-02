@@ -16,7 +16,11 @@ import {
   MatIconModule,
   MatBadgeModule,
   MatListModule,
-  MatTableModule } from '@angular/material';
+  MatTableModule,
+  MatExpansionModule,
+  MatFormFieldModule,
+  MatInputModule
+ } from '@angular/material';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { TableDataComponent } from './core/table-data/table-data.component';
@@ -35,7 +39,7 @@ import { TableDataComponent } from './core/table-data/table-data.component';
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
-    MatBadgeModule   //Angular Material
+    MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule    //Angular Material
   ],
   providers: [],
   bootstrap: [AppComponent],
