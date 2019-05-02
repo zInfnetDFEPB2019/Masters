@@ -19,38 +19,56 @@
 
       <hr>
       <!--  -->
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Personal data
-            </mat-panel-title>
-            <mat-panel-description>
-              Type your name and age
-            </mat-panel-description>
-          </mat-expansion-panel-header>
+      <div class="card no-transition">
+        <div class="mat-elevation-z10">
+          <mat-accordion>
+            <!-- ExpansionPanel 1 -->
+            <mat-expansion-panel>
 
-          <mat-form-field>
-            <input matInput placeholder="First name">
-          </mat-form-field>
+              <mat-expansion-panel-header>
+                <div class="row">
+                  <div class="img-no-champ mx-0 m-0 col-sm-1 col-md-1 col-lg-1 right-side">
+                    <img [src]="rankPicture2" class="img-no-padding img-thumbnail">
+                  </div>
+                  <div class="p-1 mx-auto my-auto  font-weight-bold">
+                    <p class="label-success label L1">
+                      Maria Clarissa
+                    </p>
+                  </div>
+                  <div class="p-1 mx-auto my-auto text-right">
+                    <p class="label-warning label L1">
+                      <i class="fa fa-angle-up"></i>1.568
+                    </p>
+                  </div>
+                </div>
+              </mat-expansion-panel-header>
 
-          <mat-form-field>
-            <input matInput placeholder="Age">
-          </mat-form-field>
-        </mat-expansion-panel>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Self aware panel
-            </mat-panel-title>
-            <mat-panel-description>
-              Currently I am {{panelOpenState ? 'open' : 'closed'}}
-            </mat-panel-description>
-          </mat-expansion-panel-header>
-          <p>I'm visible because I am open</p>
-        </mat-expansion-panel>
-      </mat-accordion>
+              <div class="row">
+                <div class="rank-top3 img-no-champ col-sm-6" (click)="viewProfile()">
+                  <img [src]="rankPicture2" class="img-circle img-shadow">
+                </div>
+              </div>
+
+            </mat-expansion-panel>
+            <!-- <mat-divider></mat-divider> -->
+            <hr class="p-0 m-0">
+            <!-- ExpansionPanel 2 -->
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Self aware panel
+                </mat-panel-title>
+                <mat-panel-description>
+                  Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+
+          </mat-accordion>
+
+        </div>
+      </div>
 
       <hr>
       <!-- Ranking List -->
