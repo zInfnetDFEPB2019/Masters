@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   isNavbarCollapsed = true;
-  title:string = 'Masters  </>  Jira';
+  
 
   constructor() { }
 
