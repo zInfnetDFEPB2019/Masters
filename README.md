@@ -13,10 +13,11 @@ Descrição tecnica: Uma Web App Angular 8+ Leader Boarding que classificando en
 
 
 Modelo de Story: 
+```
     Como um "usuário"
     Eu quero poder fazer…
     Porque me permitiria…
-
+```
 
 Stories:
 --------------------------
@@ -58,7 +59,7 @@ Para ter uma visualização rápida e clara de informações importantes das Ent
 
 <Enter>
 
-- [ ] *Organização da Ranking Link por pontos KPI**
+- [ ] **Organização da Ranking Link por pontos KPI**
 Como usuário
 Quero ver uma lista na página inicial
 Para ter uma visualização rápida e clara de informações importantes das Entidades ranqueadas de acordo com um KPI estabelecido.
