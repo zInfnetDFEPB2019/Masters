@@ -24,13 +24,15 @@ import {
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { TableDataComponent } from './core/table-data/table-data.component';
+import { RowDetailsComponent } from './core/table-data/row-details/row-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TableDataComponent
+    TableDataComponent,
+    RowDetailsComponent
   ],
   imports: [
     BrowserModule,
