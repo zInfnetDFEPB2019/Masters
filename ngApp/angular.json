@@ -19,18 +19,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/ico/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/sass/paper-kit.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",              
+              "node_modules/bootstrap/scss/bootstrap.scss",              
               "src/assets/css/nucleo-icons.css",
               "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "node_modules/chartist/dist/chartist.js"
+              "node_modules/hammerjs/hammer.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js"
             ],
             "es5BrowserSupport": true
           },
