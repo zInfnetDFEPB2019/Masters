@@ -10,12 +10,26 @@
 // $tamanho_max: 150px;
 
 .rank-top3 {
-  cursor: pointer;
-  //display: inline-flexbox;
+	cursor: pointer;
+	//display: inline-flexbox;
 }
 
-.img-small{
-  width: 30px;
+.img-small {
+	width: 30px;
+}
+
+.box {
+	position: relative;
+
+	.award {
+		position: absolute;
+		height: 40%;
+		top: 60%;
+		left: 60%;
+		background: rgba(255, 255, 255, 0.774);
+
+		border: none;
+	}
 }
 
 // .img-no-champ{

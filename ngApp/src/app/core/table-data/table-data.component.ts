@@ -26,8 +26,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 const PROFILE_PIC1 = 'assets/img/faces/kaci-baum-2.jpg';
+const AWARD_IMG_1 = 'assets/icons/awards/coroa.svg';
 const PROFILE_PIC2 = 'assets/img/faces/joe-gardner-2.jpg';
+const AWARD_IMG_2 = 'assets/icons/awards/calice.svg';
 const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
+const AWARD_IMG_3 = 'assets/icons/awards/moeda.svg';
 
 @Component({
 	selector: 'app-table-data',
@@ -46,9 +49,12 @@ export class TableDataComponent implements OnInit {
 
 	dataSource = ELEMENT_DATA;
 
-	rankPicture1 = PROFILE_PIC1;
-	rankPicture2 = PROFILE_PIC2;
-	rankPicture3 = PROFILE_PIC3;
+	public rankPicture1 = PROFILE_PIC1;
+	public awardImg1 = AWARD_IMG_1;
+	public rankPicture2 = PROFILE_PIC2;
+	public awardImg2 = AWARD_IMG_2;
+	public rankPicture3 = PROFILE_PIC3;
+	public awardImg3 = AWARD_IMG_3;
 
 	constructor() { }
 

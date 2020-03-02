@@ -6,77 +6,23 @@
 
 			<!-- Top3 Imagens -->
 			<div class="row">
-				<div class="rank-top3 img-no-champ col-md-2 m-auto" (click)="viewProfile()">
-					<img [src]="rankPicture2" class="img-circle img-shadow">
+				<!-- 1ºlugar -->
+				<div class="col-md-3 m-4 box order-2" (click)="viewProfile()">
+					<img [src]="rankPicture1" class="rounded-circle img-thumbnail">
+					<img [src]="awardImg1" class="award rounded-circle img-thumbnail">
 				</div>
-				<div class="rank-top3 img-champ col-md-3 m-4" (click)="viewProfile()">
-					<img [src]="rankPicture1" class="img-circle img-shadow">
-				</div>
-				<div class="rank-top3 img-no-champ col-md-2 m-auto" (click)="viewProfile()">
-					<img [src]="rankPicture3" class="img-circle img-shadow">
-				</div>
-			</div>
 
-			<hr>
-			<!-- NOVA TABELA de OptionsPanel -->
-			<div class="card no-transition">
-				<div class="mat-elevation-z10">
-					<mat-accordion>
-						<!-- ExpansionPanel 1 -->
-						<mat-expansion-panel>
-							<mat-expansion-panel-header>
-								<div class="row">
-									<div class="img-no-champ my-0 mx-0 p-0 col-1 my-auto">
-										<img [src]="rankPicture2" class="img-no-padding img-rounded">
-									</div>
-									<div class="p-1 mx-auto my-auto  font-weight-bold">
-										<p class="label-success label L1">
-											Maria Clarissa
-										</p>
-									</div>
-									<div class="p-1 mx-auto my-auto text-right">
-										<p class="label-warning label L1">
-											<i class="fa fa-star-o"></i>1.568
-										</p>
-									</div>
-									<div class="p-1 mx-auto my-auto  font-weight-bold">
-										<p class="label-success label L1">
-											Maria Clarissa
-										</p>
-									</div>
-									<div class="p-1 mx-auto my-auto text-right right-click">
-										<p class="label-warning label">
-											<i class="fa fa-star-o"></i>1.568
-										</p>
-									</div>
-								</div>
-							</mat-expansion-panel-header>
-							<div class="row">
-								<div class="rank-top3 img-no-champ col-sm-6" (click)="viewProfile()">
-									<img [src]="rankPicture2" class="img-circle img-shadow">
-								</div>
-							</div>
-						</mat-expansion-panel>
-						<hr class="p-0 m-0"> <!-- LINE -->
-						<!-- ExpansionPanel 2 -->
-						<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-							<mat-expansion-panel-header>
-								<mat-panel-title>
-									Self aware panel
-								</mat-panel-title>
-								<mat-panel-description>
-									Currently I am {{panelOpenState ? 'open' : 'closed'}}
-								</mat-panel-description>
-							</mat-expansion-panel-header>
-							<!-- DETALHES - VISIVEL SOMENTE ABERTO -->
-							<p>I'm visible because I am open</p>
-							<p>I'm visible because I am open</p>
-							<p>I'm visible because I am open</p>
-							<p>I'm visible because I am open</p>
-							<p>I'm visible because I am open</p>
-							<p>I'm visible because I am open</p>
-						</mat-expansion-panel>
-					</mat-accordion>
+				<!-- 2ºlugar -->
+				<div class="col-md-2 m-auto box order-1" (click)="viewProfile()">
+					<img [src]="rankPicture2" class="rounded-circle img-thumbnail">
+					<img [src]="awardImg2" class="award rounded-circle img-thumbnail">
+					<!-- <span class="fa fa-heart heart"></span> -->
+				</div>
+
+				<!-- 3ºlugar -->
+				<div class="col-md-2 m-auto box order-3" (click)="viewProfile()">
+					<img [src]="rankPicture3" class="rounded-circle img-thumbnail">
+					<img [src]="awardImg3" class="award rounded-circle img-thumbnail">
 				</div>
 			</div>
 
