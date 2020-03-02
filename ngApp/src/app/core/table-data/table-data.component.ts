@@ -30,7 +30,7 @@ const AWARD_IMG_1 = 'assets/icons/awards/coroa.svg';
 const PROFILE_PIC2 = 'assets/img/faces/joe-gardner-2.jpg';
 const AWARD_IMG_2 = 'assets/icons/awards/calice.svg';
 const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
-const AWARD_IMG_3 = 'assets/icons/awards/moeda.svg';
+const AWARD_IMG_3 = 'assets/icons/awards/espada.svg';
 
 @Component({
 	selector: 'app-table-data',
