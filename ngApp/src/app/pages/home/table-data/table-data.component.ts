@@ -25,12 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
 ];
 
-const PROFILE_PIC1 = 'assets/img/faces/kaci-baum-2.jpg';
-const AWARD_IMG_1 = 'assets/icons/awards/coroa.svg';
-const PROFILE_PIC2 = 'assets/img/faces/joe-gardner-2.jpg';
-const AWARD_IMG_2 = 'assets/icons/awards/calice.svg';
-const PROFILE_PIC3 = 'assets/img/faces/ayo-ogunseinde-2.jpg';
-const AWARD_IMG_3 = 'assets/icons/awards/espada.svg';
+
 
 @Component({
 	selector: 'app-table-data',
@@ -49,38 +44,9 @@ export class TableDataComponent implements OnInit {
 
 	dataSource = ELEMENT_DATA;
 
-	public rankPicture1 = PROFILE_PIC1;
-	public awardImg1 = AWARD_IMG_1;
-	public rankPicture2 = PROFILE_PIC2;
-	public awardImg2 = AWARD_IMG_2;
-	public rankPicture3 = PROFILE_PIC3;
-	public awardImg3 = AWARD_IMG_3;
-
 	constructor() { }
 
 	ngOnInit() {
-		/*this.tableData1 = {
-		  headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
-		  dataRows: [
-			['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-			['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-			['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-			['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-			['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-			['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-		  ]
-		}
-		this.tableData2 = {
-		  headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
-		  dataRows: [
-			['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout'],
-			['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-			['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux'],
-			['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park'],
-			['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten',],
-			['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester']
-		  ]
-		};*/
 
 	}
 

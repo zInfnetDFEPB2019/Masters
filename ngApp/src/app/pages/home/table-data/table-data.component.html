@@ -1,45 +1,15 @@
-<!-- Paper Design -->
-<div class="container">
-	<!-- <h5 class="text-center">[Angular Material] "Table dynamically changing the columns displayed"</h5> -->
-	<div class="mr-auto ml-auto">
-		<div class="col-md-12">
-
-			<!-- Top3 Imagens -->
-			<div class="row">
-				<!-- 1ºlugar -->
-				<div class="col-md-3 m-4 box order-2" (click)="viewProfile()">
-					<img [src]="rankPicture1" class="rounded-circle img-thumbnail">
-					<img [src]="awardImg1" class="award aw-1 rounded-circle img-thumbnail">
-					<p class="award-numb numb1">#1</p>
-				</div>
-
-				<!-- 2ºlugar -->
-				<div class="col-md-2 m-auto box order-1" (click)="viewProfile()">
-					<img [src]="rankPicture2" class="rounded-circle img-thumbnail">
-					<img [src]="awardImg2" class="award aw-2 rounded-circle img-thumbnail">
-					<p class="award-numb numb2">#2</p>
-				</div>
-
-				<!-- 3ºlugar -->
-				<div class="col-md-2 m-auto box order-3" (click)="viewProfile()">
-					<img [src]="rankPicture3" class="rounded-circle img-thumbnail">
-					<img [src]="awardImg3" class="award aw-3 rounded-circle img-thumbnail">
-					<p class="award-numb numb3">#3</p>
-				</div>
-			</div>
-
-			<hr>
-			<!-- Ranking List -->
-			<div class="card no-transition">
-				<table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
-					<ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns">
-						<th mat-header-cell *matHeaderCellDef> {{column}} </th>
-						<td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-					</ng-container>
-					<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-					<tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
-				</table>
-			</div>
-		</div>
-	</div>
+<div class="card no-transition">
+	<table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
+		<ng-container
+			[matColumnDef]="column"
+			*ngFor="let column of displayedColumns"
+		>
+			<th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+			<td mat-cell *matCellDef="let element">
+				{{ element[column] }}
+			</td>
+		</ng-container>
+		<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+		<tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+	</table>
 </div>
