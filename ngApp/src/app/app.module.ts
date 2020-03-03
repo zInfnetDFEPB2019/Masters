@@ -25,6 +25,13 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { TableDataComponent } from './core/table-data/table-data.component';
 import { RowDetailsComponent } from './core/table-data/row-details/row-details.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AccessComponent } from './pages/access/access.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { UserCompareComponent } from './pages/user-compare/user-compare.component';
+import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +39,14 @@ import { RowDetailsComponent } from './core/table-data/row-details/row-details.c
     HeaderComponent,
     FooterComponent,
     TableDataComponent,
-    RowDetailsComponent
+    RowDetailsComponent,
+    HomeComponent,
+    AccessComponent,
+    UserDetailsComponent,
+    ProjectDetailsComponent,
+    UserCompareComponent,
+    HallOfFameComponent,
+    NotFoundPageComponent
   ],
   imports: [
     BrowserModule,
