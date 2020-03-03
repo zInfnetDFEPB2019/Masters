@@ -1,45 +1,33 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
-const routes: Routes = [];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
-
-/*FIXME: SAMPLE ROUTING CLASS
-
-import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SignupComponent } from './signup/signup.component';
-import { LandingComponent } from './landing/landing.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { HomeComponent } from './pages/home/home.component';
+import { UserDetailsComponent } from './pages/user-details/user-details.component';
+import { ProjectDetailsComponent } from './pages/project-details/project-details.component';
+import { UserCompareComponent } from './pages/user-compare/user-compare.component';
+import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
+import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
-const routes: Routes =[
-    { path: 'home',             component: HomeComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+
+const routes: Routes = [
+	{ path: 'home', component: HomeComponent },
+	{ path: 'profile', component: UserDetailsComponent },
+	{ path: 'project', component: ProjectDetailsComponent },
+	{ path: 'compare', component: UserCompareComponent },
+	{ path: 'hall', component: HallOfFameComponent },
+	{ path: '', redirectTo: '/home', pathMatch: 'full' },
+	{ path: '**', component: NotFoundPageComponent }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-  ],
+	imports: [
+		CommonModule,
+		BrowserModule,
+		RouterModule.forRoot(routes)
+	],
+	exports: [RouterModule],
 })
 export class AppRoutingModule { }
-*/
+
