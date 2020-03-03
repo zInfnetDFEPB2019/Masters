@@ -11,20 +11,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular MAterial imports
 import {
-  MatButtonModule,
-  MatCheckboxModule,
-  MatIconModule,
-  MatBadgeModule,
-  MatListModule,
-  MatTableModule,
-  MatExpansionModule,
-  MatFormFieldModule,
-  MatInputModule
- } from '@angular/material';
+	MatButtonModule,
+	MatCheckboxModule,
+	MatIconModule,
+	MatBadgeModule,
+	MatListModule,
+	MatTableModule,
+	MatExpansionModule,
+	MatFormFieldModule,
+	MatInputModule
+} from '@angular/material';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
-import { TableDataComponent } from './core/table-data/table-data.component';
-import { RowDetailsComponent } from './core/table-data/row-details/row-details.component';
+import { TableDataComponent } from './pages/home/table-data/table-data.component';
+import { RowDetailsComponent } from './pages/home/table-data/row-details/row-details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AccessComponent } from './pages/access/access.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
@@ -34,30 +34,30 @@ import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    TableDataComponent,
-    RowDetailsComponent,
-    HomeComponent,
-    AccessComponent,
-    UserDetailsComponent,
-    ProjectDetailsComponent,
-    UserCompareComponent,
-    HallOfFameComponent,
-    NotFoundPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule,
-    FormsModule,
-    RouterModule,
-    AppRoutingModule,
-    BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
-    MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule    //Angular Material
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		TableDataComponent,
+		RowDetailsComponent,
+		HomeComponent,
+		AccessComponent,
+		UserDetailsComponent,
+		ProjectDetailsComponent,
+		UserCompareComponent,
+		HallOfFameComponent,
+		NotFoundPageComponent
+	],
+	imports: [
+		BrowserModule,
+		NgbModule,
+		FormsModule,
+		RouterModule,
+		AppRoutingModule,
+		BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
+		MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule    //Angular Material
+	],
+	providers: [],
+	bootstrap: [AppComponent],
 })
 export class AppModule { }
