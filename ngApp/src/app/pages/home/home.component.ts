@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
 	public pontosRank2 = 750;
 	public percentRank2 = `${this.pontosPercent(this.pontosRank2)}%`;
 
-	public pontosRank3 = 620;
-	public percentRank3 = `${this.pontosPercent(this.pontosRank2)}%`;
+	public pontosRank3 = 610;
+	public percentRank3 = `${this.pontosPercent(this.pontosRank3)}%`;
 
 	constructor() { }
 
