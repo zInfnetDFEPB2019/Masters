@@ -21,8 +21,8 @@ import {
 	MatFormFieldModule,
 	MatInputModule
 } from '@angular/material';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { FooterComponent } from './shared/layout/footer/footer.component';
+import { HeaderComponent } from './pages/shared-pages/header/header.component';
+import { FooterComponent } from './pages/shared-pages/footer/footer.component';
 import { TableDataComponent } from './pages/home/table-data/table-data.component';
 import { RowDetailsComponent } from './pages/home/table-data/row-details/row-details.component';
 import { HomeComponent } from './pages/home/home.component';
