@@ -1,5 +1,10 @@
 $font-roboto:'Roboto', sans-serif;
 
+* {
+	overflow: hidden;
+	
+}
+
 button{
 	margin-left: 5px;
 	margin-right: 5px;
@@ -16,8 +21,14 @@ button{
 }
 
 //esconde a barra de scroll
-.mat-menu-panel { 
-	overflow-x: hidden !important;
+.menu-overflow-hidden {
+	overflow: hidden !important;
+	max-width: none !important;
+
+	.mat-menu-panel {
+		max-width: none !important;
+		overflow: hidden;
+	}
 }
 
 .my-mat-tabs ::ng-deep .mat-tab-header {

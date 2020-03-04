@@ -1,4 +1,4 @@
-<div class="px-md-4 pt-1 bg-white border-bottom shadow-sm">
+<div class="px-md-4 pt-1 bg-white border-bottom shadow-sm  fixed-top">
 	<div class="d-flex flex-md-wrap flex-md-row flex-row align-items-center">
 		<!-- col-4 col-sm-3 col-md-3 -->
 		<div class="d-flex flex-nowrap logo" (click)="goToHome()">
@@ -18,17 +18,21 @@
 			<button mat-raised-button [matMenuTriggerFor]="menu">Pages</button>
 
 			<!-- TODO: ESCONDER em media-query para WIDTH menor que 845px  -->
-			<mat-menu #menu="matMenu">
+			<mat-menu #menu="matMenu" class="menu-overflow-hidden"
+				style="overflow: hidden; max-width: 500px; width: 500px;">
+				<button mat-menu-item [routerLink]="['/home']">
+					<i class="fa fa-trophy mr-2"></i> Home
+				</button>
 				<button mat-menu-item [routerLink]="['/profile']">
 					<i class="fa fa-user-alt mr-2"></i> User Details
 				</button>
-				<button mat-menu-item [routerLink]="['/profile']">
+				<button mat-menu-item [routerLink]="['/project']">
 					<i class="fa fa-project-diagram mr-2"></i>Project Details
 				</button>
-				<button mat-menu-item [routerLink]="['/profile']">
+				<button mat-menu-item [routerLink]="['/compare']">
 					<i class="fa fa-user-friends mr-2"></i> Compare User
 				</button>
-				<button mat-menu-item [routerLink]="['/profile']">
+				<button mat-menu-item [routerLink]="['/hall']">
 					<i class="fa fa-star mr-2"></i> Hall of Fame
 				</button>
 			</mat-menu>
