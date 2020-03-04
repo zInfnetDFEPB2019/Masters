@@ -6,30 +6,36 @@ $award-border-color: rgb(255, 219, 59);
 	cursor: pointer;
 	//display: inline-flexbox;
 }
+.row {
 
-.box {
-	position: relative;
-
-	.award {
-		height: 25%;
-
-		position: absolute;
-		bottom: 23%;
-		right: 4%;
-
-		border: solid 3px $award-border-color;
-		background: rgba($award-border-color, 0.50);
-
-		&.aw-1 {
-			background: rgba(250, 179, 26, 0.85);
-			border: solid 4px $award-border-color;
-			bottom: 18%;
-			right: 2%;
-		}
+	.btn {
+		width: 220px;
 	}
+	
+	.box {
+		position: relative;
 
-	.progress {		
-		height: 0.6rem;
-		border: 2px solid #D36104;
-	}	
+		.award {
+			height: 25%;
+			
+			position: absolute;
+			bottom: 23%;
+			right: 4%;
+			
+			border: solid 3px $award-border-color;
+			background: rgba($award-border-color, 0.50);
+			
+			&.aw-1 {
+				background: rgba(250, 179, 26, 0.85);
+				border: solid 4px $award-border-color;
+				bottom: 18%;
+				right: 2%;
+			}
+		}
+		
+		.progress {		
+			height: 0.6rem;
+			border: 2px solid #D36104;
+		}	
+	}
 }
