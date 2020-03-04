@@ -21,9 +21,24 @@ export class HomeComponent implements OnInit {
 	public rankPicture3 = PROFILE_PIC3;
 	public awardImg3 = AWARD_IMG_3;
 
+	public starIcon = 'assets/icons/star.svg'
+
+	public pontosRank1 = 952;
+	public percentRank1 = `${this.pontosPercent(this.pontosRank1)}%`;
+
+	public pontosRank2 = 750;
+	public percentRank2 = `${this.pontosPercent(this.pontosRank2)}%`;
+
+	public pontosRank3 = 620;
+	public percentRank3 = `${this.pontosPercent(this.pontosRank2)}%`;
+
 	constructor() { }
 
 	ngOnInit() {
+	}
+
+	public pontosPercent(pontos: number): number {
+		return ((pontos / 1000) * 100);
 	}
 
 }
