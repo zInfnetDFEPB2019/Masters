@@ -1,5 +1,5 @@
 $award-1-color: rgb(255, 219, 59);
-$award-2-color: rgb(62, 65, 255);
+$award-2-color: rgb(78, 247, 56);
 $award-3-color: rgb(175, 175, 175);
 // $tamanho_max: 150px;
 
@@ -16,29 +16,36 @@ $award-3-color: rgb(175, 175, 175);
 	position: relative;
 
 	.award {
-
 		position: absolute;
-		height: 40%;
-		top: 60%;
-		left: 60%;
-
+		height: 30%;
+		
 		border: medium 3px rgb(255, 255, 255);
+
+		background: rgba(175, 175, 175, 0.719);
+		border: solid 3px $award-1-color;
+		top: 54%;
+		left: 60%;
 
 		&.aw-1 {
 			background: rgba(255, 219, 59, 0.80);
 			border: solid 4px $award-1-color;
+			top: 60%;
+			left: 60%;
 		}
 
-		&.aw-2 {
-			background: rgba(62, 65, 255, 0.80);
-			border: solid 4px $award-2-color;
-		}
+		// &.aw-2 {
+		// 	background: rgba(175, 175, 175, 0.719);
+		// 	border: solid 3px $award-1-color;
+		// 	top: 54%;
+		// 	left: 60%;
+		// }
 
-		&.aw-3 {
-			background: rgba(175, 175, 175, 0.719);
-			border: solid 4px $award-3-color;
-
-		}
+		// &.aw-3 {
+		// 	background: rgba(175, 175, 175, 0.719);
+		// 	border: solid 3px $award-1-color;
+		// 	top: 54%;
+		// 	left: 60%;
+		// }
 
 	}
 

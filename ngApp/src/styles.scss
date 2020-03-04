@@ -2,4 +2,12 @@
 /*font-family: 'Courgette', ;*/
 
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/deeppurple-amber.css"
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.debug-red{
+	border: 2px solid red;
+}
+
+.debug-blue{
+	border: 2px solid blue;
+}
