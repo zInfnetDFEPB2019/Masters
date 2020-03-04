@@ -7,10 +7,6 @@ $award-border-color: rgb(255, 219, 59);
 	//display: inline-flexbox;
 }
 
-.img-small {
-	width: 30px;
-}
-
 .box {
 	position: relative;
 
@@ -18,8 +14,8 @@ $award-border-color: rgb(255, 219, 59);
 		height: 25%;
 
 		position: absolute;
-		bottom: 31%;
-		right: 3%;
+		bottom: 23%;
+		right: 4%;
 
 		border: solid 3px $award-border-color;
 		background: rgba($award-border-color, 0.50);
@@ -27,36 +23,12 @@ $award-border-color: rgb(255, 219, 59);
 		&.aw-1 {
 			background: rgba(250, 179, 26, 0.85);
 			border: solid 4px $award-border-color;
-			bottom: 22%;
-			right: 0%;
+			bottom: 18%;
+			right: 2%;
 		}
 	}
 
-	.award-numb {
-		position: absolute;
-		font-family: 'Courgette', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-		/*TODO: SEM MEDIA QUERY - naõ acompanha as resoluções*/
-		&.numb1 {
-			// color: $award-1-color;
-			font-size: 5rem;
-			top: 60%;
-		}
-
-		&.numb2 {
-			// color: $award-2-color;
-			font-size: 3rem;
-			top: 60%;
-		}
-
-		&.numb3 {
-			// color: $award-3-color;
-			font-size: 3rem;
-			top: 60%;
-		}
-	}
+	.progress {		
+		height: 0.6rem;
+	}	
 }
-
-// .img-no-champ{
-//   width: 100px;
-// }
