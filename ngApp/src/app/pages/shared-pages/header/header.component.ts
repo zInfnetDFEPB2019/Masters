@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-layout-header',
@@ -11,10 +12,18 @@ export class HeaderComponent implements OnInit {
 
 	public logoImg = '../../../../assets/ico/ms-icon-70x70.png';
 
-	constructor() { }
+	constructor(
+		private router: Router
+	) { }
 
 	ngOnInit() {
 
 	}
 
+	public goToHome(): void {
+		this.router.navigate(['/home']);
+	}
+
 }
+
+//TODO: TABS DE PAGINAS >> View-width < 845px = Togle Button

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const PROFILE_PIC1 = 'assets/img/faces/kaci-baum-2.jpg';
 const AWARD_IMG_1 = 'assets/icons/awards/coroa.svg';
@@ -40,5 +41,7 @@ export class HomeComponent implements OnInit {
 	public pontosPercent(pontos: number): number {
 		return ((pontos / 1000) * 100);
 	}
+
+
 
 }

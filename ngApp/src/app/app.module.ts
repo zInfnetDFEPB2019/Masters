@@ -19,7 +19,9 @@ import {
 	MatTableModule,
 	MatExpansionModule,
 	MatFormFieldModule,
-	MatInputModule
+	MatInputModule,
+	MatTabsModule,
+	MatMenuModule
 } from '@angular/material';
 import { HeaderComponent } from './pages/shared-pages/header/header.component';
 import { FooterComponent } from './pages/shared-pages/footer/footer.component';
@@ -55,7 +57,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 		RouterModule,
 		AppRoutingModule,
 		BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
-		MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule    //Angular Material
+		MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule    //Angular Material
 	],
 	providers: [],
 	bootstrap: [AppComponent],
