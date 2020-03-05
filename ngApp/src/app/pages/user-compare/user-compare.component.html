@@ -1,11 +1,5 @@
 <div class="layout flex-wrap">
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
+    <div *ngFor="let card of arrayCards; index as i">
+        <app-card-user></app-card-user>
+    </div>
 </div>
