@@ -10,9 +10,10 @@ import * as faker from "faker/locale/pt_BR"
 export class UserCompareComponent implements OnInit {
 
     public arrayCards: Array<any> = Array.from(new Array(12), (val, index) => val);
+    public fakeCards: Array<CardUserModel> = [];
 
     constructor() {
-        this.generateCards(15);
+        this.fakeCards = this.generateCards(15);
     }
 
     ngOnInit() {
@@ -37,6 +38,10 @@ export class UserCompareComponent implements OnInit {
         }
         console.log(cards);
         return cards;
+    }
+
+    private getRandom(min, max) {
+        return Math.round(Math.random() * (max - min) + min);
     }
 }
 
