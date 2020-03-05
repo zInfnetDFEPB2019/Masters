@@ -34,6 +34,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { UserCompareComponent } from './pages/user-compare/user-compare.component';
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { CardUserComponent } from './pages/shared-pages/card-user/card-user.component';
 
 @NgModule({
 	declarations: [
@@ -48,7 +49,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 		ProjectDetailsComponent,
 		UserCompareComponent,
 		HallOfFameComponent,
-		NotFoundPageComponent
+		NotFoundPageComponent,
+		CardUserComponent
 	],
 	imports: [
 		BrowserModule,
