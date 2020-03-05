@@ -16,19 +16,12 @@ $profile-picture-size: 125px;
 	box-sizing: border-box;
 };
 
-html, body {
-	background: $grey;
-	height: 100vh;
-	position: relative;
-	z-index: -2;
-}
-
-.layout {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	height: 100vh;
-}
+// html, body {
+// 	background: $grey;
+// 	//height: 80vh;
+// 	position: relative;
+// 	z-index: -2;
+// }
 
 @keyframes popUp{
 from {
@@ -55,7 +48,7 @@ to {
 	background: $white;
 	border-radius: 25px;
 	box-shadow: 0 0 40px 0px rgba($black, 0.17);
-	margin-top: 40px;
+	margin: 40px;	
 	padding: 28px 30px 30px 35px;
 	position: relative;
 	width: 500px;
@@ -135,9 +128,9 @@ to {
 			z-index: -1;
 		}
 		img {
-		border-radius: 100px;
-		height: 100%;
-		width: 100%;
+			border-radius: 100px;
+			height: 100%;
+			width: 100%;
 		}
 	}
 	&__stat {
