@@ -58,8 +58,10 @@ import { CardUserComponent } from './pages/shared-pages/card-user/card-user.comp
 		FormsModule,
 		RouterModule,
 		AppRoutingModule,
-		BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule,  //Angular Material
-		MatBadgeModule, MatExpansionModule, MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule    //Angular Material
+		BrowserAnimationsModule,
+		//Angular Material
+		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],
