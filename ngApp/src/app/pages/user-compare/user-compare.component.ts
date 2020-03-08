@@ -9,7 +9,8 @@ import * as faker from "faker/locale/pt_BR"
 })
 export class UserCompareComponent implements OnInit {
 
-	public arrayCards: Array<any> = Array.from(new Array(12), (val, index) => val);
+	public MAX_AMOUNT_CARDS = 3;
+	public arrayCards: Array<any> = Array.from(new Array(this.MAX_AMOUNT_CARDS), (val, index) => val);
 	public fakeCards: Array<CardUserModel> = [];
 
 	constructor() {
