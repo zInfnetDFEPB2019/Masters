@@ -5,6 +5,10 @@ $font-roboto:'Roboto', sans-serif;
 	
 }
 
+.fixed-top{
+	z-index: 998;
+}
+
 button{
 	margin-left: 5px;
 	margin-right: 5px;
@@ -12,7 +16,7 @@ button{
 
 .logo {
 	cursor: pointer;
-	padding-left: 24px;
+	padding-left: 8px;
 	
 	.logo-img{
 		min-width: 36.8px;
@@ -21,14 +25,13 @@ button{
 }
 
 //esconde a barra de scroll
-.menu-overflow-hidden {
+
+::ng-deep .mat-menu-panel {
 	overflow: hidden !important;
 	max-width: none !important;
-
-	.mat-menu-panel {
-		max-width: none !important;
-		overflow: hidden;
-	}
+	min-width: 200px;	
+	z-index: 999;	
+	width: 100% !important;
 }
 
 .my-mat-tabs ::ng-deep .mat-tab-header {
