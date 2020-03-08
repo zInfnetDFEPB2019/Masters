@@ -1,4 +1,4 @@
-<div class="px-md-4 pt-1 bg-white border-bottom shadow-sm  fixed-top">
+<div class="px-md-4 pt-1 bg-white border-bottom shadow-sm fixed-top">
 	<div class="d-flex flex-md-wrap flex-md-row flex-row align-items-center">
 		<!-- col-4 col-sm-3 col-md-3 -->
 		<div class="d-flex flex-nowrap logo" (click)="goToHome()">
@@ -15,12 +15,11 @@
 		</mat-tab-group> -->
 
 		<div class="btn pull-right ml-auto right mt-n1">
-			<button mat-raised-button [matMenuTriggerFor]="menu">Pages</button>
+			<button mat-raised-button [matMenuTriggerFor]="menu" class="mr-4">Pages</button>
 
 			<!-- TODO: ESCONDER em media-query para WIDTH menor que 845px  -->
-			<mat-menu #menu="matMenu" class="menu-overflow-hidden"
-				style="overflow: hidden; max-width: 500px; width: 500px;">
-				<button mat-menu-item [routerLink]="['/home']">
+			<mat-menu #menu="matMenu" class="mt-2">
+				<button mat-menu-item [routerLink]=" ['/home']">
 					<i class="fa fa-trophy mr-2"></i> Home
 				</button>
 				<button mat-menu-item [routerLink]="['/profile']">

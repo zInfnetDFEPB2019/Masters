@@ -3,19 +3,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 //font-family: 'Roboto', sans-serif; 
 
+
+
+// =====================================================
+// =========== ANGULAR MATERIAL CONFIGS ================
+// =====================================================
+
 /* You can add global styles to this file, and also import other style files */
 //@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 $primary-color3: blue;
-
-.debug-red{
-	border: 2px solid red;
-}
-
-.debug-blue{
-	border: 2px solid blue;
-}
-
 
 // ========== THEME =============
 
@@ -47,4 +44,32 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 // `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
 .unicorn-dark-theme {
   @include angular-material-theme($dark-theme);
+}
+
+
+
+// =====================================================
+// ========= GLOBAL ====================================
+// =====================================================
+
+.debug-red{
+	border: 2px solid red;
+}
+
+.debug-blue{
+	border: 2px solid blue;
+}
+
+.page-content {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+ 	min-width: 550px;
+	min-height: 90vh;
+	height: 100%;
+
+	margin-top: 70px;
+	margin-bottom: 70px;
 }
