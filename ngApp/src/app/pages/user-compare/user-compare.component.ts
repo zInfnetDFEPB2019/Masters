@@ -27,12 +27,9 @@ export class UserCompareComponent implements OnInit {
 			let cardUser: CardUserModel = {
 				name: faker.name.findName(),
 				imgUrl: "string",
-				labelLeft: "string",
-				valueLeft: 1,
-				labelMiddle: "string",
-				valueMiddle: 1,
-				labelRight: "string",
-				valueRight: 1
+				valueLeft: this.getRandom(0, 100),
+				valueMiddle: this.getRandom(0, 1000),
+				valueRight: this.getRandom(0, 100),
 			};
 
 			cards.push(cardUser);

@@ -33,6 +33,7 @@ to {
 	opacity: 1;
 }}
 
+//escorrega os itens de baixo para cima
 @keyframes slideUp {
 from {
 	transform: translateY(5px);
@@ -163,7 +164,7 @@ to {
 
 	&__username {
 		font-family: $base-font;
-		font-weight: 600;
+		font-weight: 400;
 		margin: 0;
 		text-align: right;
 	}

@@ -1,15 +1,18 @@
+//Core Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-// import { AppRoutingModule } from './app.routing';    //app.routing.ts.sample
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Angular MAterial imports
+
+// bootstrap
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+// Angular MAterial
 import {
 	MatButtonModule,
 	MatCheckboxModule,
@@ -23,6 +26,8 @@ import {
 	MatTabsModule,
 	MatMenuModule
 } from '@angular/material';
+
+// Pages
 import { HeaderComponent } from './pages/shared-pages/header/header.component';
 import { FooterComponent } from './pages/shared-pages/footer/footer.component';
 import { TableDataComponent } from './pages/home/table-data/table-data.component';
@@ -61,7 +66,9 @@ import { CardUserComponent } from './pages/shared-pages/card-user/card-user.comp
 		BrowserAnimationsModule,
 		//Angular Material
 		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
-		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule,
+		// import HttpClientModule after BrowserModule.
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],
