@@ -9,6 +9,9 @@ import { retry, catchError, map } from 'rxjs/operators';
 })
 export class UserCompareService {
 
+	private url = "http://i.pravatar.cc/250";
+
+
 	// TODO: Headers
 	public httpOptions = {
 		headers: null
@@ -23,17 +26,21 @@ export class UserCompareService {
 	) { }
 
 	public getPhotoCard(): Observable<any> {
-		// this.httpOptions.headers
-		// 	.set('Accept', '*/*')
-		// 	.set('Access-Control-Allow-Origin', '*')
-		// 	.set('Host', 'localhost:4200')
-		// 	.set('Sec-Fetch-Dest', 'empty')
-		// 	.set('Sec-Fetch-Mode', 'cors')
-		// 	.set('Sec-Fetch-Site', 'same-origin')
-		// 	.set('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36')
 
-		let url = "http://i.pravatar.cc/250";
 		//return this.http.get(url, this.httpOptions)
-		return this.http.get(url, { responseType: 'blob' });
+		return this.http.get(this.url, { responseType: 'blob' });
+	}
+
+
+
+	//
+
+	getBlobThumbnail(): Observable<Blob> {
+		const headers = new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Accept': 'application/json'
+		});
+		return this.http.post<Blob>(this.url,
+			{ headers: headers, responseType: 'blob' as 'json' });
 	}
 }

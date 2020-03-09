@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CardUserModel } from 'src/app/core/Model/card-user.model';
 import { UserCompareService } from 'src/app/services/user-compare.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
 	selector: 'app-card-user',
@@ -11,33 +13,28 @@ export class CardUserComponent implements OnInit {
 
 	@Input('cardData') public card: CardUserModel;
 
-
 	constructor(
-		private userCompareServ: UserCompareService
+		private userCompareServ: UserCompareService,
+		private sanitizer: DomSanitizer
 	) {
 		console.log("CONSTRUCTOR CARD: ", this.card);
+		this.getPhoto();
 	}
 
 	ngOnInit() {
 	}
 
-	private teste() {
-		console.log("TESTE CARD: ", this.card);
+	private getPhoto() {
 		this.userCompareServ.getPhotoCard().subscribe(
 			(res) => {
-				let urlCreator = window.URL;
+				console.log('blob', res)
 
-				let photo: any = new Blob([res], { type: 'image/jpeg' });
-				this.card.imgUrl = urlCreator.createObjectURL(photo);
-				console.log("response photo: ", photo);
+				let blobImg: any = new Blob([res], { type: 'image/jpeg' });
+				let objUrl = window.URL.createObjectURL(blobImg);
+				let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
+				this.card.imgUrl = secureObjUrl;
 
-				// let blob = new Blob(
-				// 	[res._body],
-				// 	{ type: res.headers.get("Content-Type") }
-				// );
-
-				// let imageData = urlCreator.createObjectURL(blob);
-				// console.log("response imageData: ", imageData);
+				console.log('secure Obj Url:', secureObjUrl);
 			},
 			(error) => {
 				console.error("Error request: ", error);
@@ -46,5 +43,15 @@ export class CardUserComponent implements OnInit {
 			() => {
 				console.log("Terminado!");
 			});
+	}
+
+	private getImg() {
+		let mySrc;
+		const reader = new FileReader();
+		//reader.readAsDataURL(blob);
+		reader.onloadend = function () {
+			// result includes identifier 'data:image/png;base64,' plus the base64 data
+			mySrc = reader.result;
+		}
 	}
 }
