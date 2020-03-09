@@ -4,43 +4,37 @@ import { Observable } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 
 @Injectable({
-	//inject singleton instance
-	providedIn: 'root'
+    //inject singleton instance
+    providedIn: 'root'
 })
 export class UserCompareService {
 
-	private url = "http://i.pravatar.cc/250";
+    private url = "http://i.pravatar.cc/250";
+
+    private urlLocalBase = "assets/img/profile_card/"
+    private NAME_IMG_LOCAL = "img_card_"
+    private TYPE_IMG_LOCAL = ".jfif";
 
 
-	// TODO: Headers
-	public httpOptions = {
-		headers: null
-		//headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-		//withCredentials: true
-	}
+    constructor(
+        private http: HttpClient
+    ) { }
 
-	public allowCors = 'https://cors-anywhere.herokuapp.com/';
+    public getPhotoCard(url: string = null): Observable<any> {
+        if (!url) {
+            url = `${this.urlLocalBase}`
+        }
+        return this.http.get(url, { responseType: 'blob' });
+    }
 
-	constructor(
-		private http: HttpClient
-	) { }
+    //
 
-	public getPhotoCard(): Observable<any> {
-
-		//return this.http.get(url, this.httpOptions)
-		return this.http.get(this.url, { responseType: 'blob' });
-	}
-
-
-
-	//
-
-	getBlobThumbnail(): Observable<Blob> {
-		const headers = new HttpHeaders({
-			'Content-Type': 'application/json',
-			'Accept': 'application/json'
-		});
-		return this.http.post<Blob>(this.url,
-			{ headers: headers, responseType: 'blob' as 'json' });
-	}
+    getBlobThumbnail(): Observable<Blob> {
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        });
+        return this.http.post<Blob>(this.url,
+            { headers: headers, responseType: 'blob' as 'json' });
+    }
 }
