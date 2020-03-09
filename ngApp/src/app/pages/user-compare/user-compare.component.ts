@@ -34,7 +34,6 @@ export class UserCompareComponent implements OnInit {
 
             cards.push(cardUser);
         }
-        console.log(cards);
         return cards;
     }
 

@@ -34,9 +34,8 @@ export class UserCompareService {
         return this.http.get(url, { responseType: 'blob' });
     }
 
-    //
-
-    getBlobThumbnail(): Observable<Blob> {
+    //TODO: testando.
+    private getBlobThumbnail(): Observable<Blob> {
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Accept': 'application/json'

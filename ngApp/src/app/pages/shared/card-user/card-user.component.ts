@@ -30,15 +30,15 @@ export class CardUserComponent implements OnInit {
 
         this.userCompareServ.getPhotoCard().subscribe(
             (res) => {
-                console.log('blob', res)
-
                 let blobImg: any = new Blob([res], { type: 'image/jpeg' });
                 let objUrl = window.URL.createObjectURL(blobImg);
                 let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
-                this.card.imgUrl = secureObjUrl;
 
-                console.log('secure Obj Url:', secureObjUrl);
-                this.imgLoading = false;
+                setTimeout(() => {
+                    this.card.imgUrl = secureObjUrl;
+                    this.imgLoading = false;
+                }, 1800);
+
             },
             (error) => {
                 console.error("Error request: ", error);
