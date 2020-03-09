@@ -1,10 +1,12 @@
 <div class="profile">
 	<div class="profile__picture">
 		<!-- <img src="http://i.pravatar.cc/250" alt="ananddavis" /> -->
-		<img [src]="card.imgUrl" alt="ananddavis" />
-		<!-- <div class="spinner-border m-5" role="status">
+		<img *ngIf="!imgLoading" [src]="card.imgUrl" alt="ananddavis" />
+
+		<div *ngIf="imgLoading" class="spinner-border spn" role="status">
 			<span class="sr-only">Loading...</span>
-		</div> -->
+		</div>
+
 	</div>
 	<div class="profile__header">
 		<div class="profile__account">

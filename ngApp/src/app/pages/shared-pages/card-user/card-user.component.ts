@@ -12,6 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CardUserComponent implements OnInit {
 
 	@Input('cardData') public card: CardUserModel;
+	private imgLoading: boolean = true;
 
 	constructor(
 		private userCompareServ: UserCompareService,
@@ -25,6 +26,8 @@ export class CardUserComponent implements OnInit {
 	}
 
 	private getPhoto() {
+		this.imgLoading = true;
+
 		this.userCompareServ.getPhotoCard().subscribe(
 			(res) => {
 				console.log('blob', res)
@@ -35,6 +38,7 @@ export class CardUserComponent implements OnInit {
 				this.card.imgUrl = secureObjUrl;
 
 				console.log('secure Obj Url:', secureObjUrl);
+				this.imgLoading = false;
 			},
 			(error) => {
 				console.error("Error request: ", error);

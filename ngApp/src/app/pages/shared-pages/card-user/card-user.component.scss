@@ -108,6 +108,11 @@ to {
 		font-weight: 400;
 		text-align: center;
 	}
+
+	.spn {
+		margin: 2rem !important;
+	}
+
 	&__picture{
 		background: $white;
 		border-radius: 100px;
@@ -116,6 +121,8 @@ to {
 		position: absolute;
 		top: -40px;
 		width: $profile-picture-size;
+
+
 		
 		&:before {
 			border-radius: 100px;
