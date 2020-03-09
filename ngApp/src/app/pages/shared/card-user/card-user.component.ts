@@ -45,10 +45,11 @@ export class CardUserComponent implements OnInit {
 
             },
             () => {
-                console.log("Terminado!");
+                //terminando a função.
             });
     }
 
+    //TODO: teste
     private getImg() {
         let mySrc;
         const reader = new FileReader();
@@ -57,5 +58,9 @@ export class CardUserComponent implements OnInit {
             // result includes identifier 'data:image/png;base64,' plus the base64 data
             mySrc = reader.result;
         }
+    }
+
+    public modalDetails(): void {
+
     }
 }
