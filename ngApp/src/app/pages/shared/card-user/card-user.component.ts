@@ -18,11 +18,11 @@ export class CardUserComponent implements OnInit {
         private userCompareServ: UserCompareService,
         private sanitizer: DomSanitizer
     ) {
-        console.log("CONSTRUCTOR CARD: ", this.card);
         this.getPhoto();
     }
 
     ngOnInit() {
+        console.log("OnInit CARD: ", this.card);
     }
 
     private getPhoto() {
