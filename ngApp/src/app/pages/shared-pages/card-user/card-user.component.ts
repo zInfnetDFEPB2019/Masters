@@ -12,7 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class CardUserComponent implements OnInit {
 
 	@Input('cardData') public card: CardUserModel;
-	private imgLoading: boolean = true;
+	public imgLoading: boolean = true;
 
 	constructor(
 		private userCompareServ: UserCompareService,
@@ -25,7 +25,7 @@ export class CardUserComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	private getPhoto() {
+	public getPhoto() {
 		this.imgLoading = true;
 
 		this.userCompareServ.getPhotoCard().subscribe(
