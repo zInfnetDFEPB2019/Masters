@@ -14,17 +14,17 @@ import { AppComponent } from './app.component';
 
 // Angular MAterial
 import {
-    MatButtonModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatListModule,
-    MatTableModule,
-    MatExpansionModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTabsModule,
-    MatMenuModule
+	MatButtonModule,
+	MatCheckboxModule,
+	MatIconModule,
+	MatBadgeModule,
+	MatListModule,
+	MatTableModule,
+	MatExpansionModule,
+	MatFormFieldModule,
+	MatInputModule,
+	MatTabsModule,
+	MatMenuModule
 } from '@angular/material';
 
 // Pages
@@ -42,35 +42,35 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { CardUserComponent } from './pages/shared/card-user/card-user.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        TableDataComponent,
-        RowDetailsComponent,
-        HomeComponent,
-        AccessComponent,
-        UserDetailsComponent,
-        ProjectDetailsComponent,
-        UserCompareComponent,
-        HallOfFameComponent,
-        NotFoundPageComponent,
-        CardUserComponent
-    ],
-    imports: [
-        BrowserModule,
-        NgbModule,
-        FormsModule,
-        RouterModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        //Angular Material
-        MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
-        MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule,
-        // import HttpClientModule after BrowserModule.
-        HttpClientModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		FooterComponent,
+		TableDataComponent,
+		RowDetailsComponent,
+		HomeComponent,
+		AccessComponent,
+		UserDetailsComponent,
+		ProjectDetailsComponent,
+		UserCompareComponent,
+		HallOfFameComponent,
+		NotFoundPageComponent,
+		CardUserComponent
+	],
+	imports: [
+		BrowserModule,
+		NgbModule,
+		FormsModule,
+		RouterModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		//Angular Material
+		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule,
+		// import HttpClientModule after BrowserModule.
+		HttpClientModule
+	],
+	providers: [],
+	bootstrap: [AppComponent],
 })
 export class AppModule { }
