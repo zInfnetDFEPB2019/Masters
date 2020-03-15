@@ -25,6 +25,7 @@ export class UserCompareComponent implements OnInit {
 
 		for (let i = 0; i < amount; i++) {
 			let cardUser: CardUserModel = {
+				Id: MathUtils.getRandom(0, 1000),
 				name: faker.name.firstName() + " " + faker.name.lastName(),
 				imgUrl: "string",
 				valueLeft: MathUtils.getRandom(0, 100),
