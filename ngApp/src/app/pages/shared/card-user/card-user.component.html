@@ -12,7 +12,9 @@
 		<div class="profile__account">
 			<h4 class="profile__username">{{ card.name }}</h4>
 		</div>
-		<div class="profile__edit"><a class="profile__button" (click)="modalDetails()">Details</a></div>
+		<div class="profile__edit">
+			<a class="profile__button" [routerLink]="['/profile', card.Id]">Details</a>
+		</div>
 	</div>
 	<div class="profile__stats">
 		<div class="profile__stat">

@@ -4,7 +4,6 @@
 //font-family: 'Roboto', sans-serif; 
 
 
-
 // =====================================================
 // =========== ANGULAR MATERIAL CONFIGS ================
 // =====================================================
@@ -89,3 +88,14 @@ html, body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
+
+
+// =====================================================
+// =========== BOOTSTRAP ================
+// =====================================================
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "node_modules/bootstrap/scss/_mixins.scss";
