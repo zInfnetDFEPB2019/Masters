@@ -1,22 +1,47 @@
 //remover espço do header e footer. Para evitar ficar abaixo.
-.wrap-page{		
-	min-height: 95vh;
-	height: 100%;
-	border: 2px solid red;
-	border-radius: 30px;
+$montserrat: 'Montserrat', sans-serif;
+$base-font: $montserrat;
 
-	//overflow-y: auto;
-
-	.view-profile {
-		border: 1px dotted rgb(252, 23, 23);
-		height: 200px;
-		background-color: lightcoral;
-	}
-
-	.profile-status{
-		border: 1px detted blueviolet;
-		background-color: lightblue;
-	}
-
+.page-content {
+	background-color: #F6F6F6;
 	
+	.wrap-page{		
+		min-height: 95vh;
+		//height: 100%;
+		width: 77%;
+		border: 1px dotted black;
+		border-radius: 5px;
+		
+		//overflow-y: auto;
+		
+		.title-page{
+			font-family: $base-font;
+			font-weight: 400;
+			margin-bottom: 1rem;
+		}
+		
+		.view-profile {
+			border: 1px dotted rgb(252, 23, 23);
+			height: 300px;
+			background-color: rgb(156, 156, 156);
+
+			.profile-infos {
+				height: 50%;
+			}
+
+			.profile-scores {
+				height: 40%;
+			}
+		}
+		
+		.profile-card-1 {
+			padding: 0px;
+		}
+		
+		.profile-status{
+			border: 1px detted blueviolet;
+			background-color: lightblue;
+			min-height: 500px;
+		}		
+	}	
 }
