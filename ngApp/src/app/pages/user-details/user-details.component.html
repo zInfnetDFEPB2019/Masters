@@ -1,29 +1,40 @@
 <div class="page-content">
 	<div class="wrap-page">
-		<h3 class="title-page">User Details</h3>
+		<h1 class="title-page">User Details</h1>
 
 		<div class="row d-flex justify-content-between">
 			<!-- LADO ESQUERDO -->
-			<div class="order-1 col-8">
+			<div class="order-1 col-9">
 
 				<!-- VIEW PROFILE  -->
 				<div class="view-profile col-12 mb-4">
 
 					<!-- PROFILE INFOS -->
 					<div class="row profile-infos d-flex justify-content-center">
-						<div class="profile-photo m-0" style="background-color: lightpink;">
-							photo
+						<div class="profile-photo m-0">
+							<img [src]="profileImg" class="rounded-circle" width="120px" height="120px" />
 						</div>
 						<div class="row profile-data flex-grow-1 m-0">
-							<div class="col-6" style="background-color: lightgreen;">
-								<p class="w-50">
-									Nome / Cargo / Privilegios / ACTIVE y/n
+							<div class="col-7 profile-text">
+								<div>
+									<p class="profile-name">
+										{{ userName }}
+										<span class="badge badge-pill badge-info font-weight-light">ADMIN</span>
+									</p>
+								</div>
+								<p class="profile-position">
+									Software Engineer
 								</p>
+								<span class="active-status mat-elevation-z2">
+									<i class="fas fa-circle mr-1"></i>
+									ACTIVE</span>
 							</div>
-							<div class="w-50" style="background-color: lightcyan;">
-								<p class="d-inline-block">
-									Company: <br>
-									Alguma Companhia
+							<div class="col-4 profile-text">
+								<p class="profile-name">
+									Company
+								</p>
+								<p class="profile-position">
+									{{ companyName }}
 								</p>
 							</div>
 						</div>
@@ -81,7 +92,7 @@
 			</div>
 
 			<!-- LADO DIREITO -->
-			<div class="order-2 col-4">
+			<div class="order-2 col-3">
 				<div class="profile-status">
 					Card lateral direito.
 				</div>

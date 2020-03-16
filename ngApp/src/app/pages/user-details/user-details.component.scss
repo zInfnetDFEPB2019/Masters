@@ -1,32 +1,33 @@
 //remover espço do header e footer. Para evitar ficar abaixo.
+$roboto: 'Roboto', sans-serif;
 $montserrat: 'Montserrat', sans-serif;
 $base-font: $montserrat;
-$profile-photo-length: 150px;
+$profile-photo-length: 120px;
 
 .page-content {
 	background-color: #F6F6F6;
 	
 	.wrap-page{		
+		//border: 1px dotted black;
+
 		min-height: 95vh;
 		//height: 100%;
 		width: 85%;
-		border: 1px dotted black;
 		border-radius: 5px;
 		
 		//overflow-y: auto;
 		
 		.title-page{
 			font-family: $base-font;
-			font-weight: 400;
-			margin-bottom: 1rem;
+			font-weight: 100;
+			font-size: 42px;
+			margin-bottom: 2rem;
 		}
 		
-		.view-profile {
-			border: 1px dotted rgb(252, 23, 23);
-			//height: 300px;
-			background-color: rgb(156, 156, 156);
-
+		.view-profile {			
+			
 			.profile-infos {
+				//border: 1px dotted rgb(252, 23, 23);
 
 				.profile-photo{
 					height: $profile-photo-length;
@@ -35,9 +36,62 @@ $profile-photo-length: 150px;
 					min-width: $profile-photo-length;
 				}
 
-				// .profile-data {
-				// 	width: calc(100% - $profile-photo-length);
-				// }
+				.profile-text{
+
+					.profile-name {
+						display: flex;
+						justify-content: start;
+						align-items: flex-end;
+						flex-wrap: nowrap;
+						
+						margin-top: 20px;
+						margin-bottom: 0px;
+
+						font-family: $roboto;
+						font-weight: 700;
+						font-size: 24px ;
+							
+						.badge {
+							font-size: 10px;
+							background-color: rgb(143, 143, 143);
+
+							margin-bottom: 7px;
+							margin-left: 10px;
+
+							padding-top: 5px;					
+							padding-bottom: 5px;
+							padding-left: 10px;					
+							padding-right: 10px;
+						}
+							
+					}
+
+					.active-status {
+						color: rgb(46, 187, 41);
+						
+						padding-left: 15px;
+						padding-top: 5px;
+						padding-right: 20px;
+						padding-bottom: 5px;
+						
+						font-family: $base-font;
+						font-weight: 700;
+						font-size: 14px ;
+						
+						border-top-left-radius: 20px;
+						border-bottom-left-radius: 20px;
+						border-top-right-radius:  20px;
+						border-bottom-right-radius:  20px;
+					}
+					
+					.profile-position {
+						font-family: $base-font;
+						font-size: 18px ;
+						color: rgb(143, 143, 143);
+						
+						margin-bottom: 5px;						
+					}
+				}
 			}
 
 			.profile-scores {
@@ -52,7 +106,7 @@ $profile-photo-length: 150px;
 		.profile-status{
 			border: 1px detted blueviolet;
 			background-color: lightblue;
-			min-height: 500px;
+			min-height: 450px;
 		}		
 	}	
 }
