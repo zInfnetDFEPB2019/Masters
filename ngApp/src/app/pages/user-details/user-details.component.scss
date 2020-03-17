@@ -1,8 +1,9 @@
 //remover espço do header e footer. Para evitar ficar abaixo.
 $roboto: 'Roboto', sans-serif;
 $montserrat: 'Montserrat', sans-serif;
+$montSerratAlternative: 'Montserrat Alternates', sans-serif;
 $base-font: $montserrat;
-$profile-photo-length: 120px;
+$profile-photo-length: 100px;
 
 .page-content {
 	background-color: #F6F6F6;
@@ -19,7 +20,7 @@ $profile-photo-length: 120px;
 		
 		.title-page{
 			font-family: $base-font;
-			font-weight: 100;
+			font-weight: 200;
 			font-size: 42px;
 			margin-bottom: 2rem;
 		}
@@ -44,12 +45,13 @@ $profile-photo-length: 120px;
 						align-items: flex-end;
 						flex-wrap: nowrap;
 						
-						margin-top: 20px;
+						margin-top: 12px;
+						margin-left: 15px;
 						margin-bottom: 0px;
 
 						font-family: $roboto;
 						font-weight: 700;
-						font-size: 24px ;
+						font-size: 20px ;
 							
 						.badge {
 							font-size: 10px;
@@ -64,6 +66,15 @@ $profile-photo-length: 120px;
 							padding-right: 10px;
 						}
 							
+					}
+
+					.profile-position {
+						font-family: $base-font;
+						font-size: 14px ;
+						color: rgb(143, 143, 143);
+						
+						margin-bottom: 5px;
+						margin-left: 15px;
 					}
 
 					.active-status {
@@ -94,19 +105,49 @@ $profile-photo-length: 120px;
 								0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 						}
 					}
-					
-					.profile-position {
-						font-family: $base-font;
-						font-size: 18px ;
-						color: rgb(143, 143, 143);
-						
-						margin-bottom: 5px;						
-					}
 				}
 			}
 
-			.profile-scores {
-				height: 40%;
+			.score {
+                //border: dotted 1px red;
+				display: flex;				
+                flex-wrap: wrap;
+                align-items: center;
+
+				height: 100%;     
+                
+                font-family: $montserrat;				
+
+                &__box {
+                    display: flex;
+                    flex-direction: column;
+                    //justify-content: space-between;
+
+                    height: 100px;
+                    width: calc(100% / 4);
+                    min-width: 175px;                                        
+                }
+
+                &__title {
+                    vertical-align: bottom;
+                    color: gray;
+                    
+                    font-weight: bolder;
+                    font-size: 12px;        
+                    
+                    min-height: 40px;                    
+                    padding-left: 15px;
+                }
+
+                &__value {                    
+                    font-size: 38px;
+                    
+                    max-height: 50px;
+                    padding-left: 15px;
+
+                    border-left: 1px rgb(220, 220, 220) solid;                    
+                    border-bottom: 1px rgb(220, 220, 220) solid;
+                }
 			}
 		}
 		

@@ -4,7 +4,7 @@
 
 		<div class="row d-flex justify-content-between">
 			<!-- LADO ESQUERDO -->
-			<div class="order-1 col-9">
+			<div class="order-1 col-8">
 
 				<!-- VIEW PROFILE  -->
 				<div class="view-profile col-12 mb-4">
@@ -12,7 +12,7 @@
 					<!-- PROFILE INFOS -->
 					<div class="row profile-infos d-flex justify-content-center">
 						<div class="profile-photo m-0">
-							<img [src]="profileImg" class="rounded-circle" width="120px" height="120px" />
+							<img [src]="profileImg" class="rounded-circle" width="100px" height="100px" />
 						</div>
 						<div class="row profile-data flex-grow-1 m-0">
 							<div class="col-7 profile-text">
@@ -41,22 +41,22 @@
 					</div>
 
 					<!-- PROFILE SCORES -->
-					<div class="row profile-scores d-flex justify-content-around flex-wrap mt-4">
-						<div>
-							TOTAL 1............... <br>
-							23
+					<div class="row score mt-4">
+						<div class="score__box">
+							<div class="score__title">TOTAL HELPS</div>
+							<div class="score__value">75</div>
 						</div>
-						<div>
-							TOTAL 2............... <br>
-							23
+						<div class="score__box">							
+                            <div class="score__title">TOTAL COMMENTS</div>
+							<div class="score__value">1220</div>
 						</div>
-						<div>
-							TOTAL 3............... <br>
-							23
+						<div class="score__box">							
+                            <div class="score__title">TOTAL TASKS DONE</div>
+							<div class="score__value">62</div>
 						</div>
-						<div>
-							TOTAL 4............... <br>
-							23
+						<div class="score__box">
+							<div class="score__title">TOTAL TASKS IN-PROGRESS</div>
+							<div class="score__value">26</div>
 						</div>
 					</div>
 				</div>
@@ -92,7 +92,7 @@
 			</div>
 
 			<!-- LADO DIREITO -->
-			<div class="order-2 col-3">
+			<div *ngIf="!isSmallScreen" class="order-2 col-4">
 				<div class="profile-status">
 					Card lateral direito.
 				</div>
