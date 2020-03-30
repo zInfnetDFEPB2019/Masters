@@ -57,7 +57,7 @@ h3 {
 @import "node_modules/bootstrap/scss/_mixins.scss";
 
 // lasdscape less than 767.98px
-@include media-breakpoint-down(sm) { 
+@include media-breakpoint-down(md) { 
 	.my-mat-tabs {
 		display: none;		
 	}
