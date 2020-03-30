@@ -2,10 +2,48 @@ $award-border-color: rgb(255, 219, 59);
 
 // $tamanho_max: 150px;
 
-.rank-top3 {
-	cursor: pointer;
-	//display: inline-flexbox;
+@keyframes popUp{
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
+@keyframes slideUp {
+    from {
+        transform: translateY(0px) scale(1);
+        
+        box-shadow: 
+            0px 3px 5px -1px rgba(0, 0, 0, 0.2), 
+            0px 6px 10px 0px rgba(0, 0, 0, 0.14), 
+            0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    }
+    to {
+        transform: translateY(-20px) scale(1.1);
+        box-shadow: 
+            0px 11px 15px -7px rgba(0, 0, 0, 0.2), 
+            0px 24px 38px 3px rgba(0, 0, 0, 0.14), 
+            0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    }
+}
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px) scale(1.1);
+        box-shadow: 
+            0px 11px 15px -7px rgba(0, 0, 0, 0.2), 
+            0px 24px 38px 3px rgba(0, 0, 0, 0.14), 
+            0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    }
+    to {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    }
+}
+
 .row {
 
 	.btn {
@@ -13,7 +51,33 @@ $award-border-color: rgb(255, 219, 59);
 	}
 	
 	.box {
-		position: relative;
+        position: relative;
+        
+        // .award-yes-img{
+        //     min-width: 240px;
+        //     min-height: 240px;
+        // }
+
+        // .award-no-img{
+        //     min-width: 150px;
+        //     min-height: 150px;
+        // }
+        
+        .rounded-circle {
+            cursor: pointer;
+            
+            animation: slideDown ease-in-out 350ms forwards;
+
+            &:hover {
+                animation: slideUp ease-in-out 350ms forwards;
+
+                //mat-elevation-z24
+                box-shadow: 
+                    0px 11px 15px -7px rgba(0, 0, 0, 0.2), 
+                    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 
+                    0px 9px 46px 8px rgba(0, 0, 0, 0.12);                
+            }
+        }
 
 		.award {
 			height: 25%;

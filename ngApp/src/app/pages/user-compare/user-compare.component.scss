@@ -1,6 +1,9 @@
-.layout {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	height: 100vh;
+
+//remover espço do header e footer. Para evitar ficar abaixo.
+.wrap-page{
+	//footer
+	margin-top: 100px;
+	margin-bottom: 100px;
+
+	overflow-y: hidden;
 }

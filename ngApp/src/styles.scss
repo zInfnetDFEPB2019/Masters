@@ -1,21 +1,28 @@
+// =====================================================
+// =========== FONTS 
+// =====================================================
+
+// $courgette: 'Courgette', ;
 @import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
-/*font-family: 'Courgette', ;*/
+
+// $roboto: 'Roboto', sans-serif; 
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-//font-family: 'Roboto', sans-serif; 
+
+// $montserrat: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400,600,700');
+
+// $montserratAlternative: 'Montserrat Alternates', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
+
+
+// =====================================================
+// =========== ANGULAR MATERIAL CONFIGS ================
+// =====================================================
 
 /* You can add global styles to this file, and also import other style files */
 //@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 $primary-color3: blue;
-
-.debug-red{
-	border: 2px solid red;
-}
-
-.debug-blue{
-	border: 2px solid blue;
-}
-
 
 // ========== THEME =============
 
@@ -48,3 +55,58 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 .unicorn-dark-theme {
   @include angular-material-theme($dark-theme);
 }
+
+
+
+// =====================================================
+// ========= GLOBAL ====================================
+// =====================================================
+
+.debug-red{
+	border: 2px solid red;
+}
+
+.debug-blue{
+	border: 2px solid blue;
+}
+
+
+html, body {
+	// NAO USAR !IMPORTANT
+	//height: 100vh;
+	min-height: 100%;
+
+	overflow-y: hidden;
+	// app-layout-footer app-layout-header {
+	// 	overflow-y: hidden;
+	// }
+}
+
+.page-content {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	//ativando o scroll: width 100% -> 100vh
+	overflow-y: scroll;
+
+ 	min-width: 550px;
+	min-height: 70vh;
+
+	height: 100vh;
+
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+
+// =====================================================
+// =========== BOOTSTRAP ================
+// =====================================================
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "node_modules/bootstrap/scss/_mixins.scss";

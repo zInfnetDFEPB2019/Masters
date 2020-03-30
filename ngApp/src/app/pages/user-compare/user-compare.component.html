@@ -1,11 +1,5 @@
-<div class="layout flex-wrap">
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
-	<app-card-user></app-card-user>
+<div class="page-content">
+	<div *ngFor="let card of fakeCards; index as i">
+		<app-card-user [cardData]="card"></app-card-user>
+	</div>
 </div>

@@ -1,83 +1,88 @@
-<div class="container">
-	<!-- <h5 class="text-center">[Angular Material] "Table dynamically changing the columns displayed"</h5> -->
-	<div class="mx-auto">
-		<div class="col-md-12">
-			<div class="row align-items-center justify-content-center mx-5 mt-2">
-				<button type="button" mat-raised-button color="primary" class="btn btn-round m-2"><i
-						class="fa fa-arrow-circle-up mr-2"></i>KPI A
-				</button>
-				<button type="button" mat-raised-button color="accent" class=" btn btn-round m-2">
-					<i class="fa fa-arrow-down mr-2"></i>KPI B
-				</button>
-				<button type="button" mat-raised-button class="btn btn-round m-2">
-					<i class="fa fa-address-card mr-2"></i>KPI C
-				</button>
-				<button type="button" mat-raised-button color="warn" class="btn btn-round m-2">
-					<i class="fa fa-bars mr-2"></i>KPI D
-				</button>
+<div class="page-content">
+	<div class="container">
+		<!-- <h5 class="text-center">[Angular Material] "Table dynamically changing the columns displayed"</h5> -->
+		<div class="mx-auto">
+			<div class="col-md-12">
+				<div class="row align-items-center justify-content-center mx-5 mt-2">
+					<button type="button" mat-raised-button color="primary" class="btn btn-round m-2"><i
+							class="fa fa-arrow-circle-up mr-2"></i>KPI A
+					</button>
+					<button type="button" mat-raised-button color="accent" class=" btn btn-round m-2">
+						<i class="fa fa-arrow-down mr-2"></i>KPI B
+					</button>
+					<button type="button" mat-raised-button class="btn btn-round m-2">
+						<i class="fa fa-address-card mr-2"></i>KPI C
+					</button>
+					<button type="button" mat-raised-button color="warn" class="btn btn-round m-2">
+						<i class="fa fa-bars mr-2"></i>KPI D
+					</button>
+				</div>
+
+				<hr>
+
+				<!-- Top3 Imagens -->
+				<div class="row m-0">
+					<!-- 1ºlugar -->
+					<div class="col-4 col-sm-3 col-md-3 m-4 box order-2" (click)="viewProfile()">
+						<img [src]="rankPicture1" class="award-yes-img rounded-circle img-thumbnail mat-elevation-z3" />
+						<img [src]="awardImg1" class="award aw-1 rounded-circle img-thumbnail" />
+
+						<!-- Score bar -->
+						<div class="row mt-2 justify-content-center">
+							<img class="mr-2" [src]="starIcon" width="7%" height="7%" />
+							<span class="badge badge-pill badge-warning">{{ pontosRank1 }} pts</span>
+						</div>
+						<div class="progress mt-2">
+							<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+								role="progressbar" [style.width]="percentRank1" aria-valuemin="0" aria-valuemax="100">
+							</div>
+						</div>
+					</div>
+
+					<!-- 2ºlugar -->
+					<div class="col-3 col-sm-2 col-md-2 m-auto box order-1" (click)="viewProfile()">
+						<img [src]="rankPicture2" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
+						<img [src]="awardImg2" class="award rounded-circle img-thumbnail" />
+
+						<!-- Score bar -->
+						<div class="row mt-2 justify-content-center">
+							<img class="mr-2" [src]="starIcon" width="9%" height="9%" />
+							<span class="badge badge-pill badge-warning">
+								{{ pontosRank2 }} pts
+							</span>
+						</div>
+						<div class="progress mt-2">
+							<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+								role="progressbar" [style.width]="percentRank2" aria-valuemin="0" aria-valuemax="100">
+							</div>
+						</div>
+					</div>
+
+					<!-- 3ºlugar -->
+					<div class="col-3 col-sm-2 col-md-2 m-auto box order-3" (click)="viewProfile()">
+
+						<!-- Image -->
+						<img [src]="rankPicture3" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
+						<img [src]="awardImg3" class="award rounded-circle img-thumbnail" />
+
+						<!-- Score bar -->
+						<div class="row mt-2 justify-content-center">
+							<img class="mr-2" [src]="starIcon" width="9%" height="9%" />
+							<span class="badge badge-pill badge-warning">{{ pontosRank3 }} pts</span>
+						</div>
+						<div class="progress mt-2">
+							<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
+								role="progressbar" [style.width]="percentRank3" aria-valuemin="0" aria-valuemax="100">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr />
+
+				<!-- Ranking List -->
+				<app-table-data></app-table-data>
 			</div>
-
-			<hr>
-
-			<!-- Top3 Imagens -->
-			<div class="row m-0">
-				<!-- 1ºlugar -->
-				<div class="col-4 col-sm-3 col-md-3 m-4 box order-2" (click)="viewProfile()">
-					<img [src]="rankPicture1" class="rounded-circle img-thumbnail mat-elevation-z6" />
-					<img [src]="awardImg1" class="award aw-1 rounded-circle img-thumbnail" />
-
-					<!-- Score bar -->
-					<div class="row mt-2 justify-content-center">
-						<img class="mr-2" [src]="starIcon" width="7%" height="7%" />
-						<span class="badge badge-pill badge-warning">{{ pontosRank1 }} pts</span>
-					</div>
-					<div class="progress mt-2">
-						<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
-							role="progressbar" [style.width]="percentRank1" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-
-				<!-- 2ºlugar -->
-				<div class="col-3 col-sm-2 col-md-2 m-auto box order-1" (click)="viewProfile()">
-					<img [src]="rankPicture2" class="rounded-circle img-thumbnail mat-elevation-z6" />
-					<img [src]="awardImg2" class="award rounded-circle img-thumbnail" />
-
-					<!-- Score bar -->
-					<div class="row mt-2 justify-content-center">
-						<img class="mr-2" [src]="starIcon" width="9%" height="9%" />
-						<span class="badge badge-pill badge-warning">
-							{{ pontosRank2 }} pts
-						</span>
-					</div>
-					<div class="progress mt-2">
-						<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
-							role="progressbar" [style.width]="percentRank2" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-
-				<!-- 3ºlugar -->
-				<div class="col-3 col-sm-2 col-md-2 m-auto box order-3" (click)="viewProfile()">
-
-					<!-- Image -->
-					<img [src]="rankPicture3" class="rounded-circle img-thumbnail mat-elevation-z6" />
-					<img [src]="awardImg3" class="award rounded-circle img-thumbnail" />
-
-					<!-- Score bar -->
-					<div class="row mt-2 justify-content-center">
-						<img class="mr-2" [src]="starIcon" width="9%" height="9%" />
-						<span class="badge badge-pill badge-warning">{{ pontosRank3 }} pts</span>
-					</div>
-					<div class="progress mt-2">
-						<div class="progress-bar progress-bar-striped bg-warning progress-bar-animated"
-							role="progressbar" [style.width]="percentRank3" aria-valuemin="0" aria-valuemax="100"></div>
-					</div>
-				</div>
-			</div>
-
-			<hr />
-
-			<!-- Ranking List -->
-			<app-table-data></app-table-data>
 		</div>
 	</div>
 </div>
