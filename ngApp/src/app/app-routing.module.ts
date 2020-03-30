@@ -22,9 +22,10 @@ const routes: Routes = [
 	{ path: 'hall', component: HallOfFameComponent },
 	{
 		path: '', redirectTo: '/home', pathMatch: 'full'
-	},
+	},	
 	{
-		path: '**', component: NotFoundPageComponent
+		//entra NotFoundCOmponent
+		path: '**', redirectTo: '/home'
 	}
 ];
 
