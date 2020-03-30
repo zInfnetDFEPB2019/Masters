@@ -13,12 +13,19 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
-	{ path: 'profile', component: UserDetailsComponent },
+	{ path: 'profile/:id', component: UserDetailsComponent },
+	{
+		path: 'profile', redirectTo: 'compare', pathMatch: 'full'
+	},
 	{ path: 'project', component: ProjectDetailsComponent },
 	{ path: 'compare', component: UserCompareComponent },
 	{ path: 'hall', component: HallOfFameComponent },
-	{ path: '', redirectTo: '/home', pathMatch: 'full' },
-	{ path: '**', component: NotFoundPageComponent }
+	{
+		path: '', redirectTo: '/home', pathMatch: 'full'
+	},
+	{
+		path: '**', component: NotFoundPageComponent
+	}
 ];
 
 @NgModule({
@@ -31,3 +38,13 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
+/*
+> Exemplo:
+For instance =>  ['/team', teamId, 'user', userName, {details: true}] => '/team/11/user/bob;details=true'
+
+Multiple static segments can be merged into one (e.g., ['/team/11/user', userName, {details: true}]).
+
+<a [routerLink]="['/user/bob']" [queryParams]="{debug: true}" fragment="education">
+	link to user component
+</a>
+*/

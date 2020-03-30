@@ -5,72 +5,72 @@
 	"projects": {
 		"ng-app": {
 		"root": "",
-			"sourceRoot": "src",
-			"projectType": "application",
-			"prefix": "app",
-			"schematics": {},
-			"architect": {
-				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
-					"options": {
-						"outputPath": "dist",
-						"index": "src/index.html",
-						"main": "src/main.ts",
-						"polyfills": "src/polyfills.ts",
-						"tsConfig": "src/tsconfig.app.json",
-						"assets": [
-							"src/ico/favicon.ico",
-							"src/assets"
-						],
-						"styles": [
-							"node_modules/bootstrap/dist/css/bootstrap.min.css",              
-							"node_modules/bootstrap/scss/bootstrap.scss",              
-							"src/assets/css/nucleo-icons.css",
-							"src/styles.scss"
-						],
-						"scripts": [
-							"node_modules/jquery/dist/jquery.js",
-							"node_modules/hammerjs/hammer.js",
-							"node_modules/bootstrap/dist/js/bootstrap.js"
-						],
-						"es5BrowserSupport": true
-					},
-					"configurations": {
-						"production": {
-							"fileReplacements": [
-								{
-								"replace": "src/environments/environment.ts",
-								"with": "src/environments/environment.prod.ts"
-								}
-							],
-							"optimization": true,
-							"outputHashing": "all",
-							"sourceMap": false,
-							"extractCss": true,
-							"namedChunks": false,
-							"aot": true,
-							"extractLicenses": true,
-							"vendorChunk": false,
-							"buildOptimizer": true,
-							"budgets": [
-								{
-								"type": "initial",
-								"maximumWarning": "2mb",
-								"maximumError": "5mb"
-								}
-							]
+		"sourceRoot": "src",
+		"projectType": "application",
+		"prefix": "app",
+		"schematics": {},
+		"architect": {
+			"build": {
+			"builder": "@angular-devkit/build-angular:browser",
+			"options": {
+				"outputPath": "dist",
+				"index": "src/index.html",
+				"main": "src/main.ts",
+				"polyfills": "src/polyfills.ts",
+				"tsConfig": "src/tsconfig.app.json",
+				"assets": [
+					"src/ico/favicon.ico",
+					"src/assets"
+				],
+				"styles": [
+					"node_modules/bootstrap/dist/css/bootstrap.min.css",              
+					"node_modules/bootstrap/scss/bootstrap.scss",              
+					"src/assets/css/nucleo-icons.css",
+					"src/styles.scss"
+				],
+				"scripts": [
+					"node_modules/jquery/dist/jquery.js",
+					"node_modules/hammerjs/hammer.js",
+					"node_modules/bootstrap/dist/js/bootstrap.js"
+				],
+				"es5BrowserSupport": true
+			},
+			"configurations": {
+				"production": {
+					"fileReplacements": [
+						{
+							"replace": "src/environments/environment.ts",
+							"with": "src/environments/environment.prod.ts"
 						}
+				],
+				"optimization": true,
+				"outputHashing": "all",
+				"sourceMap": false,
+				"extractCss": true,
+				"namedChunks": false,
+				"aot": true,
+				"extractLicenses": true,
+				"vendorChunk": false,
+				"buildOptimizer": true,
+				"budgets": [
+					{
+					"type": "initial",
+					"maximumWarning": "2mb",
+					"maximumError": "5mb"
 					}
-				},
-				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
-					"options": {
-						"browserTarget": "ng-app:build"
-					},
-					"configurations": {
-						"production": {
-							"browserTarget": "ng-app:build:production"
-						}
+				]
+				}
+			}
+			},
+			"serve": {
+			"builder": "@angular-devkit/build-angular:dev-server",
+			"options": {
+				"browserTarget": "ng-app:build"
+			},
+			"configurations": {
+				"production": {
+				"browserTarget": "ng-app:build:production"
+				}
 					}
 				},
 				"extract-i18n": {

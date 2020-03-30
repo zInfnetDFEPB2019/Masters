@@ -1,15 +1,18 @@
+//Core Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
-// import { AppRoutingModule } from './app.routing';    //app.routing.ts.sample
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Angular MAterial imports
+
+// bootstrap
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+// Angular MAterial
 import {
 	MatButtonModule,
 	MatCheckboxModule,
@@ -21,10 +24,13 @@ import {
 	MatFormFieldModule,
 	MatInputModule,
 	MatTabsModule,
-	MatMenuModule
+	MatMenuModule,
+	MatCardModule,
 } from '@angular/material';
-import { HeaderComponent } from './pages/shared-pages/header/header.component';
-import { FooterComponent } from './pages/shared-pages/footer/footer.component';
+
+// Pages
+import { HeaderComponent } from './pages/shared/header/header.component';
+import { FooterComponent } from './pages/shared/footer/footer.component';
 import { TableDataComponent } from './pages/home/table-data/table-data.component';
 import { RowDetailsComponent } from './pages/home/table-data/row-details/row-details.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -34,7 +40,7 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { UserCompareComponent } from './pages/user-compare/user-compare.component';
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
-import { CardUserComponent } from './pages/shared-pages/card-user/card-user.component';
+import { CardUserComponent } from './pages/shared/card-user/card-user.component';
 
 @NgModule({
 	declarations: [
@@ -61,7 +67,9 @@ import { CardUserComponent } from './pages/shared-pages/card-user/card-user.comp
 		BrowserAnimationsModule,
 		//Angular Material
 		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
-		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule,
+		// import HttpClientModule after BrowserModule.
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [AppComponent],

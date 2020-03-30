@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardUserModel } from 'src/app/core/Model/card-user.model';
+import { CardUserModel } from 'src/app/Model/card-user.model';
+import { MathUtils } from '../../utils/math.utils'
 import * as faker from "faker/locale/pt_BR"
 
 @Component({
@@ -10,7 +11,6 @@ import * as faker from "faker/locale/pt_BR"
 export class UserCompareComponent implements OnInit {
 
 	public MAX_AMOUNT_CARDS = 13;
-	public arrayCards: Array<any> = Array.from(new Array(this.MAX_AMOUNT_CARDS), (val, index) => val);
 	public fakeCards: Array<CardUserModel> = [];
 
 	constructor() {
@@ -25,25 +25,22 @@ export class UserCompareComponent implements OnInit {
 
 		for (let i = 0; i < amount; i++) {
 			let cardUser: CardUserModel = {
-				name: faker.name.findName(),
+				Id: MathUtils.getRandom(0, 1000),
+				name: faker.name.firstName() + " " + faker.name.lastName(),
 				imgUrl: "string",
-				labelLeft: "string",
-				valueLeft: 1,
-				labelMiddle: "string",
-				valueMiddle: 1,
-				labelRight: "string",
-				valueRight: 1
+				valueLeft: MathUtils.getRandom(0, 100),
+				valueMiddle: MathUtils.getRandom(0, 1000),
+				valueRight: MathUtils.getRandom(0, 50),
 			};
 
 			cards.push(cardUser);
 		}
-		console.log(cards);
 		return cards;
 	}
 
-	private getRandom(min, max) {
-		return Math.round(Math.random() * (max - min) + min);
-	}
+	// private getRandom(min, max) {
+	//     return Math.round(Math.random() * (max - min) + min);
+	// }
 }
 
 

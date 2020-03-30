@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
-/*font-family: 'Courgette', ;*/
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-//font-family: 'Roboto', sans-serif; 
+// =====================================================
+// =========== FONTS 
+// =====================================================
 
+// $courgette: 'Courgette', ;
+@import url('https://fonts.googleapis.com/css?family=Courgette&display=swap');
+
+// $roboto: 'Roboto', sans-serif; 
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+// $montserrat: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,400,600,700');
+
+// $montserratAlternative: 'Montserrat Alternates', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap');
 
 
 // =====================================================
@@ -89,3 +99,14 @@ html, body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
+
+
+// =====================================================
+// =========== BOOTSTRAP ================
+// =====================================================
+
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "node_modules/bootstrap/scss/_mixins.scss";
