@@ -1,12 +1,14 @@
 {
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "outDir": "../out-tsc/app",
-    "types": []
-  },
-  "exclude": [
-    "test.ts",
-    "**/*.spec.ts"
-  ],
-  "indent": [true, "tabs", 4],
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../out-tsc/app",
+        "types": []
+    },
+    "exclude": [
+        "test.ts",
+        "**/*.spec.ts"
+    ],
+    "rules": {
+        "indent": [true, "tabs", 4],
+    }  
 }
