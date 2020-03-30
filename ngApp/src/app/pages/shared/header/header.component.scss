@@ -45,3 +45,20 @@ button{
 h3 {
 	font-family: $font-roboto;
 }
+
+
+
+// ===========================================
+// MEDIA QUERIES
+// ===========================================
+
+@import "node_modules/bootstrap/scss/_functions.scss";
+@import "node_modules/bootstrap/scss/_variables.scss";
+@import "node_modules/bootstrap/scss/_mixins.scss";
+
+// lasdscape less than 767.98px
+@include media-breakpoint-down(md) { 
+	.my-mat-tabs {
+		display: none;		
+	}
+}
