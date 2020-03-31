@@ -1,41 +1,31 @@
-<div class="card no-transition">
-	<table mat-table [dataSource]="dataSource" class="mat-elevation-z6">
+<div class="row mb-2 d-flex justify-content-around">
+	<div class="col-1 text-center font-weight-bold small">Foto</div>
+	<div class="col-4 text-left font-weight-bold small">Nome</div>
+	<div class="col-4 text-left font-weight-bold small">KPIs</div>
+	<div class="col-2 text-center font-weight-bold small">Posição</div>
+</div>
 
-		<!-- <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-
-			<th mat-header-cell *matHeaderCellDef>{{ column }}</th>
-			<td mat-cell *matCellDef="let element">
-				{{ element[column] }}
-			</td>
-		</ng-container> -->
-
-		<!-- Number Column -->
-		<ng-container matColumnDef="position">
-			<th mat-header-cell *matHeaderCellDef>#</th>
-			<td mat-cell *matCellDef="let row">{{row.position}}</td>
-		</ng-container>
-
-		<!-- Title Column -->
-		<ng-container matColumnDef="symbol">
-			<th mat-header-cell *matHeaderCellDef>Simbolo</th>
-			<td mat-cell *matCellDef="let row">{{row.symbol}}</td>
-		</ng-container>
-
-		<!-- State Column -->
-		<ng-container matColumnDef="name">
-			<th mat-header-cell *matHeaderCellDef>Nome</th>
-			<td mat-cell *matCellDef="let row">{{row.name}}</td>
-		</ng-container>
-
-		<!-- Created Column -->
-		<ng-container matColumnDef="weight">
-			<th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-				Peso
-			</th>
-			<td mat-cell *matCellDef="let row">{{row.weight}}</td>
-		</ng-container>
-
-		<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-		<tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>	
-	</table>
+<div class="transition">
+	<mat-list>
+		<div class="box-item" *ngFor="let message of messages">
+			<mat-list-item matRipple>				
+				<img matListAvatar src="http://i.pravatar.cc/250" alt="Photo of a Shiba Inu">
+				
+				<div class="row ml-2 my-auto align-items-center">										
+					<div class="col-4">				
+						col 2
+					</div>
+					<div class="col-5 borders">
+						<p>texto 1 - texto 1 - texto 1</p>
+					</div>
+					<div class="col-2" style="text-align: right;">
+						752
+					</div>
+					<div class="col-1" style="text-align: left;">
+						<i class="fa fa-sort-up fa-3x update-list" [style.color]="'green'"></i>
+					</div>
+				</div>
+			</mat-list-item>
+		</div>
+	</mat-list>
 </div>

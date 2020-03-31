@@ -26,6 +26,7 @@ import {
 	MatTabsModule,
 	MatMenuModule,
 	MatCardModule,
+	MatRippleModule,
 } from '@angular/material';
 
 // Pages
@@ -67,7 +68,7 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		BrowserAnimationsModule,
 		//Angular Material
 		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
-		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule,
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule, MatListModule, MatRippleModule,
 		// import HttpClientModule after BrowserModule.
 		HttpClientModule
 	],

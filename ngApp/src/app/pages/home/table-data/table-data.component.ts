@@ -33,8 +33,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 	styleUrls: ['./table-data.component.scss']
 })
 export class TableDataComponent implements OnInit {
-	// public tableData1: TableData;
-	// public tableData2: TableData;
+	messages = this.createList();
 
 	// Expansion Panel
 	panelOpenState = false;
@@ -48,6 +47,18 @@ export class TableDataComponent implements OnInit {
 
 	ngOnInit() {
 
+	}
+
+	createList(): Array<any> {
+		let messages = [];
+
+		for (let index = 0; index < 20; index++) {
+			const item = {
+				name: 'Entity '+ index,				
+			}
+			messages.push(item);
+		}
+		return messages;
 	}
 
 	// BUTTON Methods

@@ -1,9 +1,38 @@
-
-table {
-	width: 100%;
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+	height: 90px;
 }
 
-.mat-column-position {
-	max-width: 20px;
-	border: 1px solid black;
+
+mat-list-item {
+	margin: 0 0 25px;
+	overflow: hidden;
+	padding: 20px;	
+	//border: 1px solid #bdbdbd;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+
+	box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.17);
+
+	.mat-list-avatar {
+		width: 60px;
+		height: 60px;		
+	}
+	
+	.update-list {
+		position: absolute;
+		left: -4px;
+		z-index: 100;
+	}
+
+	.row {
+		width: 100%;
+		flex-wrap: nowrap;
+
+		&__content {
+			width: 100%;
+			flex-wrap: nowrap;
+		}
+	}
+
+	
 }
