@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
 	public pontosRank3 = 610;
 	public percentRank3 = `${this.pontosPercent(this.pontosRank3)}%`;
 
+	public colorGreenUp = "rgb(68, 234, 95)";
+	public colorRedDown = "red";
+
 	constructor() { }
 
 	ngOnInit() {

@@ -39,7 +39,7 @@ export class TableDataComponent implements OnInit {
 	// Expansion Panel
 	panelOpenState = false;
 
-	displayedColumns: string[] = ['name', 'weight', 'symbol', 'position'];
+	displayedColumns: string[] = ['position', 'symbol', 'name', 'weight'];
 	columnsToDisplay: string[] = this.displayedColumns.slice();
 
 	dataSource = ELEMENT_DATA;
