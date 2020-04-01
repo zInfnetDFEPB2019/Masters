@@ -18,11 +18,11 @@ export interface Kpi {
 
 
 @Component({
-	selector: 'app-table-data',
-	templateUrl: './table-data.component.html',
-	styleUrls: ['./table-data.component.scss']
+	selector: 'app-ranking-list',
+	templateUrl: './ranking-list.component.html',
+	styleUrls: ['./ranking-list.component.scss']
 })
-export class TableDataComponent implements OnInit {
+export class RankingListComponent implements OnInit {
 	
 	public userList:UserScore[] = [];
 	public starIcon = '../../../assets/icons/star.svg'
