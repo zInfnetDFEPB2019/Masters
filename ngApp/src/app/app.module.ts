@@ -33,7 +33,6 @@ import {
 import { HeaderComponent } from './pages/shared/header/header.component';
 import { FooterComponent } from './pages/shared/footer/footer.component';
 import { TableDataComponent } from './pages/home/table-data/table-data.component';
-import { RowDetailsComponent } from './pages/home/table-data/row-details/row-details.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AccessComponent } from './pages/access/access.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
@@ -49,7 +48,6 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		HeaderComponent,
 		FooterComponent,
 		TableDataComponent,
-		RowDetailsComponent,
 		HomeComponent,
 		AccessComponent,
 		UserDetailsComponent,
