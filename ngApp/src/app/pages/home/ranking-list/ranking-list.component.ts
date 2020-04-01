@@ -1,20 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MathUtils } from 'src/app/utils/math.utils';
-
-export interface UserScore {
-	name: string;
-	nickName: string;
-	updatePosition: number;
-	position: number;
-	scoreKpis: Kpi[];
-}
-
-export interface Kpi {
-	title: string;
-	iconUrl: string;
-	score: number;
-	classWrapperName: string;
-}
+import { RankingListService } from 'src/app/services/ranking-list.service';
+import { UserScore } from 'src/app/Model/user-score.model';
 
 
 @Component({
@@ -29,45 +16,23 @@ export class RankingListComponent implements OnInit {
 
 
 	constructor(
+		private rankingListServ: RankingListService
 	) { }
 
 	ngOnInit() {
-		this.userList = this.createList();
+		this.getRankingList();
 	}
 
-	createList(): Array<UserScore> {
-		let users:UserScore[] = [];
-
-		for (let i = 0; i < 20; i++) {
-
-			let kpis = [
-				this.buildKpi("danger", this.starIcon, "KPI-1"),
-				this.buildKpi("success",this.starIcon, "KPI-2"),
-				this.buildKpi("info",this.starIcon, "KPI-3"),
-				this.buildKpi("warning",this.starIcon, "KPI-4")
-			]
-
-			const user: UserScore = {
-				name: "Usuario " + i,
-				nickName: "@user"+i+"-master",
-				position: i +1,
-				scoreKpis: kpis,
-				updatePosition: MathUtils.getRandomChoice()
-			}
-			users.push(user);
-		}
-		console.log(users);
-		return users;
-	}
-
-	public buildKpi(classWrap:string, icon: string, title: string ): Kpi {
-		let item:Kpi = {
-			score: MathUtils.getRandom(0, 1000),
-			classWrapperName: classWrap,
-			iconUrl: icon,
-			title: title
-		}
-		return item;
+	public getRankingList(): void {
+		this.rankingListServ.getRankingList().subscribe(
+			(users) => {	
+				console.log('GET TODOS OS USUARIOS');
+				console.log(users);
+				this.userList = users;
+			}, 
+			(error) => {
+				console.error(error);
+			});
 	}
 
 	public getColorIcon(pos: number, updated: number):string {
