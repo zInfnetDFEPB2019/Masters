@@ -1,30 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { MathUtils } from 'src/app/utils/math.utils';
 
-declare interface TableData {
-	headerRow: string[];
-	dataRows: string[][];
-}
-
-export interface PeriodicElement {
+export interface UserScore {
 	name: string;
+	nickName: string;
+	updatePosition: number;
 	position: number;
-	weight: number;
-	symbol: string;
+	scoreKpis: Kpi[];
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-	{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-	{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-	{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-	{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-	{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-	{ position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-	{ position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-	{ position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-	{ position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-	{ position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
-
+export interface Kpi {
+	title: string;
+	iconUrl: string;
+	score: number;
+	classWrapperName: string;
+}
 
 
 @Component({
@@ -33,61 +23,83 @@ const ELEMENT_DATA: PeriodicElement[] = [
 	styleUrls: ['./table-data.component.scss']
 })
 export class TableDataComponent implements OnInit {
-	messages = this.createList();
+	
+	public userList:UserScore[] = [];
+	public starIcon = '../../../assets/icons/star.svg'
 
-	// Expansion Panel
-	panelOpenState = false;
 
-	displayedColumns: string[] = ['position', 'symbol', 'name', 'weight'];
-	columnsToDisplay: string[] = this.displayedColumns.slice();
-
-	dataSource = ELEMENT_DATA;
-
-	constructor() { }
+	constructor(
+	) { }
 
 	ngOnInit() {
-
+		this.userList = this.createList();
 	}
 
-	createList(): Array<any> {
-		let messages = [];
+	createList(): Array<UserScore> {
+		let users:UserScore[] = [];
 
-		for (let index = 0; index < 20; index++) {
-			const item = {
-				name: 'Entity '+ index,				
+		for (let i = 0; i < 20; i++) {
+
+			let kpis = [
+				this.buildKpi("danger", this.starIcon, "KPI-1"),
+				this.buildKpi("success",this.starIcon, "KPI-2"),
+				this.buildKpi("info",this.starIcon, "KPI-3"),
+				this.buildKpi("warning",this.starIcon, "KPI-4")
+			]
+
+			const user: UserScore = {
+				name: "Usuario " + i,
+				nickName: "@user"+i+"-master",
+				position: i +1,
+				scoreKpis: kpis,
+				updatePosition: MathUtils.getRandomChoice()
 			}
-			messages.push(item);
+			users.push(user);
 		}
-		return messages;
+		console.log(users);
+		return users;
 	}
 
-	// BUTTON Methods
-	addColumn() {
-		const randomColumn = Math.floor(Math.random() * this.displayedColumns.length);
-		this.columnsToDisplay.push(this.displayedColumns[randomColumn]);
+	public buildKpi(classWrap:string, icon: string, title: string ): Kpi {
+		let item:Kpi = {
+			score: MathUtils.getRandom(0, 1000),
+			classWrapperName: classWrap,
+			iconUrl: icon,
+			title: title
+		}
+		return item;
 	}
 
-	removeColumn() {
-		if (this.columnsToDisplay.length) {
-			this.columnsToDisplay.pop();
-		}
+	public getColorIcon(pos: number, updated: number):string {
+		let notUpdate = "lightblue";
+		let toUp = "green";
+		let toDown = "red";
+
+		if(pos == 1 && updated > 0) return toUp;
+		if(pos == 1 && updated == 0) return notUpdate;
+
+		return (updated > 0) ? toUp
+							: (updated < 0) ? toDown
+							: notUpdate;
 	}
 
-	shuffle() {
-		let currentIndex = this.columnsToDisplay.length;
-		while (0 !== currentIndex) {
-			const randomIndex = Math.floor(Math.random() * currentIndex);
-			currentIndex -= 1;
+	public getClassPositionIcon(pos: number, updatePosition: number): string {
+		let notUpdate = "fa-square";
+		let toUp = "fa-caret-up";
+		let toDown = "fa-caret-down";
 
-			// Swap
-			const temp = this.columnsToDisplay[currentIndex];
-			this.columnsToDisplay[currentIndex] = this.columnsToDisplay[randomIndex];
-			this.columnsToDisplay[randomIndex] = temp;
-		}
+		console.log("pos: " + pos + " updated: " + updatePosition);
+
+		if(pos == 1 && updatePosition > 0) return toUp;
+		if(pos == 1 && updatePosition == 0) return notUpdate;
+
+		let classStr = (updatePosition > 0) ? toUp
+			: (updatePosition < 0) ?  toDown
+			: notUpdate;
+		return classStr;
 	}
 
 	viewProfile() {
 		alert('Funciona!');
 	}
-
 }

@@ -7,22 +7,33 @@
 
 <div class="transition">
 	<mat-list>
-		<div class="box-item" *ngFor="let message of messages">
-			<mat-list-item matRipple>				
+		<div class="box-item" *ngFor="let USER of userList">
+			<mat-list-item matRipple>
 				<img matListAvatar src="http://i.pravatar.cc/250" alt="Photo of a Shiba Inu">
-				
-				<div class="row ml-2 my-auto align-items-center">										
-					<div class="col-4">				
-						col 2
+
+				<div class="line-content row ml-2 my-auto align-items-center">
+					<div class="col-4">
+						<p>{{ USER.name }}</p>
+						<p>{{ USER.nickName }}</p>
 					</div>
-					<div class="col-5 borders">
-						<p>texto 1 - texto 1 - texto 1</p>
+					<div class="col-5 my-auto">						
+						<div class="box-kpis row d-flex justify-content-between flex-wrap">							
+							<div class="kpi justify-content-center flex-nowrap" *ngFor="let KPI of USER.scoreKpis">
+								<img class="mr-2" [src]="KPI.iconUrl" width="20px" height="20px" />
+								<span class="badge badge-{{ KPI.classWrapperName }}">
+									{{ KPI.score }} pts
+								</span>
+							</div>						
+						</div>
 					</div>
 					<div class="col-2" style="text-align: right;">
-						752
+						{{ USER.position }}
 					</div>
 					<div class="col-1" style="text-align: left;">
-						<i class="fa fa-sort-up fa-3x update-list" [style.color]="'green'"></i>
+						<i class="fa {{USER.updatePosition == 0 ? 'fa-2x' : 'fa-3x'}}" 
+						[ngClass]="getClassPositionIcon(USER.position, USER.updatePosition)"
+						[style.color]="getColorIcon(USER.position, USER.updatePosition)">
+					</i>
 					</div>
 				</div>
 			</mat-list-item>

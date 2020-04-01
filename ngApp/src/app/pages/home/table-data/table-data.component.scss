@@ -24,9 +24,11 @@ mat-list-item {
 		z-index: 100;
 	}
 
-	.row {
+	.line-content {
 		width: 100%;
+		height: 90px;
 		flex-wrap: nowrap;
+		//FIXME mobile: margin-right: 20px;
 
 		&__content {
 			width: 100%;
@@ -35,4 +37,12 @@ mat-list-item {
 	}
 
 	
+}
+
+@media only screen and (min-width: 1024px){
+	.box-kpis{ flex-basis: 50%; }
+}
+  
+@media only screen and (min-width: 1024px){
+	.box-kpis{ flex-basis: 50%; }
 }
