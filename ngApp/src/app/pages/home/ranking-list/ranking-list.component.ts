@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MathUtils } from 'src/app/utils/math.utils';
 import { RankingListService } from 'src/app/services/ranking-list.service';
 import { UserScore } from 'src/app/Model/user-score.model';
+import { UserCompareService } from 'src/app/services/user-compare.service';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -16,7 +18,9 @@ export class RankingListComponent implements OnInit {
 
 
 	constructor(
-		private rankingListServ: RankingListService
+		private rankingListServ: RankingListService,
+		private userCompareServ: UserCompareService,
+		private sanitizer: DomSanitizer
 	) { }
 
 	ngOnInit() {
@@ -25,13 +29,35 @@ export class RankingListComponent implements OnInit {
 
 	public getRankingList(): void {
 		this.rankingListServ.getRankingList().subscribe(
-			(users) => {	
-				console.log('GET TODOS OS USUARIOS');
-				console.log(users);
+			(users) => {					
 				this.userList = users;
 			}, 
 			(error) => {
 				console.error(error);
+			});
+	}
+
+	public getPhoto(user: UserScore) {
+		//this.imgLoading = true;
+
+		this.userCompareServ.getPhotoCard().subscribe(
+			(res) => {
+				let blobImg: any = new Blob([res], { type: 'image/jpeg' });
+				let objUrl = window.URL.createObjectURL(blobImg);
+				let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
+
+				setTimeout(() => {
+					user.photoUrl = secureObjUrl;
+					//this.imgLoading = false;
+				}, 1800);
+
+			},
+			(error) => {
+				console.error("Error request: ", error);
+
+			},
+			() => {
+				//terminando a função.
 			});
 	}
 
@@ -53,14 +79,13 @@ export class RankingListComponent implements OnInit {
 		let toUp = "fa-caret-up";
 		let toDown = "fa-caret-down";
 
-		console.log("pos: " + pos + " updated: " + updatePosition);
-
 		if(pos == 1 && updatePosition > 0) return toUp;
 		if(pos == 1 && updatePosition == 0) return notUpdate;
 
 		let classStr = (updatePosition > 0) ? toUp
 			: (updatePosition < 0) ?  toDown
 			: notUpdate;
+
 		return classStr;
 	}
 

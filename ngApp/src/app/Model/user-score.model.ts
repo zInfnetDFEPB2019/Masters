@@ -5,5 +5,6 @@ export class UserScore {
 	nickName: string;
 	updatePosition: number;
 	position: number;
+	photoUrl: any;
 	scoreKpis: Kpi[];
 }
