@@ -4,16 +4,16 @@
 		<div class="mx-auto">
 			<div class="col-md-12">
 				<div class="row align-items-center justify-content-center mx-5 mt-2">
-					<button  type="button" mat-raised-button color="primary" class="btn btn-round m-2" (click)="changeKpi(0)">
+					<button  type="button" mat-raised-button class="btn btn-round m-2 btn-danger" (click)="changeKpi(0)">
 						<i class="fa fa-arrow-circle-up mr-2"></i>KPI A
 					</button>
-					<button type="button" mat-raised-button color="accent" class="btn btn-round m-2" (click)="changeKpi(1)">
+					<button type="button" mat-raised-button class="btn btn-round m-2 btn-success" (click)="changeKpi(1)">
 						<i class="fa fa-arrow-down mr-2"></i>KPI B
 					</button>
-					<button type="button" mat-raised-button class="btn btn-round m-2" (click)="changeKpi(2)">
+					<button type="button" mat-raised-button class="btn btn-round m-2 btn-info" (click)="changeKpi(2)">
 						<i class="fa fa-address-card mr-2"></i>KPI C
 					</button>
-					<button type="button" mat-raised-button color="warn" class="btn btn-round m-2" (click)="changeKpi(3)">
+					<button type="button" mat-raised-button class="btn btn-round m-2 btn-warning" (click)="changeKpi(3)">
 						<i class="fa fa-bars mr-2"></i>KPI D
 					</button>
 				</div>
@@ -24,7 +24,7 @@
 				<div class="row m-0">
 					<!-- 1ºlugar -->
 					<div class="col-4 col-sm-3 col-md-3 m-4 box order-2" (click)="viewProfile()">
-						<img [src]="rankPicture1" class="award-yes-img rounded-circle img-thumbnail mat-elevation-z3" />
+						<img [src]="getPhotoOrDefault(userTop1.photoUrl)" class="award-yes-img rounded-circle img-thumbnail mat-elevation-z3" />
 						<img [src]="awardImg1" class="award aw-1 rounded-circle img-thumbnail" />
 
 						<!-- Score bar -->
@@ -45,7 +45,7 @@
 							<p class="m-0 font-weight-bold">2</p>
 							<i class="fa fa-sort-up fa-3x" [style.color]="colorGreenUp"></i>
 						</div> -->
-						<img [src]="rankPicture2" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
+						<img [src]="getPhotoOrDefault(userTop2.photoUrl)" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
 						<img [src]="awardImg2" class="award rounded-circle img-thumbnail" />
 						
 						<!-- Name e @nickName -->
@@ -74,7 +74,7 @@
 							<i class="fa fa-sort-down order-1 fa-3x" [style.color]="colorRedDown"></i>
 						</div> -->
 						<!-- Image -->
-						<img [src]="rankPicture3" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
+						<img [src]="getPhotoOrDefault(userTop3.photoUrl)" class="award-no-img rounded-circle img-thumbnail mat-elevation-z6" />
 						<img [src]="awardImg3" class="award rounded-circle img-thumbnail" />
 
 						<!-- Score bar -->
@@ -93,7 +93,11 @@
 				<hr />
 
 				<!-- Ranking List -->
-				<app-ranking-list #rankingListTag></app-ranking-list>
+				<app-ranking-list #rankingListTag
+					[top1]="userTop1"
+					[top2]="userTop2"
+					[top3]="userTop3"
+					></app-ranking-list>
 			</div>
 		</div>
 	</div>

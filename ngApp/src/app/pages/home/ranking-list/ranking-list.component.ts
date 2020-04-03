@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MathUtils } from 'src/app/utils/math.utils';
 import { RankingListService } from 'src/app/services/ranking-list.service';
 import { UserScore } from 'src/app/Model/user-score.model';
 import { UserCompareService } from 'src/app/services/user-compare.service';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { CollectionsUtils } from 'src/app/utils/collections.utils';
+import { UserTopChampion } from 'src/app/Model/user-top-champion.model';
 
 
 @Component({
@@ -16,11 +17,14 @@ export class RankingListComponent implements OnInit {
 	
 	public userList:UserScore[] = [];
 	public starIcon = '../../../assets/icons/star.svg'
+	public onUpdatingList: boolean = false;
 
+	@Input('top1') ChampionTop1: UserTopChampion;
+	@Input('top2') ChampionTop2: UserTopChampion;
+	@Input('top3') ChampionTop3: UserTopChampion;
 
 	constructor(
 		private rankingListServ: RankingListService,
-		private userCompareServ: UserCompareService,
 		private sanitizer: DomSanitizer
 	) { }
 
@@ -31,29 +35,36 @@ export class RankingListComponent implements OnInit {
 	public getRankingList(): void {
 		this.rankingListServ.getRankingList().subscribe(
 			(users) => {					
-				this.userList = users;
-				this.userList.map((user) => {
+				this.userList = users.map((user) => Object.assign( new UserScore(), user));
+				this.userList.map((user: UserScore) => {
 					this.getPhoto(user);
-				})
+				});
+
+				this.sortRankingListByKpi();				
 			}, 
 			(error) => {
 				console.error(error);
+				this.onUpdatingList = false;
 			});
 	}
 
 	public getPhoto(user: UserScore) {
 		//this.imgLoading = true;
-
+		if (user.isChampion()) this.getChampionByPosition(user.position).isUpdating = true;
+			
 		this.rankingListServ.getUserPhoto().subscribe(
 			(res) => {
 				let blobImg: any = new Blob([res], { type: 'image/jpeg' });
-
-				console.log("Response img" , {res, blobImg});
-
-					let objUrl = window.URL.createObjectURL(blobImg);
+				let objUrl = window.URL.createObjectURL(blobImg);
 				let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
 
-				user.photoUrl = secureObjUrl;
+				user.photoUrl = secureObjUrl;							
+				if (user.isChampion()) {
+					let champ = this.getChampionByPosition(user.position)
+					champ.isUpdating = false;
+					champ.photoUrl = secureObjUrl;
+					console.log(champ);
+				}
 				
 				// setTimeout(() => {
 				// 	//this.imgLoading = false;
@@ -99,9 +110,11 @@ export class RankingListComponent implements OnInit {
 		alert('Funciona!');
 	}
 
-	public sortRankingListByKpi(kpiIndex: number): void {
+	public sortRankingListByKpi(kpiIndex?: number): void {
+		kpiIndex = (kpiIndex) ? kpiIndex : 0;
+
 		let usersKpiUpdated: Array<UserScore> = this.userList.map((user) => {
-			user.kpiActiveIndex = kpiIndex
+			user.kpiActiveIndex = kpiIndex;
 			return user;
 		});
 		usersKpiUpdated = usersKpiUpdated.sort(CollectionsUtils.sortUsersToRankingListDesc);
@@ -111,5 +124,26 @@ export class RankingListComponent implements OnInit {
 			user.position = i + 1;
 			return user;			
 		})
+
+		this.refreshChampions();
+	}
+
+	public getChampionByPosition(position: number): UserTopChampion {		
+		return (position == 1) ? this.ChampionTop1
+				: (position == 2) ? this.ChampionTop2
+					: this.ChampionTop3;
+	}
+
+	public refreshChampions(): void {
+		let championsUpdated = this.userList.filter((user) => user.position < 4);
+		championsUpdated.forEach((user) => this.updateChampion(user, this.getChampionByPosition(user.position)))
+	}
+
+	updateChampion(userData: UserScore, userTarget: UserTopChampion): void {	
+		if(!userTarget.isUpdating && userTarget.photoUrl) {
+			userTarget.photoUrl = userData.photoUrl;
+		}	
+		userTarget.position = userData.position;
+		userTarget.scoreKpi = userData.scoreKpis[userData.kpiActiveIndex].score;
 	}
 }

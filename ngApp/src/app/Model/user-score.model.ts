@@ -6,6 +6,10 @@ export class UserScore {
 	updatePosition: number;
 	position: number;
 	photoUrl: any;
-	kpiActiveIndex: number;
+	kpiActiveIndex: number;	
 	scoreKpis: Kpi[];
+
+	isChampion() {
+		return (this.position < 4);
+	}
 }
