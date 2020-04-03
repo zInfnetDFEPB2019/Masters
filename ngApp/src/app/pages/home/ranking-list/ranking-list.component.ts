@@ -32,6 +32,9 @@ export class RankingListComponent implements OnInit {
 		this.rankingListServ.getRankingList().subscribe(
 			(users) => {					
 				this.userList = users;
+				this.userList.map((user) => {
+					this.getPhoto(user);
+				})
 			}, 
 			(error) => {
 				console.error(error);
@@ -41,21 +44,23 @@ export class RankingListComponent implements OnInit {
 	public getPhoto(user: UserScore) {
 		//this.imgLoading = true;
 
-		this.userCompareServ.getPhotoCard().subscribe(
+		this.rankingListServ.getUserPhoto().subscribe(
 			(res) => {
 				let blobImg: any = new Blob([res], { type: 'image/jpeg' });
-				let objUrl = window.URL.createObjectURL(blobImg);
+
+				console.log("Response img" , {res, blobImg});
+
+					let objUrl = window.URL.createObjectURL(blobImg);
 				let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
 
-				setTimeout(() => {
-					user.photoUrl = secureObjUrl;
-					//this.imgLoading = false;
-				}, 1800);
-
+				user.photoUrl = secureObjUrl;
+				
+				// setTimeout(() => {
+				// 	//this.imgLoading = false;
+				// }, 800);
 			},
 			(error) => {
 				console.error("Error request: ", error);
-
 			},
 			() => {
 				//terminando a função.

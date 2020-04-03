@@ -24,12 +24,12 @@ export class RankingListService {
 
 	public getUserPhoto(): Observable<any> {
 		let url = this.genPhotoUrl();
-		return this.http.get<Array<UserScore>>(url);
+		return this.http.get(url, { responseType: 'blob' });
 	}
 
 	private genPhotoUrl(): string {
 		let sex = (MathUtils.getRandom(0,10) > 5) ? "woman" : "man";
-		let num = MathUtils.getRandom(0,22);
+		let num = MathUtils.getRandom(1,22);
 
 		let url: string = this.PROFILE_IMG_PATH + sex + "/img_card_" + num + ".jpg";
 
