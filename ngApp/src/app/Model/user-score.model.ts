@@ -6,5 +6,6 @@ export class UserScore {
 	updatePosition: number;
 	position: number;
 	photoUrl: any;
+	kpiActiveIndex: number;
 	scoreKpis: Kpi[];
 }

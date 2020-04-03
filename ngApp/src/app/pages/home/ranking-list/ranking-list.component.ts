@@ -4,6 +4,7 @@ import { RankingListService } from 'src/app/services/ranking-list.service';
 import { UserScore } from 'src/app/Model/user-score.model';
 import { UserCompareService } from 'src/app/services/user-compare.service';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
+import { CollectionsUtils } from 'src/app/utils/collections.utils';
 
 
 @Component({
@@ -91,5 +92,19 @@ export class RankingListComponent implements OnInit {
 
 	viewProfile() {
 		alert('Funciona!');
+	}
+
+	public sortRankingListByKpi(kpiIndex: number): void {
+		let usersKpiUpdated: Array<UserScore> = this.userList.map((user) => {
+			user.kpiActiveIndex = kpiIndex
+			return user;
+		});
+		usersKpiUpdated = usersKpiUpdated.sort(CollectionsUtils.sortUsersToRankingListDesc);
+
+		//update positions
+		this.userList = usersKpiUpdated.map((user, i) => {
+			user.position = i + 1;
+			return user;			
+		})
 	}
 }

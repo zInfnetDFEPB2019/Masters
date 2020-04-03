@@ -4,16 +4,16 @@
 		<div class="mx-auto">
 			<div class="col-md-12">
 				<div class="row align-items-center justify-content-center mx-5 mt-2">
-					<button type="button" mat-raised-button color="primary" class="btn btn-round m-2"><i
-							class="fa fa-arrow-circle-up mr-2"></i>KPI A
+					<button  type="button" mat-raised-button color="primary" class="btn btn-round m-2" (click)="changeKpi(0)">
+						<i class="fa fa-arrow-circle-up mr-2"></i>KPI A
 					</button>
-					<button type="button" mat-raised-button color="accent" class=" btn btn-round m-2">
+					<button type="button" mat-raised-button color="accent" class="btn btn-round m-2" (click)="changeKpi(1)">
 						<i class="fa fa-arrow-down mr-2"></i>KPI B
 					</button>
-					<button type="button" mat-raised-button class="btn btn-round m-2">
+					<button type="button" mat-raised-button class="btn btn-round m-2" (click)="changeKpi(2)">
 						<i class="fa fa-address-card mr-2"></i>KPI C
 					</button>
-					<button type="button" mat-raised-button color="warn" class="btn btn-round m-2">
+					<button type="button" mat-raised-button color="warn" class="btn btn-round m-2" (click)="changeKpi(3)">
 						<i class="fa fa-bars mr-2"></i>KPI D
 					</button>
 				</div>
@@ -93,7 +93,7 @@
 				<hr />
 
 				<!-- Ranking List -->
-				<app-ranking-list></app-ranking-list>
+				<app-ranking-list #rankingListTag></app-ranking-list>
 			</div>
 		</div>
 	</div>

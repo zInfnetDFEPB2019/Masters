@@ -42,5 +42,5 @@ export class UserCompareService {
 		});
 		return this.http.post<Blob>(this.url,
 			{ headers: headers, responseType: 'blob' as 'json' });
-	}
+	}	
 }

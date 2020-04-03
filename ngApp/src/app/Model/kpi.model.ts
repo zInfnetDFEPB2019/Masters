@@ -3,4 +3,5 @@ export class Kpi {
 	iconUrl: string;
 	score: number;
 	classWrapperName: string;
+	classIconName: string;
 }

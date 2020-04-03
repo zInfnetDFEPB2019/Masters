@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { RankingListComponent } from './ranking-list/ranking-list.component';
+import { Kpi } from 'src/app/Model/kpi.model';
 
 const PROFILE_PIC1 = '../../assets/img/faces/kaci-baum-2.jpg';
 const AWARD_IMG_1 = '../../assets/icons/awards/coroa.svg';
@@ -35,10 +37,23 @@ export class HomeComponent implements OnInit {
 
 	public colorGreenUp = "rgb(68, 234, 95)";
 	public colorRedDown = "red";
+	
+	@ViewChild("rankingListTag") rankingList: RankingListComponent;
 
 	constructor() { }
 
-	ngOnInit() {
+	ngOnInit() {		
+	}
+
+	public buildKPIButton(label: string, classIcon: string): Kpi {
+		let kpiItem: Kpi = {
+			classIconName: classIcon,
+			title: label,
+			iconUrl: "",
+			classWrapperName: "",
+			score: 0,
+		}
+		return kpiItem;
 	}
 
 	public pontosPercent(pontos: number): number {
@@ -47,6 +62,10 @@ export class HomeComponent implements OnInit {
 
 	public viewProfile(): void {
 
+	}
+
+	changeKpi(kpiIndex: number):void {
+		this.rankingList.sortRankingListByKpi(kpiIndex);
 	}
 
 }
