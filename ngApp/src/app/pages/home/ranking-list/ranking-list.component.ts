@@ -69,7 +69,7 @@ export class RankingListComponent implements OnInit {
 						champ.photoUrl = secureObjUrl;
 						console.log(champ);
 					}
-				}, 5000);
+				}, 500);
 				
 			},
 			(error) => {

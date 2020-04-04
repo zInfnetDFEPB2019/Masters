@@ -83,16 +83,15 @@ $award-border-color: rgb(255, 219, 59);
 	
 	.box-champ {
         position: relative;
-        
-        // .award-yes-img{
-        //    	width: 15rem;
-        //     height: 15rem;
-        // }
-
-        // .award-no-img{
-        //     min-width: 150px;
-        //     min-height: 150px;
-		// }
+		
+		.spn {
+			z-index: 999;
+			top: 35%;
+			left: 35%;
+			width: 30%;
+			height: 30%;			
+			border-width: 0.40rem;			
+		}      
 		
 		.zoom {
 			cursor: pointer;
