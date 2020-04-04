@@ -1,5 +1,5 @@
 $award-border-color: rgb(255, 219, 59);
-
+$img-profile-default: '/src/assets/img/profile_card/default.jpg';
 // $tamanho_max: 150px;
 
 @keyframes popUp{
@@ -84,14 +84,21 @@ $award-border-color: rgb(255, 219, 59);
 	.box-champ {
         position: relative;
 		
-		.spn {
-			z-index: 999;
-			top: 35%;
-			left: 35%;
-			width: 30%;
-			height: 30%;			
-			border-width: 0.40rem;			
-		}      
+		.top-img{
+
+			.spn {
+				z-index: 999;
+				top: 35%;
+				left: 35%;
+				width: 30%;
+				height: 30%;			
+				border-width: 0.40rem;			
+			}      
+
+			img {
+				background-image: url($img-profile-default);
+			}
+		}
 		
 		.zoom {
 			cursor: pointer;

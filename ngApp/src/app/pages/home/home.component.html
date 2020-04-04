@@ -1,8 +1,8 @@
-<div class="page-content">
+<div class="page-content align-items-start">
 	<div class="container">
 		<!-- <h5 class="text-center">[Angular Material] "Table dynamically changing the columns displayed"</h5> -->
 		<div class="mx-auto">
-			<div class="row align-items-center justify-content-center mx-5 mt-2">
+			<div class="row align-items-center justify-content-center mx-5">
 				<button type="button" mat-raised-button class="btn btn-round m-2 btn-danger" (click)="changeKpi(0)">
 					<i class="fa fa-arrow-circle-up mr-2"></i>KPI A
 				</button>
@@ -22,14 +22,14 @@
 			<!-- Top3 Imagens -->
 			<div class="row m-0">
 				<!-- 1ºlugar -->
-				<div class="box-champ col-4 col-sm-4 col-md-3 m-4 order-2" (click)="viewProfile()">
+				<div class="box-champ col-4 col-md-3 m-4 order-2" (click)="viewProfile()">
 					<!-- Imagem -->
 					<div class="top-img position-relative">
+						<img [src]="getPhotoOrDefault(userTop1.photoUrl)"
+							class="slide award-yes-img rounded-circle img-thumbnail mat-elevation-z3" />
 						<div *ngIf="userTop1.isUpdating" class="spinner-border spn position-absolute" role="status">
 							<span class="sr-only">Loading...</span>
 						</div>
-						<img [src]="getPhotoOrDefault(userTop1.photoUrl)"
-							class="slide award-yes-img rounded-circle img-thumbnail mat-elevation-z3" />
 					</div>
 					<img [src]="awardImg1" class="award aw-1 zoom rounded-circle img-thumbnail" />
 						
@@ -48,15 +48,15 @@
 				</div>
 
 				<!-- 2ºlugar -->
-				<div class="box-champ col-3 col-sm-3 col-md-2 m-auto order-1" (click)="viewProfile()">
+				<div class="box-champ col-3 col-md-2 m-auto order-1" (click)="viewProfile()">
 
 					<!-- Image -->
 					<div class="top-img position-relative">
+						<img [src]="getPhotoOrDefault(userTop2.photoUrl)"
+							class="slide award-no-img slide rounded-circle img-thumbnail mat-elevation-z6" />
 						<div *ngIf="userTop2.isUpdating" class="spinner-border spn position-absolute" role="status">
 							<span class="sr-only">Loading...</span>
 						</div>
-						<img [src]="getPhotoOrDefault(userTop2.photoUrl)"
-							class="slide award-no-img slide rounded-circle img-thumbnail mat-elevation-z6" />
 					</div>				
 					<img [src]="awardImg2" class="award zoom rounded-circle img-thumbnail" />
 
@@ -77,15 +77,15 @@
 				</div>
 
 				<!-- 3ºlugar -->
-				<div class="box-champ col-3 col-sm-3 col-md-2 m-auto order-3" (click)="viewProfile()">
+				<div class="box-champ col-3 col-md-2 m-auto order-3" (click)="viewProfile()">
 
 					<!-- Image -->
 					<div class="top-img position-relative">
+						<img [src]="getPhotoOrDefault(userTop3.photoUrl)"
+							class="slide award-no-img slide rounded-circle img-thumbnail mat-elevation-z6" />
 						<div *ngIf="userTop3.isUpdating" class="spinner-border spn position-absolute" role="status">
 							<span class="sr-only">Loading...</span>
 						</div>
-						<img [src]="getPhotoOrDefault(userTop3.photoUrl)"
-							class="slide award-no-img slide rounded-circle img-thumbnail mat-elevation-z6" />
 					</div>
 					<img [src]="awardImg3" class="award slide rounded-circle img-thumbnail" />
 

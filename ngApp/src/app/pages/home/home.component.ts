@@ -39,6 +39,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 		this.userTop1.isUpdating = true;
 		this.userTop2.isUpdating = true;
 		this.userTop3.isUpdating = true;
+
+		//TODO: TESTAR APOS BUILD SE PATH NO SCSS NAO QUEBROU PELA REFERENCIA USADA.
+		//this.userTop1.photoUrl = this.user_default
+		//this.userTop2.photoUrl = this.user_default
+		//this.userTop3.photoUrl = this.user_default
 	}
 	
 	ngOnInit() {		
