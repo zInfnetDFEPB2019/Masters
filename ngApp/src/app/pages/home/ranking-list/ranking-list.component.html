@@ -9,7 +9,7 @@
 	<mat-list>
 		<div class="box-item" *ngFor="let USER of userList">
 			<mat-list-item matRipple>
-				<img matListAvatar [src]="USER.photoUrl" alt="Photo of a Shiba Inu">
+				<img matListAvatar [src]="getPhotoOrDefault(USER.photoUrl)" alt="Photo of a Shiba Inu">
 
 				<div class="line-content row ml-2 my-auto align-items-center">
 					<div class="col-4">

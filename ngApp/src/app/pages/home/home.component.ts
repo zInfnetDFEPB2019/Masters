@@ -7,12 +7,11 @@ import { UserTopChampion } from 'src/app/Model/user-top-champion.model';
 import { Observable } from 'rxjs';
 import { ContantsUtils } from 'src/app/utils/contants.utils';
 
-const PROFILE_PIC1 = '../../assets/img/faces/kaci-baum-2.jpg';
+
 const AWARD_IMG_1 = '../../assets/icons/awards/coroa.svg';
-const PROFILE_PIC2 = '../../assets/img/faces/joe-gardner-2.jpg';
 const AWARD_IMG_2 = '../../assets/icons/awards/calice.svg';
-const PROFILE_PIC3 = '../../assets/img/faces/ayo-ogunseinde-2.jpg';
 const AWARD_IMG_3 = '../../assets/icons/awards/espada.svg';
+const PROFILE_PIC_DEFAULT = '../../assets/img/profile_card/default.jpg';
 
 @Component({
 	selector: 'app-home',
@@ -22,31 +21,25 @@ const AWARD_IMG_3 = '../../assets/icons/awards/espada.svg';
 export class HomeComponent implements OnInit, AfterViewInit {
 	
 	public starIcon = '../../assets/icons/star.svg'
+	public user_default = PROFILE_PIC_DEFAULT;
 	
 	public userTop1: UserTopChampion = new UserTopChampion();
-	public rankPicture1 = PROFILE_PIC1;
-	public awardImg1 = AWARD_IMG_1;
-	public pontosRank1 = 952;
-	public percentRank1 = `${this.pontosPercent(this.pontosRank1)}%`;
-	
 	public userTop2: UserTopChampion = new UserTopChampion();
-	public rankPicture2 = PROFILE_PIC2;
-	public awardImg2 = AWARD_IMG_2;
-	public pontosRank2 = 750;
-	public percentRank2 = `${this.pontosPercent(this.pontosRank2)}%`;
-	
 	public userTop3: UserTopChampion = new UserTopChampion();
-	public rankPicture3 = PROFILE_PIC3;
+	public awardImg1 = AWARD_IMG_1;	
+	public awardImg2 = AWARD_IMG_2;
 	public awardImg3 = AWARD_IMG_3;
-	public pontosRank3 = 610;
-	public percentRank3 = `${this.pontosPercent(this.pontosRank3)}%`;
 
 	public colorGreenUp = "rgb(68, 234, 95)";
 	public colorRedDown = "red";
 	
 	@ViewChild("rankingListTag") rankingList: RankingListComponent;
 
-	constructor() { }
+	constructor() { 
+		this.userTop1.isUpdating = true;
+		this.userTop2.isUpdating = true;
+		this.userTop3.isUpdating = true;
+	}
 	
 	ngOnInit() {		
 	}
@@ -55,8 +48,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 		
 	}
 
-	public pontosPercent(pontos: number): number {
-		return ((pontos / 1000) * 100);
+	public getPointsPercentStr(pontos: number): string {
+		return ((pontos / 1000) * 100) + '%';
 	}
 
 	public viewProfile(): void {
@@ -68,6 +61,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 	}	
 
 	public getPhotoOrDefault(photoUrl: any) {		
-		return (photoUrl) ? photoUrl : ContantsUtils.IMG.user_default;
+		return (photoUrl) ? photoUrl : this.user_default;
 	}
 }

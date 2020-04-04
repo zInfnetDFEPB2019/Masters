@@ -7,6 +7,7 @@ import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { CollectionsUtils } from 'src/app/utils/collections.utils';
 import { UserTopChampion } from 'src/app/Model/user-top-champion.model';
 
+const PROFILE_PIC_DEFAULT = '../../../assets/img/profile_card/default.jpg';
 
 @Component({
 	selector: 'app-ranking-list',
@@ -15,6 +16,8 @@ import { UserTopChampion } from 'src/app/Model/user-top-champion.model';
 })
 export class RankingListComponent implements OnInit {
 	
+	public user_default = PROFILE_PIC_DEFAULT;
+
 	public userList:UserScore[] = [];
 	public starIcon = '../../../assets/icons/star.svg'
 	public onUpdatingList: boolean = false;
@@ -58,17 +61,16 @@ export class RankingListComponent implements OnInit {
 				let objUrl = window.URL.createObjectURL(blobImg);
 				let secureObjUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(objUrl);
 
-				user.photoUrl = secureObjUrl;							
-				if (user.isChampion()) {
-					let champ = this.getChampionByPosition(user.position)
-					champ.isUpdating = false;
-					champ.photoUrl = secureObjUrl;
-					console.log(champ);
-				}
+				setTimeout(() => {						
+					user.photoUrl = secureObjUrl;							
+					if (user.isChampion()) {
+						let champ = this.getChampionByPosition(user.position)
+						champ.isUpdating = false;
+						champ.photoUrl = secureObjUrl;
+						console.log(champ);
+					}
+				}, 5000);
 				
-				// setTimeout(() => {
-				// 	//this.imgLoading = false;
-				// }, 800);
 			},
 			(error) => {
 				console.error("Error request: ", error);
@@ -76,6 +78,10 @@ export class RankingListComponent implements OnInit {
 			() => {
 				//terminando a função.
 			});
+	}
+
+	public getPhotoOrDefault(photoUrl: any) {		
+		return (photoUrl) ? photoUrl : this.user_default;
 	}
 
 	public getColorIcon(pos: number, updated: number):string {
