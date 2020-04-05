@@ -151,8 +151,9 @@ $img-profile-default: '/src/assets/img/profile_card/default.jpg';
 		}
 		
 		.progress {		
-			height: 0.6rem;
+			height: 0.7rem;
 			border: 2px solid #D36104;
+			border-radius: 10px;
 		}	
 	}
 }
