@@ -64,6 +64,7 @@ export class SignUpComponent implements OnInit {
 		setTimeout(() => {
 			this.erroMsg = "";
 			this.sucessMsg = "";
+			if(isOk) this.eventSignUp.emit("login");
 		}, 4000);
 		this.tryingRequest = false;
 	}
