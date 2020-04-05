@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
 	});
 
 	constructor(
-		//private myAuthService: MyAuthService
+		private myAuthService: MyAuthService
 	) { }
 
 	ngOnInit() { }
@@ -32,13 +32,13 @@ export class SignUpComponent implements OnInit {
 	public submitNewUser(): void {
 		console.log(this.formSignup);
 
-		// let user: User = new User(
-		// 	this.formSignup.value.email,
-		// 	this.formSignup.value.full_name,
-		// 	this.formSignup.value.user_name,
-		// 	this.formSignup.value.password
-		// );
+		let user: User = new User(
+			this.formSignup.value.email,
+			this.formSignup.value.full_name,
+			this.formSignup.value.user_name,
+			this.formSignup.value.password
+		);
 
-		// this.myAuthService.CreateUser(user);
+		this.myAuthService.CreateUser(user);
 	}
 }

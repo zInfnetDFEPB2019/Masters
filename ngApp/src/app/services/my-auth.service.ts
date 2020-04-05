@@ -11,7 +11,7 @@ export class MyAuthService {
 	constructor(private router: Router) { }
 
 	public CreateUser(user: User): void {
-		console.log(user);
+		console.log("User create: ", user);
 
 		firebase
 			.auth()
