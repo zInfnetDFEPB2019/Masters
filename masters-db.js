@@ -8,7 +8,7 @@ module.exports = () => {
 
 	const starIcon = '../../../assets/icons/star.svg'
 	
-	let users = [];
+	let usersKpi = [];
 	
 	// Create 100 users
 	for (let i = 0; i < 40; i++) {
@@ -21,9 +21,29 @@ module.exports = () => {
 		]
 		
 		const user = buildUser(i, kpis);
-		users.push(user);
+		usersKpi.push(user);
 	}		
-	return {users};
+
+	let usersDetails = [
+		{
+			id: "useranemTeste",
+			firstName: "Nome",
+			lastName: "ultimo nome",
+			userName: "useranemTeste",
+			email: "email@test",
+			address: [
+				"Endereço 1"
+			],
+			country: "Brasil",
+			state: "Rio de Janeiro",
+			zipCode: "21001-200"
+		}
+	];
+
+	return {
+		usersKpi,
+		usersDetails
+	};
 }
 
 function buildKpi(classWrap, icon, title) {

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserScore } from '../models/user-score.model';
 import { MathUtils } from '../utils/math.utils';
+import { UserDetails } from '../models/user-details.model';
 
 @Injectable({
 	providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserService {
 
 
 	public getRankingList(): Observable<Array<UserScore>> {
-		let url = this.BASE_API + "/users";
+		let url = this.BASE_API + "/usersKpi";
 		return this.http.get<Array<UserScore>>(url);
 	}
 
@@ -36,11 +37,15 @@ export class UserService {
 		return url;
 	}
 
-	public saveUserDetails():void {
-		
+	public saveUserDetails(user: UserDetails): Observable<any> {
+		let url = this.BASE_API + "/userDetails";
+		let body = {user};
+
+		return this.http.post(url, body);
 	}
 
-	public getUserDetails(): any {
-
+	public getUserDetails(userId: string): Observable<UserDetails> {
+		let url = this.BASE_API + "/usersDetails/" + userId;
+		return this.http.get<UserDetails>(url);
 	}
 }

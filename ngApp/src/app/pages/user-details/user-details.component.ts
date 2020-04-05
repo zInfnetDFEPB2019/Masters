@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { UserService } from 'src/app/services/user.service';
+import { UserDetails } from 'src/app/models/user-details.model';
+import { Router } from '@angular/router';
 
 
 const PROFILE_PIC1 = '../../assets/img/faces/kaci-baum-2.jpg';
@@ -15,7 +17,9 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     public onResize() {
         this.detectScreenSize();
         console.log('VIew Resize')
-    }
+	}
+	
+	public userId: string = "";
 
     public isSmallScreen: boolean = false;
 
@@ -24,10 +28,17 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	public companyName: string = 'Minds At Work'
 
 	constructor(
-        private breakpointObserver: BreakpointObserver
-    ) { }
+		private userService: UserService,
+		private router: Router
+	) 
+	{
+		let urlArray = this.router.url.split('/');
+		this.userId = urlArray[urlArray.length -1];			
+	}
 
-	ngOnInit() {  }
+	ngOnInit() { 
+		this.getUserDetails();
+	 }
 
     ngAfterViewInit() {
         this.detectScreenSize();
@@ -37,6 +48,16 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
     private detectScreenSize() {
         let width = window.innerWidth;
         this.isSmallScreen = (width < 900);
-    }
+	}
+	
+	public getUserDetails(): void {
+		this.userService.getUserDetails(this.userId).subscribe(
+			(userFull: UserDetails) => {
+				console.log(userFull);
+			},
+			(error) => {
+
+			});
+	}
 
 }
