@@ -26,13 +26,13 @@ import {
 	MatTabsModule,
 	MatMenuModule,
 	MatCardModule,
+	MatRippleModule,
 } from '@angular/material';
 
 // Pages
 import { HeaderComponent } from './pages/shared/header/header.component';
 import { FooterComponent } from './pages/shared/footer/footer.component';
-import { TableDataComponent } from './pages/home/table-data/table-data.component';
-import { RowDetailsComponent } from './pages/home/table-data/row-details/row-details.component';
+import { RankingListComponent } from './pages/home/ranking-list/ranking-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AccessComponent } from './pages/access/access.component';
 import { UserDetailsComponent } from './pages/user-details/user-details.component';
@@ -47,8 +47,7 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		AppComponent,
 		HeaderComponent,
 		FooterComponent,
-		TableDataComponent,
-		RowDetailsComponent,
+		RankingListComponent,
 		HomeComponent,
 		AccessComponent,
 		UserDetailsComponent,
@@ -67,7 +66,7 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		BrowserAnimationsModule,
 		//Angular Material
 		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
-		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule,
+		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule, MatListModule, MatRippleModule,
 		// import HttpClientModule after BrowserModule.
 		HttpClientModule
 	],

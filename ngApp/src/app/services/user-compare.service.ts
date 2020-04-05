@@ -15,7 +15,7 @@ export class UserCompareService {
 
 	private urlLocalBase = "../assets/img/profile_card/"
 	private NAME_IMG_LOCAL = "img_card_"
-	private TYPE_IMG_LOCAL = ".jfif";
+	private TYPE_IMG_LOCAL = ".jpg";
 
 
 	constructor(
@@ -42,5 +42,5 @@ export class UserCompareService {
 		});
 		return this.http.post<Blob>(this.url,
 			{ headers: headers, responseType: 'blob' as 'json' });
-	}
+	}	
 }
