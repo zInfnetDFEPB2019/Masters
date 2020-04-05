@@ -17,8 +17,7 @@ export class UserCompareComponent implements OnInit {
 	public cardUserList: Array<CardUserModel> = [];
 
 	constructor(
-		private userService: UserService,
-		private sanitizer: DomSanitizer
+		private userService: UserService
 	) {
 		this.getUserCards();
 	}

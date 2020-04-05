@@ -21,7 +21,7 @@ export class CardUserComponent implements OnInit {
 		this.getPhoto();
 	}
 
-	ngOnInit() {
+	ngOnInit() {		
 	}
 
 	public getPhoto() {
@@ -46,17 +46,6 @@ export class CardUserComponent implements OnInit {
 			() => {
 				//terminando a função.
 			});
-	}
-
-	//TODO: teste
-	private getImg() {
-		let mySrc;
-		const reader = new FileReader();
-		//reader.readAsDataURL(blob);
-		reader.onloadend = function () {
-			// result includes identifier 'data:image/png;base64,' plus the base64 data
-			mySrc = reader.result;
-		}
 	}
 
 	public modalDetails(): void {
