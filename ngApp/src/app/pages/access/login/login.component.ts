@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 	@Output() public eventLogin: EventEmitter<string> = new EventEmitter();
 
 	public erroMsgLogin: string = "";
+	public tryingLogin: boolean = false;
 
 	public formLogin: FormGroup = new FormGroup({
 		email: new FormControl(),
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
 	}
 
 	public loginUser(): void {
+		this.tryingLogin = true;
 		let email = this.formLogin.value.email;
 		let password = this.formLogin.value.password;
 
@@ -47,5 +49,6 @@ export class LoginComponent implements OnInit {
 			}, 5000);
 			this.erroMsgLogin = "O nome de usuário inserido não pertence a uma conta. Verifique seu	email e/ou senha e tente novamente.";
 		}
+		this.tryingLogin = false;
 	}
 }
