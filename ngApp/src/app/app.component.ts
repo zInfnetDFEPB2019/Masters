@@ -11,18 +11,12 @@ import { Router } from '@angular/router';
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-	
-	public isAccessPage: boolean = true;
-	constructor(
-		private router: Router,
+		
+	constructor(		
 		public myAuthService: MyAuthService
 	) {}
 	
 	ngOnInit(): void {
-		this.router.events.subscribe(() => {
-			this.isAccessPage = (("/" === this.router.url) || ("/access" === this.router.url));
-		});
-
 		var firebaseConfig = {
 			apiKey: "AIzaSyBaSTu8R8rsIcAIUaPmsHKl4kiONcfGdKw",
 			authDomain: "ass-instax-webapp.firebaseapp.com",
@@ -35,7 +29,6 @@ export class AppComponent implements OnInit {
 		};
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
-
 	}	
 
 	

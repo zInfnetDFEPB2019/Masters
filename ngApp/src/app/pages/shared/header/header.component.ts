@@ -10,6 +10,7 @@ import { MyAuthService } from 'src/app/services/my-auth.service';
 export class HeaderComponent implements OnInit {
 
 	isNavbarCollapsed = true;
+	public isAccessPage: boolean = true;
 
 	title = 'app';
 	navLinks: any[];
@@ -49,7 +50,8 @@ export class HeaderComponent implements OnInit {
 	ngOnInit() {
 		this.router.events.subscribe((res) => {
 			this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === this.router.url));
-		});
+			this.isAccessPage = (("/" === this.router.url) || ("/access" === this.router.url));
+		});		
 	}
 
 	public goToHome(): void {

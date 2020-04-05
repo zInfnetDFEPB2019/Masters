@@ -3,6 +3,7 @@ import * as firebase from 'firebase';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DB_CONSTS } from '../utils/db.consts';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class MyAuthService {
@@ -41,8 +42,8 @@ export class MyAuthService {
 			});
 	}
 
-	public Login(email: string, password: string): boolean {
-		firebase
+	public Login(email: string, password: string): Promise<any> {
+		return firebase
 			.auth()
 			.signInWithEmailAndPassword(email, password)
 			.then((user: any) => {
@@ -59,8 +60,7 @@ export class MyAuthService {
 			.catch((error: Error) => {
 				console.log(error);
 				return false;
-			});
-		return false;
+			});		
 	}
 
 	public isAuthenticated(): boolean {
