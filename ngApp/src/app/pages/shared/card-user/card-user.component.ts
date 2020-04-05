@@ -22,7 +22,6 @@ export class CardUserComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log("OnInit CARD: ", this.card);
 	}
 
 	public getPhoto() {

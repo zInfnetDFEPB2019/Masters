@@ -29,14 +29,18 @@ button{
 	width: 100% !important;
 }
 
-.my-mat-tabs ::ng-deep .mat-tab-header {
+.my-mat-tabs ::ng-deep .mat-tab-links {
 	border-bottom: none;	
 	//border: red 2px solid;	
-	.mat-tab-label {
+	.mat-tab-link {
 		min-width: 80px;
+		font-family: $font-roboto;		
+		font-weight: bold;
+		padding: 0 16px;
 
-		.mat-tab-label-content {
-			font-family: $font-roboto;
+		&:hover {
+			color: black;
+			text-decoration: none;
 		}
 	}
 }
