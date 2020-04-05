@@ -1,7 +1,7 @@
 //Core Angular
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -41,6 +41,8 @@ import { UserCompareComponent } from './pages/user-compare/user-compare.componen
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { CardUserComponent } from './pages/shared/card-user/card-user.component';
+import { LoginComponent } from './pages/access/login/login.component';
+import { SignUpComponent } from './pages/access/sign-up/sign-up.component';
 
 @NgModule({
 	declarations: [
@@ -55,7 +57,9 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		UserCompareComponent,
 		HallOfFameComponent,
 		NotFoundPageComponent,
-		CardUserComponent
+		CardUserComponent,
+		LoginComponent,
+		SignUpComponent
 	],
 	imports: [
 		BrowserModule,
@@ -64,6 +68,7 @@ import { CardUserComponent } from './pages/shared/card-user/card-user.component'
 		RouterModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
+		ReactiveFormsModule,
 		//Angular Material
 		MatButtonModule, MatCheckboxModule, MatIconModule, MatListModule, MatTableModule, MatBadgeModule, MatExpansionModule,
 		MatFormFieldModule, MatInputModule, MatTabsModule, MatMenuModule, MatCardModule, MatListModule, MatRippleModule,
