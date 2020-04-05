@@ -1,8 +1,8 @@
 <!-- HEADER -->
-<app-layout-header *ngIf="isAuth"></app-layout-header>
+<app-layout-header *ngIf="!isAccessPage"></app-layout-header>
 
 <!-- PAGE CONTENT -->
 <router-outlet></router-outlet>
 
 <!-- FOOTER -->
-<app-layout-footer *ngIf="isAuth"></app-layout-footer>
+<app-layout-footer *ngIf="!isAccessPage"></app-layout-footer>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 //import { MyAuthService } from '../services/my-auth.service';
 import { Router } from '@angular/router';
+import { MyAuthService } from 'src/app/services/my-auth.service';
 
 @Component({
 	selector: 'app-access',
@@ -35,14 +36,14 @@ export class AccessComponent implements OnInit {
 	public signUpPage: boolean = false;
 
 	constructor(
-		//private myAuthService: MyAuthService,
+		private myAuthService: MyAuthService,
 		private router: Router
 	) { }
 
 	ngOnInit() {
-		// if (this.myAuthService.isAuthenticated()) {
-		// 	this.router.navigate(['/home']);
-		// }
+		if (this.myAuthService.isAuthenticated()) {
+			this.router.navigate(['/home']);
+		}
 	}
 
 	public changeForm(event: string): void {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';  // import JQUERY
 import * as firebase from "firebase/app";
 import { MyAuthService } from './services/my-auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,12 +12,17 @@ import { MyAuthService } from './services/my-auth.service';
 })
 export class AppComponent implements OnInit {
 	
-	public isAuth: boolean;
+	public isAccessPage: boolean = true;
 	constructor(
+		private router: Router,
 		public myAuthService: MyAuthService
 	) {}
 	
 	ngOnInit(): void {
+		this.router.events.subscribe(() => {
+			this.isAccessPage = (("/" === this.router.url) || ("/access" === this.router.url));
+		});
+
 		var firebaseConfig = {
 			apiKey: "AIzaSyBaSTu8R8rsIcAIUaPmsHKl4kiONcfGdKw",
 			authDomain: "ass-instax-webapp.firebaseapp.com",
@@ -30,7 +36,6 @@ export class AppComponent implements OnInit {
 		firebase.initializeApp(firebaseConfig);
 		firebase.analytics();
 
-		this.isAuth =  this.myAuthService.isAuthenticated();
 	}	
 
 	
