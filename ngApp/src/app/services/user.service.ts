@@ -7,7 +7,7 @@ import { MathUtils } from '../utils/math.utils';
 @Injectable({
 	providedIn: 'root'
 })
-export class RankingListService {
+export class UserService {
 
 	private BASE_API = "http://localhost:3000";
 	private PROFILE_IMG_PATH = "../../assets/img/profile_card/";
@@ -34,5 +34,13 @@ export class RankingListService {
 		let url: string = this.PROFILE_IMG_PATH + sex + "/img_card_" + num + ".jpg";
 
 		return url;
+	}
+
+	public saveUserDetails():void {
+		
+	}
+
+	public getUserDetails(): any {
+
 	}
 }

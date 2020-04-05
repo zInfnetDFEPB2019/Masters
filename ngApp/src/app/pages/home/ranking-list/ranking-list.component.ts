@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MathUtils } from 'src/app/utils/math.utils';
-import { RankingListService } from 'src/app/services/ranking-list.service';
+import { UserService } from 'src/app/services/user.service';
 import { UserScore } from 'src/app/models/user-score.model';
-import { UserCompareService } from 'src/app/services/user-compare.service';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { CollectionsUtils } from 'src/app/utils/collections.utils';
 import { UserTopChampion } from 'src/app/models/user-top-champion.model';
@@ -27,7 +26,7 @@ export class RankingListComponent implements OnInit {
 	@Input('top3') ChampionTop3: UserTopChampion;
 
 	constructor(
-		private rankingListServ: RankingListService,
+		private rankingListServ: UserService,
 		private sanitizer: DomSanitizer
 	) { }
 
@@ -39,6 +38,7 @@ export class RankingListComponent implements OnInit {
 		this.rankingListServ.getRankingList().subscribe(
 			(users) => {					
 				this.userList = users.map((user) => Object.assign( new UserScore(), user));
+				console.log("usuario Modelo: ",this.userList[0]);
 				this.userList.map((user: UserScore) => {
 					this.getPhoto(user);
 				});
@@ -97,16 +97,16 @@ export class RankingListComponent implements OnInit {
 							: notUpdate;
 	}
 
-	public getClassPositionIcon(pos: number, updatePosition: number): string {
+	public getClassPositionIcon(pos: number, lastPosition: number): string {
 		let notUpdate = "fa-square";
 		let toUp = "fa-caret-up";
 		let toDown = "fa-caret-down";
 
-		if(pos == 1 && updatePosition > 0) return toUp;
-		if(pos == 1 && updatePosition == 0) return notUpdate;
+		if(pos == 1 && lastPosition > 0) return toUp;
+		if(pos == 1 && lastPosition == 0) return notUpdate;
 
-		let classStr = (updatePosition > 0) ? toUp
-			: (updatePosition < 0) ?  toDown
+		let classStr = (lastPosition > 0) ? toUp
+			: (lastPosition < 0) ?  toDown
 			: notUpdate;
 
 		return classStr;

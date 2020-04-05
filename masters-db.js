@@ -38,14 +38,15 @@ function buildKpi(classWrap, icon, title) {
 
 function buildUser(i, kpis) {
 	static.idUser += 1;
+	let idUserName = "user"+ static.idUser +"-master";
 
 	const user = {
-		id: static.idUser,
-		name: "Usuario " + i,
-		nickName: "@user"+i+"-master",
+		id: idUserName,
+		name: "Usuario " + i+1,
+		nickName: idUserName,
 		position: i +1,
 		scoreKpis: kpis,
-		updatePosition: getRandomChoice()
+		lastPosition: getRandomChoice()
 	}
 	return user;
 }

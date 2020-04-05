@@ -30,9 +30,9 @@
 						{{ USER.position }}
 					</div>
 					<div class="col-1" style="text-align: left;">
-						<i class="fa {{USER.updatePosition == 0 ? 'fa-2x' : 'fa-3x'}}" 
-						[ngClass]="getClassPositionIcon(USER.position, USER.updatePosition)"
-						[style.color]="getColorIcon(USER.position, USER.updatePosition)">
+						<i class="fa {{USER.lastPosition == 0 ? 'fa-2x' : 'fa-3x'}}" 
+						[ngClass]="getClassPositionIcon(USER.position, USER.lastPosition)"
+						[style.color]="getColorIcon(USER.position, USER.lastPosition)">
 					</i>
 					</div>
 				</div>
