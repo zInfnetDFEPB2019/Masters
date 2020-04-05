@@ -26,7 +26,7 @@ export class RankingListComponent implements OnInit {
 	@Input('top3') ChampionTop3: UserTopChampion;
 
 	constructor(
-		private rankingListServ: UserService,
+		private userService: UserService,
 		private sanitizer: DomSanitizer
 	) { }
 
@@ -35,7 +35,7 @@ export class RankingListComponent implements OnInit {
 	}
 
 	public getRankingList(): void {
-		this.rankingListServ.getRankingList().subscribe(
+		this.userService.getRankingList().subscribe(
 			(users) => {					
 				this.userList = users.map((user) => Object.assign( new UserScore(), user));
 				console.log("usuario Modelo: ",this.userList[0]);
@@ -55,7 +55,7 @@ export class RankingListComponent implements OnInit {
 		//this.imgLoading = true;
 		if (user.isChampion()) this.getChampionByPosition(user.position).isUpdating = true;
 			
-		this.rankingListServ.getUserPhoto().subscribe(
+		this.userService.getUserPhoto().subscribe(
 			(res) => {
 				let blobImg: any = new Blob([res], { type: 'image/jpeg' });
 				let objUrl = window.URL.createObjectURL(blobImg);
