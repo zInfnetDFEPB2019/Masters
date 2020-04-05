@@ -9,4 +9,5 @@ export class UserDetails {
 	public country: string;
 	public state: string;
 	public zipCode: string;		
+	public photoUrl: string;
 }
