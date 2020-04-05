@@ -10,12 +10,10 @@ import { UserCompareComponent } from './pages/user-compare/user-compare.componen
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { AccessComponent } from './pages/access/access.component';
-import { SignUpComponent } from './pages/access/sign-up/sign-up.component';
 
 
 const routes: Routes = [
 	{ path: 'access', component: AccessComponent },
-	{ path: 'signup', component: SignUpComponent },
 	{ path: 'home', component: HomeComponent },
 	{ path: 'profile/:id', component: UserDetailsComponent },
 	{
