@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
 		if (!isOk) {			
 			setTimeout(() => {
 				this.erroMsgLogin = "";
-			}, 5000);
+			}, 4000);
 			this.erroMsgLogin = "O nome de usuário inserido não pertence a uma conta. Verifique seu	email e/ou senha e tente novamente.";
 		}
 		this.tryingLogin = false;

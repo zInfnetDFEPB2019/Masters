@@ -37,14 +37,22 @@
 				/>
 			</div>
 			<button type="submit" class="btn btn-primary btn-block">
-				Cadastre-se
+				<h5 *ngIf="!tryingRequest"> Cadastre-se </h5>
+				<div *ngIf="tryingRequest" class="spinner-border"></div>
 			</button>
 		</form>
-		<hr />
-
+		<hr />		
 		<p class="small text-center">
 			Ao cadastrar-se, você concorda com nossos <b>Termos</b> e
 			<b>Política de Privacidade</b>.
+		</p>
+
+		<hr />
+		<p class="text-danger text-center">
+			{{ erroMsg }}
+		</p>
+		<p class="text-info text-center">
+			{{ sucessMsg }}
 		</p>
 	</div>
 </div>

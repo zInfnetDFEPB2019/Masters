@@ -11,10 +11,10 @@ export class MyAuthService {
 
 	constructor(private router: Router) { }
 
-	public CreateUser(user: User): void {
+	public CreateUser(user: User): Promise<boolean> {
 		console.log("User create: ", user);
 
-		firebase
+		return firebase
 			.auth()
 			.createUserWithEmailAndPassword(user.email, user.password)
 			.then((res: any) => {
@@ -24,21 +24,24 @@ export class MyAuthService {
 				// salvando usuario no banco no path email na base64
 				let base64Email = btoa(user.email);
 				let userDetailRef = `${DB_CONSTS.DATA_DOCS.USER_DETAIL}/${base64Email}`;
-				firebase
+				return firebase
 					.database()
 					.ref(userDetailRef)
 					.set(user)
 					.then(res2 => {
 						console.log("USUARIO SALVO - resposta", res2);
+						return true;
 					})
 					.catch((error2: Error) => {
 						console.log("ERRO - USUARIO NÃO SALVO");
 						console.log(error2);
+						return false;
 					});
 			})
 			.catch((error: Error) => {
 				console.log(error.message);
 				console.error(error);
+				return false;
 			});
 	}
 
