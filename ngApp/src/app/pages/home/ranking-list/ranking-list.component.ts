@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MathUtils } from 'src/app/utils/math.utils';
 import { RankingListService } from 'src/app/services/ranking-list.service';
-import { UserScore } from 'src/app/Model/user-score.model';
+import { UserScore } from 'src/app/models/user-score.model';
 import { UserCompareService } from 'src/app/services/user-compare.service';
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { CollectionsUtils } from 'src/app/utils/collections.utils';
-import { UserTopChampion } from 'src/app/Model/user-top-champion.model';
+import { UserTopChampion } from 'src/app/models/user-top-champion.model';
 
 const PROFILE_PIC_DEFAULT = '../../../assets/img/profile_card/default.jpg';
 

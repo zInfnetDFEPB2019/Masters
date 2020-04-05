@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-// import { MyAuthService } from "src/app/services/my-auth.service";
-// import { User } from "../../models/user.model";
+import { MyAuthService } from "src/app/services/my-auth.service";
+import { User } from "src/app/models/user.model";
 
 @Component({
 	selector: "app-sign-up",

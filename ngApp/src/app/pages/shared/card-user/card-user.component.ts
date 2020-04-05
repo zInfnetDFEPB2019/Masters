@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CardUserModel } from 'src/app/Model/card-user.model';
+import { CardUserModel } from 'src/app/models/card-user.model';
 import { UserCompareService } from 'src/app/services/user-compare.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 

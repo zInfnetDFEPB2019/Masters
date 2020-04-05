@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { UserScore } from '../Model/user-score.model';
-
+import { UserScore } from '../models/user-score.model';
 
 
 @Injectable({

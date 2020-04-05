@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardUserModel } from 'src/app/Model/card-user.model';
+import { CardUserModel } from 'src/app/models/card-user.model';
 import { MathUtils } from '../../utils/math.utils'
 import * as faker from "faker/locale/pt_BR"
 
