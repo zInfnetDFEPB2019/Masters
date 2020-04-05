@@ -43,6 +43,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { CardUserComponent } from './pages/shared/card-user/card-user.component';
 import { LoginComponent } from './pages/access/login/login.component';
 import { SignUpComponent } from './pages/access/sign-up/sign-up.component';
+import { MyAuthService } from './services/my-auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
 	declarations: [
@@ -75,7 +77,10 @@ import { SignUpComponent } from './pages/access/sign-up/sign-up.component';
 		// import HttpClientModule after BrowserModule.
 		HttpClientModule
 	],
-	providers: [],
+	providers: [
+		MyAuthService,
+		AuthGuardService
+	],
 	bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RankingListComponent } from './ranking-list/ranking-list.component';
 import { Kpi } from 'src/app/models/kpi.model';
 import { UserScore } from 'src/app/models/user-score.model';
-import { UserTopChampion } from 'src/app/Models/user-top-champion.model';
+import { UserTopChampion } from 'src/app/models/user-top-champion.model';
 import { Observable } from 'rxjs';
 import { ContantsUtils } from 'src/app/utils/contants.utils';
 
