@@ -8,7 +8,7 @@ module.exports = () => {
 
 	const starIcon = '../../../assets/icons/star.svg'
 	
-	let usersKpi = [];
+	let usersKpis = [];
 	
 	// Create 100 users
 	for (let i = 0; i < 40; i++) {
@@ -21,12 +21,23 @@ module.exports = () => {
 		]
 		
 		const user = buildUser(i, kpis);
-		usersKpi.push(user);
+		usersKpis.push(user);
 	}		
+
+	let kpis = [
+		buildKpi("danger", starIcon, "KPI-1"),
+		buildKpi("success",starIcon, "KPI-2"),
+		buildKpi("info",starIcon, "KPI-3"),
+		buildKpi("warning",starIcon, "KPI-4")
+	]
+	
+	let userTeste = buildUser(static.idUser +10, kpis);
+	userTeste.id = "usersKpiIdTest";
+	usersKpis.push(userTeste);
 
 	let usersDetails = [
 		{
-			id: "useranemTeste",
+			id: "userNameTeste",
 			firstName: "Nome",
 			lastName: "ultimo nome",
 			userName: "useranemTeste",
@@ -36,12 +47,13 @@ module.exports = () => {
 			],
 			country: "Brasil",
 			state: "Rio de Janeiro",
-			zipCode: "21001-200"
+			zipCode: "21001-200",
+			usersKpisId: "usersKpiIdTest"
 		}
 	];
 
 	return {
-		usersKpi,
+		usersKpis,
 		usersDetails
 	};
 }
@@ -66,7 +78,7 @@ function buildUser(i, kpis) {
 		nickName: idUserName,
 		position: i +1,
 		scoreKpis: kpis,
-		lastPosition: getRandomChoice()
+		lastPosition: getRandomChoice()		
 	}
 	return user;
 }

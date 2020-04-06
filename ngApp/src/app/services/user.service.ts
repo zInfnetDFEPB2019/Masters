@@ -16,8 +16,8 @@ export class UserService {
 	private INCLUDE_CHILDREN = "_expand=";
 
 	// endpoint
-	private ENDPOINT_USER_DETAILS = "/usersDetails";
-	private ENDPOINT_USER_KPI = "/usersKpi";
+	private ENDPOINT_USER_DETAILS = "usersDetails";
+	private ENDPOINT_USER_KPI = "usersKpis";
 
 	constructor(
 		private http: HttpClient
@@ -25,7 +25,7 @@ export class UserService {
 
 
 	public getRankingList(): Observable<Array<UserScore>> {
-		let url = this.BASE_API + this.ENDPOINT_USER_KPI;
+		let url = this.BASE_API + "/" + this.ENDPOINT_USER_KPI;
 
 		return this.http.get<Array<UserScore>>(url);
 	}
@@ -44,15 +44,19 @@ export class UserService {
 		return url;
 	}
 
-	public saveUserDetails(user: UserDetails): Observable<any> {
-		let url = this.BASE_API + this.ENDPOINT_USER_DETAILS;
-		let body = {user};
+	public saveUserDetails(user: UserDetails, lazyRequest?: boolean): Observable<any> {		
+		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS;
+		
+		if (lazyRequest) {
+			url = url + "?"+this.INCLUDE_CHILDREN + this.ENDPOINT_USER_KPI;
+		}		
 
+		let body = {user};
 		return this.http.post(url, body);
 	}
 
-	public getUserDetails(userId: string): Observable<UserDetails> {
-		let url = this.BASE_API + this.ENDPOINT_USER_DETAILS + "/" + userId;
-		return this.http.get<UserDetails>(url);
+	public getUserDetails(userId: string): Observable<any> {
+		let url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "/" + userId;
+		return this.http.get(url);
 	}
 }

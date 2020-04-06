@@ -38,7 +38,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
 	ngOnInit() { 
 		this.getUserDetails();
-	 }
+	}
 
     ngAfterViewInit() {
         this.detectScreenSize();
@@ -52,11 +52,11 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	
 	public getUserDetails(): void {
 		this.userService.getUserDetails(this.userId).subscribe(
-			(userFull: UserDetails) => {
-				console.log(userFull);
+			(user: any) => {
+				console.log(user);
 			},
 			(error) => {
-
+				console.log(error);
 			});
 	}
 
