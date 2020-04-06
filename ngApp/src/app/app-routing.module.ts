@@ -10,11 +10,13 @@ import { UserCompareComponent } from './pages/user-compare/user-compare.componen
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { AccessComponent } from './pages/access/access.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
 	{ path: 'access', component: AccessComponent },
 	{ path: 'home', component: HomeComponent },
+	{ path: 'notfound', component: PageNotFoundComponent },
 	{ path: 'profile/:id', component: UserDetailsComponent },
 	{
 		path: 'profile', redirectTo: 'compare', pathMatch: 'full'
@@ -27,7 +29,7 @@ const routes: Routes = [
 	},	
 	{
 		//entra NotFoundCOmponent
-		path: '**', redirectTo: '/access'
+		path: '**', redirectTo: "/notfound"
 	}
 ];
 

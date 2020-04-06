@@ -45,6 +45,7 @@ import { LoginComponent } from './pages/access/login/login.component';
 import { SignUpComponent } from './pages/access/sign-up/sign-up.component';
 import { MyAuthService } from './services/my-auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
 	declarations: [
@@ -61,7 +62,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 		NotFoundPageComponent,
 		CardUserComponent,
 		LoginComponent,
-		SignUpComponent
+		SignUpComponent,
+		PageNotFoundComponent
 	],
 	imports: [
 		BrowserModule,
