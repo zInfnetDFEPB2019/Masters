@@ -44,15 +44,12 @@ export class UserService {
 		return url;
 	}
 
-	public saveUserDetails(user: UserDetails, lazyRequest?: boolean): Observable<any> {		
-		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS;
+	public saveUserDetails(usersDetails: UserDetails): Observable<any> {	
+		let id = usersDetails.id;	
+		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS +"/" + id;
 		
-		if (lazyRequest) {
-			url = url + "?"+this.INCLUDE_CHILDREN + this.ENDPOINT_USER_KPI;
-		}		
-
-		let body = {user};
-		return this.http.post(url, body);
+		let body = usersDetails;
+		return this.http.patch(url, body);
 	}
 
 	public getUserDetails(userId: string, lazyRequest: boolean = true): Observable<UserDetails> {

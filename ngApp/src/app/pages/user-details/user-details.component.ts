@@ -58,13 +58,22 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 		this.userService.getUserDetails(this.userId).subscribe(
 			(user: UserDetails) => {
 				this.user = Object.assign( new UserDetails(), user)
-				this.userKpis = this.user.usersKpis.scoreKpis;
-				console.log(this.user);
-				console.log(this.userKpis);
+				this.userKpis = this.user.usersKpis.scoreKpis;				
 			},
 			(error) => {
 				console.log(error);
 			});
+	}
+
+	public saveUserDetails(): void {
+		this.userService.saveUserDetails(this.user).subscribe(
+			(res) => {
+				console.log(res);
+			},
+			(error) => {
+				console.error(error)
+			}
+		);
 	}
 
 	public editInfos(): void {
