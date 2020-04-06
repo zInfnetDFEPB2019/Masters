@@ -88,6 +88,7 @@ export class MyAuthService {
 		
 		userDet.email = user.email;
 		userDet.userName = user.userName;
+		userDet.id = user.userName;
 
 		let nomeArray = user.fullName.split(" ");		
 		userDet.firstName = nomeArray.shift();
