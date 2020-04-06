@@ -20,6 +20,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	}
 	
 	public userId: string = "";
+	public user: UserDetails;
 
     public isSmallScreen: boolean = false;
 
@@ -51,9 +52,10 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	}
 	
 	public getUserDetails(): void {
-		this.userService.getUserDetails(this.userId, true).subscribe(
-			(user: any) => {
-				console.log(user);
+		this.userService.getUserDetails(this.userId).subscribe(
+			(user: UserDetails) => {
+				this.user = Object.assign( new UserDetails(), user)
+				console.log(this.user);
 			},
 			(error) => {
 				console.log(error);

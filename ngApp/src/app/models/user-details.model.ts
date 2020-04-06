@@ -1,3 +1,5 @@
+import { UserScore } from './user-score.model';
+
 export class UserDetails {
 	
 	public id: string;
@@ -10,4 +12,5 @@ export class UserDetails {
 	public state: string;
 	public zipCode: string;		
 	public photoUrl: string;
+	public usersKpis: UserScore;
 }
