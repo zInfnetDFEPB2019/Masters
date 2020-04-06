@@ -44,20 +44,39 @@ export class UserService {
 		return url;
 	}
 
-	public saveUserDetails(usersDetails: UserDetails): Observable<any> {	
+	public updateUserKpi(userKpi: UserScore): Observable<any> {
+		let id = userKpi.id;
+		let url = this.BASE_API + "/" + this.ENDPOINT_USER_KPI + "/" + id;
+		console.log("update user score", url);
+
+		return this.http.patch(url, userKpi);
+	}
+
+	public updateUserDetails(usersDetails: UserDetails): Observable<any> {	
 		let id = usersDetails.id;	
 		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS +"/" + id;
+		
+		let userScore = Object.assign(new UserScore(), usersDetails.usersKpis);
+		console.log("usersocre antes do patch: ",userScore);
+		this.updateUserKpi(userScore).subscribe(
+			(res) => {
+				console.log("resultado update user kpi",res);
+			},
+			(error) => {
+				console.log(error);
+			}
+		)		
 		
 		let body = usersDetails;
 		return this.http.patch(url, body);
 	}
 
-	public getUserDetails(userId: string, lazyRequest: boolean = true): Observable<UserDetails> {
+	public getUserDetails(userId: string, lazyRequest: boolean = true): Observable<UserDetails> {		
 		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "/" + userId;
 		if (lazyRequest) {
 			url = url + "?"+this.INCLUDE_CHILDREN + this.ENDPOINT_USER_KPI;
 		}	
-
+		
 		return this.http.get<UserDetails>(url);
 	}
 }

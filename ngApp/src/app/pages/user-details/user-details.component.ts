@@ -28,9 +28,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 
     public profileImg: string = PROFILE_PIC1;
     public isSmallScreen: boolean = false;
-	public userName: string = 'Alex Consagrado Fechamento'
-	public companyName: string = 'Minds At Work'
-
+	
 	constructor(
 		private userService: UserService,
 		private router: Router
@@ -58,7 +56,8 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 		this.userService.getUserDetails(this.userId).subscribe(
 			(user: UserDetails) => {
 				this.user = Object.assign( new UserDetails(), user)
-				this.userKpis = this.user.usersKpis.scoreKpis;				
+				this.userKpis = this.user.usersKpis.scoreKpis;
+				console.log(this.user)				;
 			},
 			(error) => {
 				console.log(error);
@@ -66,7 +65,12 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	}
 
 	public saveUserDetails(): void {
-		this.userService.saveUserDetails(this.user).subscribe(
+		//this.user.id = this.user.userName;
+
+		this.user.usersKpis.name = this.user.firstName + " " + this.user.lastName;
+		this.user.usersKpis.nickName = this.user.userName;
+
+		this.userService.updateUserDetails(this.user).subscribe(
 			(res) => {
 				console.log(res);
 			},
