@@ -161,5 +161,12 @@ $profile-photo-length: 100px;
 			background-color: white;
 			min-height: 450px;
 		}		
+
+		.edit-infos {
+			&:hover {
+				cursor: pointer;
+				color: red;
+			}
+		}
 	}	
 }

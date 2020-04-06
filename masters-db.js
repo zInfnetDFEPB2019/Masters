@@ -42,6 +42,8 @@ module.exports = () => {
 			lastName: "ultimo nome",
 			userName: "useranemTeste",
 			email: "email@test",
+			company: "YoutTube Inc.",
+			position: "Software Enginner",
 			address: [
 				"Endereço 1"
 			],

@@ -7,6 +7,8 @@ export class UserDetails {
 	public lastName: string;
 	public userName: string;
 	public email: string;
+	public company: string;
+	public position: string;
 	public address: string[];
 	public country: string;
 	public state: string;

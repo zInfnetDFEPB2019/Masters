@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { UserDetails } from 'src/app/models/user-details.model';
 import { Router } from '@angular/router';
+import { Kpi } from 'src/app/models/kpi.model';
 
 
 const PROFILE_PIC1 = '../../assets/img/faces/kaci-baum-2.jpg';
@@ -20,11 +21,13 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	}
 	
 	public userId: string = "";
-	public user: UserDetails;
-
-    public isSmallScreen: boolean = false;
+	public user: UserDetails = new UserDetails();
+	public userKpis: Kpi[] = [];
+	public editMode: boolean = false;
+	public scoreBoxesLabels = ["TOTAL HELPS", "TOTAL COMMENTS", "TOTAL TASKS DONE", "TOTAL TASKS IN-PROGRESS"];
 
     public profileImg: string = PROFILE_PIC1;
+    public isSmallScreen: boolean = false;
 	public userName: string = 'Alex Consagrado Fechamento'
 	public companyName: string = 'Minds At Work'
 
@@ -55,11 +58,21 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 		this.userService.getUserDetails(this.userId).subscribe(
 			(user: UserDetails) => {
 				this.user = Object.assign( new UserDetails(), user)
+				this.userKpis = this.user.usersKpis.scoreKpis;
 				console.log(this.user);
+				console.log(this.userKpis);
 			},
 			(error) => {
 				console.log(error);
 			});
+	}
+
+	public editInfos(): void {
+		this.editMode = !this.editMode;
+	}
+
+	teste() {
+		console.log(this.user);
 	}
 
 }
