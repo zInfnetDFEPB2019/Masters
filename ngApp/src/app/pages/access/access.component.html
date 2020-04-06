@@ -1,18 +1,18 @@
-<div class="container">
+<div class="page-content">
 	<div class="row">
-		<!-- Coluna alinhada a DIREITA -->
-		<div class="col-sm-6 d-flex justify-content-end">
-			<app-banner [@animation-banner]="stateBanner"></app-banner>
-		</div>
-		<!-- Coluna alinhada a ESQUERDA -->
+		<!-- Coluna esquerda -->
+		<!-- <div class="col-sm-6">			
+		</div> -->
+		
+		<!-- Coluna DIREITA -->
 		<div *ngIf="signUpPage; else formLogin">
-			<div class="col-sm-6 d-flex justify-content-start">
+			<div class="d-flex justify-content-center align-items-center">
 				<app-sign-up (eventSignUp)="changeForm($event)" [@animation-painel]="statePainel">
 				</app-sign-up>
 			</div>
 		</div>
 		<ng-template #formLogin>
-			<div class="col-sm-6 d-flex justify-content-start">
+			<div class="d-flex justify-content-center align-items-center">
 				<app-login (eventLogin)="changeForm($event)" [@animation-painel]="statePainel">
 				</app-login>
 			</div>

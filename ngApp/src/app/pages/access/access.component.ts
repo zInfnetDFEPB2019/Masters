@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { MyAuthService } from '../services/my-auth.service';
+//import { MyAuthService } from '../services/my-auth.service';
 import { Router } from '@angular/router';
+import { MyAuthService } from 'src/app/services/my-auth.service';
 
 @Component({
 	selector: 'app-access',

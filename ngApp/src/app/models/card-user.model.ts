@@ -1,7 +1,7 @@
 export class CardUserModel {
 	constructor() { }
 
-	public Id: number;
+	public id: string;
 	public name: string;
 	public imgUrl: any;
 

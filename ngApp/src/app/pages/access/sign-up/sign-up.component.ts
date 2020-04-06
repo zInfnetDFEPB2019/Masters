@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { MyAuthService } from "src/app/services/my-auth.service";
-import { User } from "../../models/user.model";
+import { User } from "src/app/models/user.model";
 
 @Component({
 	selector: "app-sign-up",
@@ -11,6 +11,10 @@ import { User } from "../../models/user.model";
 export class SignUpComponent implements OnInit {
 	@Output() public eventSignUp: EventEmitter<string> = new EventEmitter();
 
+	public erroMsg: string = "";
+	public sucessMsg: string = "";
+	public tryingRequest: boolean =false;
+
 	public formSignup: FormGroup = new FormGroup({
 		//TODO: incluir Validators
 		email: new FormControl(),
@@ -19,7 +23,9 @@ export class SignUpComponent implements OnInit {
 		password: new FormControl()
 	});
 
-	constructor(private myAuthService: MyAuthService) { }
+	constructor(
+		private myAuthService: MyAuthService
+	) { }
 
 	ngOnInit() { }
 
@@ -28,6 +34,7 @@ export class SignUpComponent implements OnInit {
 	}
 
 	public submitNewUser(): void {
+		this.tryingRequest = true;
 		console.log(this.formSignup);
 
 		let user: User = new User(
@@ -37,6 +44,28 @@ export class SignUpComponent implements OnInit {
 			this.formSignup.value.password
 		);
 
-		this.myAuthService.CreateUser(user);
+		this.myAuthService.CreateUser(user)
+			.then((isOk: boolean) => {
+				this.validateSignupResponse(isOk);
+			})
+			.catch((isOk: boolean) => {
+				this.validateSignupResponse(isOk);
+			});			
+	}
+
+	public validateSignupResponse(isOk: boolean):void {
+		console.log("validateSignupResponse isOk:", isOk);
+		if (!isOk) {
+			this.erroMsg = "Formulario com erro de preenchimento.";
+		}
+		else {
+			this.sucessMsg = "Cadastro realizado com sucesso!"
+		}
+		setTimeout(() => {
+			this.erroMsg = "";
+			this.sucessMsg = "";
+			if(isOk) this.eventSignUp.emit("login");
+		}, 4000);
+		this.tryingRequest = false;
 	}
 }

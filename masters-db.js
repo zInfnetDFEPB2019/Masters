@@ -8,7 +8,7 @@ module.exports = () => {
 
 	const starIcon = '../../../assets/icons/star.svg'
 	
-	let users = [];
+	let usersKpis = [];
 	
 	// Create 100 users
 	for (let i = 0; i < 40; i++) {
@@ -21,9 +21,43 @@ module.exports = () => {
 		]
 		
 		const user = buildUser(i, kpis);
-		users.push(user);
+		usersKpis.push(user);
 	}		
-	return {users};
+
+	let kpis = [
+		buildKpi("danger", starIcon, "KPI-1"),
+		buildKpi("success",starIcon, "KPI-2"),
+		buildKpi("info",starIcon, "KPI-3"),
+		buildKpi("warning",starIcon, "KPI-4")
+	]
+	
+	let userTeste = buildUser(static.idUser +10, kpis);
+	userTeste.id = "usersKpiIdTest";
+	usersKpis.push(userTeste);
+
+	let usersDetails = [
+		{
+			id: "userNameTeste",
+			firstName: "Nome",
+			lastName: "ultimo nome",
+			userName: "useranemTeste",
+			email: "email@test",
+			company: "YoutTube Inc.",
+			position: "Software Enginner",
+			address: [
+				"Endereço 1"
+			],
+			country: "Brasil",
+			state: "Rio de Janeiro",
+			zipCode: "21001-200",
+			usersKpisId: "usersKpiIdTest"
+		}
+	];
+
+	return {
+		usersKpis,
+		usersDetails
+	};
 }
 
 function buildKpi(classWrap, icon, title) {
@@ -38,14 +72,15 @@ function buildKpi(classWrap, icon, title) {
 
 function buildUser(i, kpis) {
 	static.idUser += 1;
+	let idUserName = "user"+ static.idUser +"-master";
 
 	const user = {
-		id: static.idUser,
-		name: "Usuario " + i,
-		nickName: "@user"+i+"-master",
+		id: idUserName,
+		name: "Usuario " + i+1,
+		nickName: idUserName,
 		position: i +1,
 		scoreKpis: kpis,
-		updatePosition: getRandomChoice()
+		lastPosition: getRandomChoice()		
 	}
 	return user;
 }

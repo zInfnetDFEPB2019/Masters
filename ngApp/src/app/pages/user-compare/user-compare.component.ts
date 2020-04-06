@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CardUserModel } from 'src/app/Model/card-user.model';
+import { CardUserModel } from 'src/app/models/card-user.model';
 import { MathUtils } from '../../utils/math.utils'
 import * as faker from "faker/locale/pt_BR"
+import { UserScore } from 'src/app/models/user-score.model';
+import { UserService } from 'src/app/services/user.service';
+import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-user-compare',
@@ -11,36 +14,43 @@ import * as faker from "faker/locale/pt_BR"
 export class UserCompareComponent implements OnInit {
 
 	public MAX_AMOUNT_CARDS = 13;
-	public fakeCards: Array<CardUserModel> = [];
+	public cardUserList: Array<CardUserModel> = [];
 
-	constructor() {
-		this.fakeCards = this.generateCards(15);
+	constructor(
+		private userService: UserService
+	) {
+		this.getUserCards();
 	}
 
 	ngOnInit() {
 	}
 
-	private generateCards(amount: number): Array<CardUserModel> {
-		let cards: Array<CardUserModel> = [];
+	public buildUserCard(user: UserScore): CardUserModel {
+		let cardUser: CardUserModel = {
+			id: user.id,
+			name: user.name,
+			imgUrl: user.photoUrl,
+			valueLeft: user.scoreKpis[0].score,
+			valueMiddle: user.scoreKpis[1].score,
+			valueRight: user.scoreKpis[2].score,
+		};
 
-		for (let i = 0; i < amount; i++) {
-			let cardUser: CardUserModel = {
-				Id: MathUtils.getRandom(0, 1000),
-				name: faker.name.firstName() + " " + faker.name.lastName(),
-				imgUrl: "string",
-				valueLeft: MathUtils.getRandom(0, 100),
-				valueMiddle: MathUtils.getRandom(0, 1000),
-				valueRight: MathUtils.getRandom(0, 50),
-			};
-
-			cards.push(cardUser);
-		}
-		return cards;
+		return cardUser;
 	}
-
-	// private getRandom(min, max) {
-	//     return Math.round(Math.random() * (max - min) + min);
-	// }
+	
+	public getUserCards(): void {
+		this.userService.getRankingList().subscribe(
+			(users) => {					
+				let userScoreList: UserScore[] = users.map((user) => Object.assign( new UserScore(), user));
+				for (let i = 0; i < userScoreList.length; i++) {		
+					let userCard = this.buildUserCard(userScoreList[i]);
+					this.cardUserList.push(userCard);
+				}		
+			}, 
+			(error) => {
+				console.error(error);				
+			});
+	}	
 }
 
 

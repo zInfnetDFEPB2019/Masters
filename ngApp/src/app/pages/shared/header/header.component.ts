@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MyAuthService } from 'src/app/services/my-auth.service';
 
 @Component({
 	selector: 'app-layout-header',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
 	isNavbarCollapsed = true;
+	public isAccessPage: boolean = true;
 
 	title = 'app';
 	navLinks: any[];
@@ -17,7 +19,8 @@ export class HeaderComponent implements OnInit {
 	public logoImg = '../../../../assets/ico/ms-icon-70x70.png';
 
 	constructor(
-		private router: Router
+		private router: Router,
+		private myAuthService: MyAuthService
 	) { 
 		this.navLinks = [
 			{
@@ -47,10 +50,15 @@ export class HeaderComponent implements OnInit {
 	ngOnInit() {
 		this.router.events.subscribe((res) => {
 			this.activeLinkIndex = this.navLinks.indexOf(this.navLinks.find(tab => tab.link === this.router.url));
-		});
+			this.isAccessPage = (("/" === this.router.url) || ("/access" === this.router.url));
+		});		
 	}
 
 	public goToHome(): void {
 		this.router.navigate(['/home']);
+	}
+
+	public logout(): void {
+		this.myAuthService.logout();
 	}
 }

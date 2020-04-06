@@ -9,10 +9,14 @@ import { ProjectDetailsComponent } from './pages/project-details/project-details
 import { UserCompareComponent } from './pages/user-compare/user-compare.component';
 import { HallOfFameComponent } from './pages/hall-of-fame/hall-of-fame.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { AccessComponent } from './pages/access/access.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
+	{ path: 'access', component: AccessComponent },
 	{ path: 'home', component: HomeComponent },
+	{ path: 'notfound', component: PageNotFoundComponent },
 	{ path: 'profile/:id', component: UserDetailsComponent },
 	{
 		path: 'profile', redirectTo: 'compare', pathMatch: 'full'
@@ -21,11 +25,11 @@ const routes: Routes = [
 	{ path: 'compare', component: UserCompareComponent },
 	{ path: 'hall', component: HallOfFameComponent },
 	{
-		path: '', redirectTo: '/home', pathMatch: 'full'
+		path: '', redirectTo: '/access', pathMatch: 'full'
 	},	
 	{
 		//entra NotFoundCOmponent
-		path: '**', redirectTo: '/home'
+		path: '**', redirectTo: "/notfound"
 	}
 ];
 

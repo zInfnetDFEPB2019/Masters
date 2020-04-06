@@ -1,9 +1,10 @@
 import { Kpi } from './kpi.model';
 
 export class UserScore {
+	id: string;
 	name: string;
 	nickName: string;
-	updatePosition: number;
+	lastPosition: number;
 	position: number;
 	photoUrl: any;
 	kpiActiveIndex: number;	

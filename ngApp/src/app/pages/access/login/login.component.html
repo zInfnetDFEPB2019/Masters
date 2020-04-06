@@ -1,7 +1,7 @@
 <div class="card">
 	<div class="card-body">
 		<!-- LOGO IMAGE -->
-		<div class="card-title"></div>
+		<div class="card-title"> LOGIN </div>
 
 		<form [formGroup]="formLogin" (ngSubmit)="loginUser()">
 			<div class="form-group">
@@ -20,14 +20,14 @@
 					formControlName="password"
 				/>
 			</div>
-			<button type="submit" class="btn btn-primary btn-sm btn-block">
-				Entrar
+			<button type="submit" class="btn btn-primary btn-block">
+				<h5 *ngIf="!tryingLogin"> Entrar </h5>
+				<div *ngIf="tryingLogin" class="spinner-border"></div>
 			</button>
 		</form>
 		<hr />
 		<p class="small text-danger text-center">
-			O nome de usuário inserido não pertence a uma conta. Verifique seu
-			nome de usuário e tente novamente.
+			{{ erroMsgLogin }}
 		</p>
 	</div>
 </div>
@@ -36,9 +36,9 @@
 	<div class="card-body">
 		<p class="card-text">
 			Não tem uma conta?
-			<a href="#" (click)="showSignUpPainel()" class="card-link"
-				>Cadastre-se</a
-			>
+			<button (click)="showSignUpPainel()" class="card-link btn btn-outline-primary">
+				Cadastre-se
+			</button>
 		</p>
 	</div>
 </div>
