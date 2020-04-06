@@ -55,8 +55,12 @@ export class UserService {
 		return this.http.post(url, body);
 	}
 
-	public getUserDetails(userId: string): Observable<any> {
-		let url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "/" + userId;
+	public getUserDetails(userId: string,lazyRequest?: boolean): Observable<any> {
+		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "/" + userId;
+		if (lazyRequest) {
+			url = url + "?"+this.INCLUDE_CHILDREN + this.ENDPOINT_USER_KPI;
+		}	
+
 		return this.http.get(url);
 	}
 }

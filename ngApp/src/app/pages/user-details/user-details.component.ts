@@ -51,7 +51,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	}
 	
 	public getUserDetails(): void {
-		this.userService.getUserDetails(this.userId).subscribe(
+		this.userService.getUserDetails(this.userId, true).subscribe(
 			(user: any) => {
 				console.log(user);
 			},
