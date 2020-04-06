@@ -4,12 +4,21 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DB_CONSTS } from '../utils/db.consts';
 import { Observable } from 'rxjs';
+import { UserService } from './user.service';
+import { UserScore } from '../models/user-score.model';
+import { UserDetails } from '../models/user-details.model';
+import { Kpi } from '../models/kpi.model';
 
 @Injectable()
 export class MyAuthService {
 	private idToken: string;
 
-	constructor(private router: Router) { }
+	private starIcon = '../../../assets/icons/star.svg'
+
+	constructor(
+		private router: Router,
+		private userServ: UserService
+		) { }
 
 	public CreateUser(user: User): Promise<boolean> {
 		console.log("User create: ", user);
@@ -19,24 +28,18 @@ export class MyAuthService {
 			.createUserWithEmailAndPassword(user.email, user.password)
 			.then((res: any) => {
 				// remover a senha para nao armazenar no banco junto com os detalhes
-				delete user.password;
-
-				// salvando usuario no banco no path email na base64
-				let base64Email = btoa(user.email);
-				let userDetailRef = `${DB_CONSTS.DATA_DOCS.USER_DETAIL}/${base64Email}`;
-				return firebase
-					.database()
-					.ref(userDetailRef)
-					.set(user)
-					.then(res2 => {
-						console.log("USUARIO SALVO - resposta", res2);
-						return true;
+				
+				let userDetails: UserDetails = this.buildUserDetails(user);
+				return this.userServ.createUserDetails(userDetails).toPromise()
+					.then((res2) => {
+						console.log("User details criado", res2);
+						return res2;
 					})
-					.catch((error2: Error) => {
-						console.log("ERRO - USUARIO NÃO SALVO");
-						console.log(error2);
-						return false;
+					.catch((error) => {
+						console.log(error);
+						return error;
 					});
+					
 			})
 			.catch((error: Error) => {
 				console.log(error.message);
@@ -78,5 +81,41 @@ export class MyAuthService {
 			.then(() => {
 				this.router.navigate(['/']);
 			})
+	}
+
+	private buildUserDetails(user: User): UserDetails {
+		let userDet = new UserDetails();
+		
+		userDet.email = user.email;
+		userDet.userName = user.userName;
+
+		let nomeArray = user.fullName.split(" ");		
+		userDet.firstName = nomeArray.shift();
+		userDet.lastName = nomeArray.join(" ");
+		
+		let kpis: Kpi[] = [
+			this.buildKpi("danger", this.starIcon, "KPI-1"),
+			this.buildKpi("success",this.starIcon, "KPI-2"),
+			this.buildKpi("info",this.starIcon, "KPI-3"),
+			this.buildKpi("warning",this.starIcon, "KPI-4")
+		]
+
+		userDet.usersKpis = new UserScore();
+		userDet.usersKpis.name = userDet.firstName + " " + userDet.lastName;
+		userDet.usersKpis.nickName = userDet.userName;
+		userDet.usersKpis.id = userDet.userName;
+		userDet.usersKpis.scoreKpis = kpis;
+
+		return userDet;
+	}
+
+	buildKpi(classWrap, icon, title): Kpi {
+		let item = {
+			score: 0,
+			classWrapperName: classWrap,
+			iconUrl: icon,
+			title: title
+		}
+		return Object.assign(new Kpi(), item);
 	}
 }

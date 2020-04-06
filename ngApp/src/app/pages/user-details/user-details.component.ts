@@ -80,6 +80,11 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 		);
 	}
 
+	public deleteUser():void {
+		//Doletar Login do firebase
+
+	}
+
 	public editInfos(): void {
 		this.editMode = !this.editMode;
 	}

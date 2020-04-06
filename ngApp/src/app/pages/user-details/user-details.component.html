@@ -89,7 +89,7 @@
 
 						<div class="mb-3">
 							<label for="email">Email <span class="text-muted">(Optional)</span></label>
-							<input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" placeholder="you@example.com" [disabled]="!editMode">
+							<input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="email" placeholder="you@example.com" disabled>
 							<div class="invalid-feedback">
 								Please enter a valid email address for shipping updates.
 							</div>
@@ -154,6 +154,8 @@
 						</div>
 						<hr class="mb-4">						
 						<button class="btn btn-primary btn-lg btn-block" type="button" (click)="saveUserDetails()" [disabled]="!editMode"> SAVE </button>
+						<hr class="mb-2">						
+						<button class="btn btn-outline-danger btn-lg btn-block" type="button" (click)="deleteUserDetails()"> DELETE ACCOUNT </button>
 					</form>
 				</div>
 			</div>

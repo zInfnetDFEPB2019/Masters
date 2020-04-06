@@ -47,7 +47,6 @@ export class UserService {
 	public updateUserKpi(userKpi: UserScore): Observable<any> {
 		let id = userKpi.id;
 		let url = this.BASE_API + "/" + this.ENDPOINT_USER_KPI + "/" + id;
-		console.log("update user score", url);
 
 		return this.http.patch(url, userKpi);
 	}
@@ -78,5 +77,30 @@ export class UserService {
 		}	
 		
 		return this.http.get<UserDetails>(url);
+	}
+
+	public createUserScore(userKpi: UserScore): Observable<any> {		
+		let url = this.BASE_API + "/" + this.ENDPOINT_USER_KPI;
+		console.log("create user score", url);
+
+		return this.http.post(url, userKpi);
+	}
+
+	public createUserDetails(usersDetails: UserDetails): Observable<any> {	
+		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS;
+		
+		let userScore = Object.assign(new UserScore(), usersDetails.usersKpis);
+		console.log("usersocre antes do patch: ",userScore);
+		this.createUserScore(userScore).subscribe(
+			(res) => {
+				console.log("resultado create user detaiils",res);
+			},
+			(error) => {
+				console.log(error);
+			}
+		)		
+		
+		let body = usersDetails;
+		return this.http.post(url, body);
 	}
 }
