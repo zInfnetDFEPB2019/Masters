@@ -35,7 +35,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit {
 	) 
 	{
 		let urlArray = this.router.url.split('/');
-		this.userId = urlArray[urlArray.length -1];			
+		this.userId = urlArray[urlArray.length -1].toLowerCase();			
 	}
 
 	ngOnInit() { 

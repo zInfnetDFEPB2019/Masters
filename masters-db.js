@@ -37,7 +37,7 @@ module.exports = () => {
 
 	let usersDetails = [
 		{
-			id: "userNameTeste",
+			id: "usernameteste",
 			firstName: "Nome",
 			lastName: "ultimo nome",
 			userName: "useranemTeste",

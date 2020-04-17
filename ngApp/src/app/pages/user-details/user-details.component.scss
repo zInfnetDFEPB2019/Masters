@@ -40,7 +40,7 @@ $profile-photo-length: 100px;
 				.profile-text{
 
 					.profile-name {
-						display: flex;
+						display: inline-flex;
 						justify-content: flex-start;
 						align-items: flex-end;
 						flex-wrap: nowrap;
@@ -53,19 +53,20 @@ $profile-photo-length: 100px;
 						font-weight: 700;
 						font-size: 20px ;
 							
-						.badge {
-							font-size: 10px;
-							background-color: rgb(143, 143, 143);
+						
+					}
 
-							margin-bottom: 7px;
-							margin-left: 10px;
+					.badge {
+						font-size: 10px;
+						background-color: rgb(143, 143, 143);
 
-							padding-top: 5px;					
-							padding-bottom: 5px;
-							padding-left: 10px;					
-							padding-right: 10px;
-						}
-							
+						margin-bottom: 7px;
+						margin-left: 10px;
+
+						padding-top: 5px;					
+						padding-bottom: 5px;
+						padding-left: 10px;					
+						padding-right: 10px;
 					}
 
 					.profile-position {
