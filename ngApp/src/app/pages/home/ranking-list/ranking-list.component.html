@@ -12,17 +12,19 @@
 				<img matListAvatar [src]="getPhotoOrDefault(USER.photoUrl)" alt="Photo of a Shiba Inu">
 
 				<div class="line-content row ml-2 my-auto align-items-center">
-					<div class="col-4">
+					<div class="col-3">
 						<p>{{ USER.name }}</p>
 						<p>{{ USER.nickName }}</p>
 					</div>
-					<div class="col-5 my-auto">						
+					<div class="col-6 my-auto">						
 						<div class="box-kpis row d-flex justify-content-between flex-wrap">							
-							<div class="kpi justify-content-center flex-nowrap" *ngFor="let KPI of USER.scoreKpis">
+							<div class="kpi justify-content-center flex-nowrap" *ngFor="let KPI of USER.scoreKpis; let i = index">
 								<img class="mr-2" [src]="KPI.iconUrl" width="20px" height="20px" />
-								<span class="badge badge-{{ KPI.classWrapperName }}">
+								<button class="btn btn-{{ (USER.kpiActiveIndex == i) ? '' : 'outline-' }}{{KPI.classWrapperName}} btn-sm">
 									{{ KPI.score }} pts
-								</span>
+								</button>
+								<!-- <span class="badge badge-{{ KPI.classWrapperName }}">
+								</span> -->
 							</div>						
 						</div>
 					</div>
