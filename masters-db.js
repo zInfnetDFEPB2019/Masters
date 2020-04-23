@@ -24,35 +24,12 @@ module.exports = () => {
 		usersKpis.push(user);
 	}		
 
-	let kpis = [
-		buildKpi("danger", starIcon, "KPI-1"),
-		buildKpi("success",starIcon, "KPI-2"),
-		buildKpi("info",starIcon, "KPI-3"),
-		buildKpi("warning",starIcon, "KPI-4")
-	]
-	
-	let userTeste = buildUser(static.idUser +10, kpis);
-	userTeste.id = "usersKpiIdTest";
-	usersKpis.push(userTeste);
+	let userTeste = buildUserDetailsWithKpiTeste(starIcon);
 
-	let usersDetails = [
-		{
-			id: "usernameteste",
-			firstName: "Nome",
-			lastName: "ultimo nome",
-			userName: "useranemTeste",
-			email: "email@test",
-			company: "YoutTube Inc.",
-			position: "Software Enginner",
-			address: [
-				"Endereço 1"
-			],
-			country: "Brasil",
-			state: "Rio de Janeiro",
-			zipCode: "21001-200",
-			usersKpisId: "usersKpiIdTest"
-		}
-	];
+	usersKpis.push(userTeste.userKpis);
+
+	let usersDetails = [];
+	usersDetails.push(userTeste.userDetails);
 
 	return {
 		usersKpis,
@@ -94,4 +71,37 @@ function getRandomChoice() {
 
 function getRandom(min, max) {
 	return Math.round(Math.random() * (max - min) + min);
+}
+
+function buildUserDetailsWithKpiTeste(starIcon) {
+	let kpis = [
+		buildKpi("danger", starIcon, "KPI-1"),
+		buildKpi("success",starIcon, "KPI-2"),
+		buildKpi("info",starIcon, "KPI-3"),
+		buildKpi("warning",starIcon, "KPI-4")
+	]
+	
+	let userKpis = buildUser(static.idUser +10, kpis);
+	userKpis.id = "user-kpi-teste";	
+
+	let userDetails = [
+		{
+			id: userKpis.id,
+			firstName: "Nome",
+			lastName: "ultimo nome",
+			userName: "usernameteste",
+			email: "email@test",
+			company: "YoutTube Inc.",
+			position: "Software Enginner",
+			address: [
+				"Endereço 1"
+			],
+			country: "Brasil",
+			state: "Rio de Janeiro",
+			zipCode: "21001-200",
+			usersKpisId: userKpis.id
+		}
+	];
+
+	return {userKpis, userDetails}
 }

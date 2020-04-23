@@ -39,10 +39,10 @@ mat-list-item {
 	
 }
 
-@media only screen and (min-width: 1024px){
+@media only screen and (min-width: 1200px){
 	.box-kpis{ flex-basis: 50%; }
 }
   
-@media only screen and (min-width: 1024px){
+@media only screen and (max-width: 992px){
 	.box-kpis{ flex-basis: 50%; }
 }

@@ -71,7 +71,7 @@ export class UserService {
 	}
 
 	public getUserDetails(userId: string, lazyRequest: boolean = true): Observable<UserDetails> {		
-		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "/" + userId;
+		var url = this.BASE_API + "/" + this.ENDPOINT_USER_DETAILS + "?"+ "id=" + userId;
 		if (lazyRequest) {
 			url = url + "?"+this.INCLUDE_CHILDREN + this.ENDPOINT_USER_KPI;
 		}	

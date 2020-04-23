@@ -16,8 +16,8 @@
 						<p>{{ USER.name }}</p>
 						<p>{{ USER.nickName }}</p>
 					</div>
-					<div class="col-6 my-auto">						
-						<div class="box-kpis row d-flex justify-content-between flex-wrap">							
+					<div class="col-6 my-auto p-0">						
+						<div class="box-kpis row d-flex justify-content-around flex-wrap">							
 							<div class="kpi justify-content-center flex-nowrap" *ngFor="let KPI of USER.scoreKpis; let i = index">
 								<img class="mr-2" [src]="KPI.iconUrl" width="20px" height="20px" />
 								<button class="btn btn-{{ (USER.kpiActiveIndex == i) ? '' : 'outline-' }}{{KPI.classWrapperName}} btn-sm">
